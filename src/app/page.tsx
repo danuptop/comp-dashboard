@@ -63,7 +63,7 @@ export default function Home() {
   };
 
   return (
-    <div className="max-w-[1400px] mx-auto px-6 md:px-10 py-16">
+    <div className="max-w-[1400px] mx-auto px-6 md:px-12 py-20">
       {/* ── HEADER ────────────────────────────────────────────── */}
       <h1
         className="text-[2.6rem] font-black tracking-tight mb-3"
@@ -75,14 +75,14 @@ export default function Home() {
       >
         PROTOCOL RANK — COMPENSATION ENGINE
       </h1>
-      <p className="text-[var(--text-dim)] text-[1.05rem] mb-6 max-w-[700px] leading-relaxed">
+      <p className="text-[var(--text-dim)] text-[1.05rem] mb-8 max-w-[700px] leading-relaxed">
         Complete visual breakdown of all role categories, seniority levels,
         salary bands, multipliers, and premiums.
       </p>
 
       {/* ── STICKY NAV ────────────────────────────────────────── */}
       <nav
-        className="sticky top-0 z-50 flex gap-2 overflow-x-auto py-3 px-1 mb-12 -mx-1"
+        className="sticky top-0 z-50 flex gap-3 overflow-x-auto py-4 px-2 mb-16 -mx-2"
         style={{ background: "var(--bg)", borderBottom: "1px solid var(--card-border)" }}
       >
         {[
@@ -102,14 +102,14 @@ export default function Home() {
 
       {/* ── FORMULA BANNER ────────────────────────────────────── */}
       <div
-        className="rounded-2xl p-8 mb-16 text-center"
+        className="rounded-2xl p-10 mb-20 text-center"
         style={{
           background:
             "linear-gradient(135deg, rgba(85,52,167,0.3), rgba(124,92,252,0.15))",
           border: "1px solid var(--purple)",
         }}
       >
-        <h2 className="text-sm uppercase tracking-[2px] text-[var(--accent)] font-bold mb-5">
+        <h2 className="text-sm uppercase tracking-[2px] text-[var(--accent)] font-bold mb-6">
           Master Formula
         </h2>
         <div className="flex items-center justify-center flex-wrap gap-3 text-[1.05rem] font-medium">
@@ -145,7 +145,7 @@ export default function Home() {
             )
           )}
         </div>
-        <p className="text-[var(--text-dim)] text-[0.82rem] mt-4 leading-relaxed">
+        <p className="text-[var(--text-dim)] text-[0.82rem] mt-5 leading-relaxed">
           Total Comp = Adjusted Base + Realistic Token Value (FDV x allocation %
           x discount stack)
         </p>
@@ -163,10 +163,10 @@ export default function Home() {
           }}
         >
           {/* Inputs */}
-          <div className="p-8 grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+          <div className="p-10 grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
             {/* Category */}
             <div>
-              <label className="block text-[0.72rem] font-bold uppercase tracking-[1.5px] text-[var(--text-dim)] mb-2">
+              <label className="block text-[0.72rem] font-bold uppercase tracking-[1.5px] text-[var(--text-dim)] mb-3">
                 Role Category
               </label>
               <select
@@ -187,7 +187,7 @@ export default function Home() {
 
             {/* Seniority */}
             <div>
-              <label className="block text-[0.72rem] font-bold uppercase tracking-[1.5px] text-[var(--text-dim)] mb-2">
+              <label className="block text-[0.72rem] font-bold uppercase tracking-[1.5px] text-[var(--text-dim)] mb-3">
                 Seniority Level
               </label>
               <select
@@ -203,7 +203,7 @@ export default function Home() {
 
             {/* Score */}
             <div>
-              <label className="block text-[0.72rem] font-bold uppercase tracking-[1.5px] text-[var(--text-dim)] mb-2">
+              <label className="block text-[0.72rem] font-bold uppercase tracking-[1.5px] text-[var(--text-dim)] mb-3">
                 Protocol Rank Score — {calcScore} ({levelMult.label})
               </label>
               <input
@@ -223,7 +223,7 @@ export default function Home() {
 
             {/* Geo */}
             <div>
-              <label className="block text-[0.72rem] font-bold uppercase tracking-[1.5px] text-[var(--text-dim)] mb-2">
+              <label className="block text-[0.72rem] font-bold uppercase tracking-[1.5px] text-[var(--text-dim)] mb-3">
                 Geography
               </label>
               <select
@@ -241,7 +241,7 @@ export default function Home() {
 
             {/* Stage */}
             <div>
-              <label className="block text-[0.72rem] font-bold uppercase tracking-[1.5px] text-[var(--text-dim)] mb-2">
+              <label className="block text-[0.72rem] font-bold uppercase tracking-[1.5px] text-[var(--text-dim)] mb-3">
                 Company Stage
               </label>
               <select
@@ -259,7 +259,7 @@ export default function Home() {
 
             {/* Scarcity Chips */}
             <div className="md:col-span-2 lg:col-span-1">
-              <label className="block text-[0.72rem] font-bold uppercase tracking-[1.5px] text-[var(--text-dim)] mb-2">
+              <label className="block text-[0.72rem] font-bold uppercase tracking-[1.5px] text-[var(--text-dim)] mb-3">
                 Scarcity Premiums
               </label>
               <div className="flex flex-wrap gap-2">
@@ -282,18 +282,18 @@ export default function Home() {
 
           {/* Result */}
           <div
-            className="px-8 py-8"
+            className="px-10 py-10"
             style={{
               background: "rgba(13,11,20,0.5)",
               borderTop: "1px solid var(--purple)",
             }}
           >
-            <div className="flex flex-col md:flex-row md:items-end md:justify-between gap-6">
+            <div className="flex flex-col md:flex-row md:items-end md:justify-between gap-8">
               <div>
                 <div className="text-[0.75rem] text-[var(--text-dim)] uppercase tracking-[1px] mb-1">
                   {calcResult.category} — {calcResult.seniority}
                 </div>
-                <div className="text-[0.85rem] text-[var(--text-dim)] mb-3">
+                <div className="text-[0.85rem] text-[var(--text-dim)] mb-4">
                   ${calcResult.baseMid.toLocaleString()} x {calcResult.levelNum.toFixed(2)} x{" "}
                   {calcResult.geo.toFixed(2)} x {calcResult.stage.toFixed(2)}
                   {calcResult.scarcity !== 1 && ` x ${calcResult.scarcity.toFixed(2)}`}
@@ -347,7 +347,7 @@ export default function Home() {
       <Section id="levels" emoji="🏆" title="Level Classification" badge="5 TIERS">
         {/* Visual bar */}
         <div
-          className="flex h-[68px] rounded-xl overflow-hidden mb-6"
+          className="flex h-[68px] rounded-xl overflow-hidden mb-8"
           style={{ border: "1px solid var(--card-border)" }}
         >
           {[
@@ -371,7 +371,7 @@ export default function Home() {
         </div>
 
         {/* Multiplier table */}
-        <div className="grid grid-cols-1 lg:grid-cols-2 gap-8">
+        <div className="grid grid-cols-1 lg:grid-cols-2 gap-10">
           <MultiCard title="Level → Compensation Multiplier">
             {[
               { label: "HARD PASS", sub: "(0–49)", w: "50%", bg: "var(--red)", cls: "val-low", val: "0.60x" },
@@ -445,7 +445,7 @@ export default function Home() {
           SECTION 3: MULTIPLIER LAYERS
           ════════════════════════════════════════════════════════ */}
       <Section id="multipliers" emoji="⚙️" title="Multiplier Layers" badge="3 DIMENSIONS">
-        <div className="grid grid-cols-1 lg:grid-cols-2 gap-8">
+        <div className="grid grid-cols-1 lg:grid-cols-2 gap-10">
           {/* GEO */}
           <MultiCard title="🌍 Geographic Multipliers">
             {GEO_DATA.map((g) => (
@@ -483,11 +483,11 @@ export default function Home() {
           SECTION 4: SCARCITY PREMIUMS
           ════════════════════════════════════════════════════════ */}
       <Section id="scarcity" emoji="💎" title="Scarcity Premiums" badge="9 FACTORS">
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-5">
+        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
           {SCARCITY_DATA.map((s, i) => (
             <button
               key={s.name}
-              className="card-hover flex items-center gap-5 rounded-xl p-6 text-left"
+              className="card-hover flex items-center gap-5 rounded-xl p-7 text-left"
               style={{
                 background: calcScarcity.includes(i)
                   ? "rgba(124,92,252,0.12)"
@@ -540,7 +540,7 @@ export default function Home() {
           SECTION 5: TOKEN MODEL
           ════════════════════════════════════════════════════════ */}
       <Section id="tokens" emoji="🪙" title="Token Compensation Model" badge="FDV-BASED">
-        <div className="grid grid-cols-1 lg:grid-cols-2 gap-8">
+        <div className="grid grid-cols-1 lg:grid-cols-2 gap-10">
           {/* Allocation */}
           <TokenCard title="Token Allocation by Seniority (% of Supply)">
             {[
@@ -552,7 +552,7 @@ export default function Home() {
             ].map((t) => (
               <div
                 key={t.level}
-                className="flex justify-between items-center py-3"
+                className="flex justify-between items-center py-4"
                 style={{ borderBottom: "1px solid rgba(42,36,64,0.3)" }}
               >
                 <span className="font-medium">{t.level}</span>
@@ -572,7 +572,7 @@ export default function Home() {
             ].map((d) => (
               <div
                 key={d.name}
-                className="flex justify-between items-center py-3"
+                className="flex justify-between items-center py-4"
                 style={{ borderBottom: "1px solid rgba(42,36,64,0.3)" }}
               >
                 <div>
@@ -617,7 +617,7 @@ export default function Home() {
           ════════════════════════════════════════════════════════ */}
       <Section id="defaults" emoji="🔧" title="Resolver Defaults" badge="FALLBACKS">
         <div
-          className="flex flex-wrap gap-5 rounded-xl p-7"
+          className="flex flex-wrap gap-6 rounded-xl p-8"
           style={{
             background: "var(--card)",
             border: "1px solid var(--card-border)",
@@ -658,18 +658,18 @@ export default function Home() {
           ════════════════════════════════════════════════════════ */}
       <Section id="example" emoji="📐" title="Worked Example" badge="FULL CALC">
         <div
-          className="rounded-2xl p-8"
+          className="rounded-2xl p-10"
           style={{
             background:
               "linear-gradient(135deg, rgba(85,52,167,0.3), rgba(124,92,252,0.15))",
             border: "1px solid var(--purple)",
           }}
         >
-          <h2 className="text-sm uppercase tracking-[2px] text-[var(--accent)] font-bold mb-6">
+          <h2 className="text-sm uppercase tracking-[2px] text-[var(--accent)] font-bold mb-8">
             Senior Solana Protocol Engineer — Series A — Singapore — Score: 85
             (STRONG)
           </h2>
-          <div className="grid grid-cols-[repeat(auto-fit,minmax(260px,1fr))] gap-5 mb-6">
+          <div className="grid grid-cols-[repeat(auto-fit,minmax(260px,1fr))] gap-6 mb-8">
             {[
               { label: "Base Band (PROTOCOL_INFRA x SENIOR)", val: "$210,000", note: "midpoint", color: undefined },
               { label: "Level Multiplier (STRONG)", val: "1.00x", color: "var(--accent)" },
@@ -677,7 +677,7 @@ export default function Home() {
               { label: "Stage Multiplier (Series A)", val: "0.93x", color: "var(--amber)" },
               { label: "Scarcity (Rust+Solana)", val: "1.15x", color: "var(--accent)" },
             ].map((f) => (
-              <div key={f.label} className="py-1">
+              <div key={f.label} className="py-2">
                 <div className="text-[var(--text-dim)] text-[0.75rem] uppercase tracking-[1px] mb-1">
                   {f.label}
                 </div>
@@ -695,8 +695,8 @@ export default function Home() {
               </div>
             ))}
           </div>
-          <div className="pt-5" style={{ borderTop: "1px solid var(--purple)" }}>
-            <div className="text-[0.88rem] text-[var(--text-dim)] mb-3">
+          <div className="pt-6" style={{ borderTop: "1px solid var(--purple)" }}>
+            <div className="text-[0.88rem] text-[var(--text-dim)] mb-4">
               $210,000 x 1.00 x 0.72 x 0.93 x 1.15 =
             </div>
             <div className="text-[2.2rem] font-black text-[var(--green)]">
@@ -714,7 +714,7 @@ export default function Home() {
       </Section>
 
       {/* ── FOOTER ────────────────────────────────────────────── */}
-      <footer className="text-center mt-20 pb-10">
+      <footer className="text-center mt-28 pb-14">
         <div className="flex items-center justify-center gap-3 mb-3">
           <div
             className="w-9 h-9 rounded-lg flex items-center justify-center text-sm font-black text-white"
@@ -753,9 +753,9 @@ function Section({
   children: React.ReactNode;
 }) {
   return (
-    <div id={id} className="mb-20 scroll-mt-16">
+    <div id={id} className="mb-28 scroll-mt-16">
       <div
-        className="flex items-center gap-3 mb-7 pb-4"
+        className="flex items-center gap-3 mb-8 pb-5"
         style={{ borderBottom: "1px solid var(--card-border)" }}
       >
         <span className="text-[1.6rem]">{emoji}</span>
@@ -803,7 +803,7 @@ function MultiCard({
           {title}
         </h3>
       </div>
-      <div className="py-1">{children}</div>
+      <div className="py-2">{children}</div>
     </div>
   );
 }
@@ -827,7 +827,7 @@ function MultiRow({
 }) {
   return (
     <div
-      className="flex items-center px-6 py-4 gap-4"
+      className="flex items-center px-6 py-5 gap-4"
       style={{ borderBottom: "1px solid rgba(42,36,64,0.4)" }}
     >
       <div className="flex-1 font-medium text-[0.88rem]">
@@ -894,14 +894,14 @@ function TokenCard({
           {title}
         </h3>
       </div>
-      <div className="px-6 py-5">{children}</div>
+      <div className="px-7 py-6">{children}</div>
     </div>
   );
 }
 
 function Note({ children }: { children: React.ReactNode }) {
   return (
-    <p className="text-[var(--text-dim)] text-[0.8rem] mt-5 leading-relaxed">
+    <p className="text-[var(--text-dim)] text-[0.8rem] mt-7 leading-relaxed">
       {children}
     </p>
   );
