@@ -23,11 +23,13 @@
 
 * { margin: 0; padding: 0; box-sizing: border-box; }
 
+html { scroll-behavior: smooth; }
+
 body {
   font-family: 'Inter', -apple-system, sans-serif;
   background: var(--bg);
   color: var(--text);
-  line-height: 1.5;
+  line-height: 1.6;
 }
 
 /* Custom scrollbar */
@@ -35,64 +37,183 @@ body {
 ::-webkit-scrollbar-track { background: var(--card); }
 ::-webkit-scrollbar-thumb { background: var(--purple); border-radius: 3px; }
 
-/* Salary heatmap table */
-.salary-grid { overflow-x: auto; border-radius: 12px; border: 1px solid var(--card-border); }
-.salary-grid table { width: 100%; border-collapse: collapse; font-size: 0.82rem; }
+/* ── Salary Heatmap Table ────────────────────────────────────── */
+
+.salary-grid {
+  overflow-x: auto;
+  border-radius: 14px;
+  border: 1px solid var(--card-border);
+}
+.salary-grid table {
+  width: 100%;
+  border-collapse: collapse;
+  font-size: 0.84rem;
+}
 .salary-grid th {
   background: var(--dark-purple);
-  padding: 12px 10px;
+  padding: 14px 14px;
   text-align: center;
   font-weight: 700;
   text-transform: uppercase;
-  font-size: 0.7rem;
-  letter-spacing: 1px;
+  font-size: 0.72rem;
+  letter-spacing: 1.2px;
   color: var(--accent);
   border-bottom: 2px solid var(--purple);
   position: sticky;
   top: 0;
   white-space: nowrap;
 }
-.salary-grid th:first-child { text-align: left; padding-left: 16px; min-width: 200px; }
+.salary-grid th:first-child {
+  text-align: left;
+  padding-left: 20px;
+  min-width: 220px;
+}
 .salary-grid td {
-  padding: 10px;
+  padding: 14px 12px;
   text-align: center;
   border-bottom: 1px solid rgba(42,36,64,0.5);
   font-variant-numeric: tabular-nums;
+  transition: background 0.2s ease;
 }
 .salary-grid td:first-child {
   text-align: left;
-  padding-left: 16px;
+  padding-left: 20px;
   font-weight: 600;
   color: var(--text);
   background: rgba(31,19,63,0.5);
   white-space: nowrap;
 }
-.salary-grid tr:hover td { background: rgba(124,92,252,0.06); }
-.salary-grid tr:hover td:first-child { background: rgba(124,92,252,0.12); }
+.salary-grid tr { cursor: pointer; transition: all 0.15s ease; }
+.salary-grid tr:hover td { background: rgba(124,92,252,0.08); }
+.salary-grid tr:hover td:first-child { background: rgba(124,92,252,0.15); }
+.salary-grid tr.row-selected td { background: rgba(124,92,252,0.14) !important; }
+.salary-grid tr.row-selected td:first-child { background: rgba(124,92,252,0.22) !important; }
 
-/* Heat colors */
+/* ── Heat Colors ─────────────────────────────────────────────── */
+
 .heat-1 { color: #6EE7B7; }
 .heat-2 { color: #A7F3D0; }
 .heat-3 { color: #FDE68A; }
 .heat-4 { color: #FCA5A5; }
 .heat-5 { color: #F87171; }
 
-/* Category border tags */
-.cat-tech { border-left: 3px solid #7C5CFC; }
-.cat-bd { border-left: 3px solid #F59E0B; }
-.cat-exec { border-left: 3px solid #EF4444; }
-.cat-creative { border-left: 3px solid #10B981; }
+/* ── Category Border Tags ────────────────────────────────────── */
 
-/* Multiplier bar transitions */
-.multi-bar { transition: width 0.6s ease; }
+.cat-tech td:first-child { border-left: 3px solid #7C5CFC; }
+.cat-bd td:first-child { border-left: 3px solid #F59E0B; }
+.cat-exec td:first-child { border-left: 3px solid #EF4444; }
+.cat-creative td:first-child { border-left: 3px solid #10B981; }
 
-/* Value color classes */
+/* ── Multiplier Bar Transitions ──────────────────────────────── */
+
+.multi-bar { transition: width 0.6s cubic-bezier(0.22, 1, 0.36, 1); }
+
+/* ── Value Color Classes ─────────────────────────────────────── */
+
 .val-low { color: #F87171; }
 .val-mid { color: #FDE68A; }
 .val-high { color: #6EE7B7; }
 .val-premium { color: #7C5CFC; }
 
-/* Responsive */
+/* ── Interactive Card Hover ──────────────────────────────────── */
+
+.card-hover {
+  transition: transform 0.2s ease, border-color 0.2s ease, box-shadow 0.2s ease;
+}
+.card-hover:hover {
+  transform: translateY(-2px);
+  border-color: rgba(124,92,252,0.4) !important;
+  box-shadow: 0 8px 32px rgba(124,92,252,0.1);
+}
+
+/* ── Calculator ──────────────────────────────────────────────── */
+
+.calc-select {
+  background: rgba(31,19,63,0.6);
+  border: 1px solid var(--card-border);
+  color: var(--text);
+  padding: 10px 14px;
+  border-radius: 10px;
+  font-size: 0.88rem;
+  font-family: inherit;
+  width: 100%;
+  cursor: pointer;
+  transition: border-color 0.2s ease;
+  appearance: none;
+  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='12' height='12' fill='%239B93AD' viewBox='0 0 16 16'%3E%3Cpath d='M8 11L3 6h10z'/%3E%3C/svg%3E");
+  background-repeat: no-repeat;
+  background-position: right 12px center;
+}
+.calc-select:focus {
+  outline: none;
+  border-color: var(--accent);
+}
+.calc-select option {
+  background: var(--card);
+  color: var(--text);
+}
+
+.calc-chip {
+  padding: 8px 14px;
+  border-radius: 10px;
+  font-size: 0.82rem;
+  font-weight: 500;
+  cursor: pointer;
+  transition: all 0.15s ease;
+  border: 1px solid var(--card-border);
+  background: var(--card);
+  color: var(--text-dim);
+  user-select: none;
+}
+.calc-chip:hover {
+  border-color: rgba(124,92,252,0.4);
+  color: var(--text);
+}
+.calc-chip.active {
+  background: rgba(124,92,252,0.2);
+  border-color: var(--accent);
+  color: var(--accent);
+  font-weight: 600;
+}
+
+/* ── Sticky Nav ──────────────────────────────────────────────── */
+
+.nav-pill {
+  padding: 6px 14px;
+  border-radius: 20px;
+  font-size: 0.72rem;
+  font-weight: 600;
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+  color: var(--text-dim);
+  cursor: pointer;
+  transition: all 0.15s ease;
+  white-space: nowrap;
+  text-decoration: none;
+}
+.nav-pill:hover {
+  background: rgba(124,92,252,0.15);
+  color: var(--text);
+}
+
+/* ── Animated Result ─────────────────────────────────────────── */
+
+@keyframes pulse-glow {
+  0%, 100% { text-shadow: 0 0 20px rgba(16,185,129,0.3); }
+  50% { text-shadow: 0 0 40px rgba(16,185,129,0.6); }
+}
+.result-glow { animation: pulse-glow 2s ease-in-out infinite; }
+
+@keyframes fadeIn {
+  from { opacity: 0; transform: translateY(8px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+.fade-in { animation: fadeIn 0.3s ease forwards; }
+
+/* ── Responsive ──────────────────────────────────────────────── */
+
 @media (max-width: 768px) {
   h1 { font-size: 1.6rem !important; }
+  .salary-grid { font-size: 0.75rem; }
+  .salary-grid th, .salary-grid td { padding: 10px 8px; }
 }

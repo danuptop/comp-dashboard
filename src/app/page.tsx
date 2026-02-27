@@ -1,37 +1,120 @@
+"use client";
+
+import { useState, useMemo } from "react";
+
+/* ══════════════════════════════════════════════════════════════════
+   PROTOCOL RANK — COMPENSATION ENGINE
+   Interactive dashboard with live calculator, clickable salary matrix,
+   section navigation, and hover effects.
+   ══════════════════════════════════════════════════════════════════ */
+
 export default function Home() {
+  // Calculator state
+  const [calcCategory, setCalcCategory] = useState(1); // index into SALARY_DATA
+  const [calcSeniority, setCalcSeniority] = useState(2); // 0=Junior..4=Exec
+  const [calcGeo, setCalcGeo] = useState(0); // index into GEO_DATA
+  const [calcStage, setCalcStage] = useState(3); // index into STAGE_DATA
+  const [calcScarcity, setCalcScarcity] = useState<number[]>([]); // indices into SCARCITY_DATA
+  const [calcScore, setCalcScore] = useState(85);
+
+  // Salary matrix highlight
+  const [highlightRow, setHighlightRow] = useState<number | null>(1);
+
+  // Compute level multiplier from score
+  const levelMult = useMemo(() => {
+    if (calcScore >= 90) return { label: "TOP SHELF", mult: 1.2 };
+    if (calcScore >= 81) return { label: "STRONG", mult: 1.0 };
+    if (calcScore >= 66) return { label: "SOLID", mult: 0.9 };
+    if (calcScore >= 50) return { label: "MID", mult: 0.75 };
+    return { label: "HARD PASS", mult: 0.6 };
+  }, [calcScore]);
+
+  // Compute final result
+  const calcResult = useMemo(() => {
+    const row = SALARY_DATA[calcCategory];
+    const band = row.bands[calcSeniority];
+    const baseMid = parseSalary(band.mid);
+    const geo = GEO_DATA[calcGeo].mult;
+    const stage = STAGE_DATA[calcStage].mult;
+    const scarcity = calcScarcity.reduce(
+      (acc, i) => acc * SCARCITY_DATA[i].multNum,
+      1
+    );
+    const result = baseMid * levelMult.mult * geo * stage * scarcity;
+    return {
+      baseMid,
+      geo,
+      stage,
+      scarcity,
+      levelLabel: levelMult.label,
+      levelNum: levelMult.mult,
+      result,
+      category: row.name,
+      seniority: SENIORITY_LABELS[calcSeniority],
+      geoLabel: GEO_DATA[calcGeo].label,
+      stageLabel: STAGE_DATA[calcStage].label,
+    };
+  }, [calcCategory, calcSeniority, calcGeo, calcStage, calcScarcity, levelMult]);
+
+  // Click salary row → populate calculator
+  const handleRowClick = (rowIndex: number) => {
+    setHighlightRow(rowIndex);
+    setCalcCategory(rowIndex);
+  };
+
   return (
-    <div className="max-w-[1400px] mx-auto px-5 py-10">
-      {/* HEADER */}
+    <div className="max-w-[1400px] mx-auto px-6 md:px-10 py-16">
+      {/* ── HEADER ────────────────────────────────────────────── */}
       <h1
-        className="text-[2.4rem] font-black tracking-tight mb-2"
+        className="text-[2.6rem] font-black tracking-tight mb-3"
         style={{
           background: "linear-gradient(135deg, #7C5CFC, #B388FF)",
           WebkitBackgroundClip: "text",
           WebkitTextFillColor: "transparent",
         }}
       >
-        ⚡ PROTOCOL RANK — COMPENSATION ENGINE
+        PROTOCOL RANK — COMPENSATION ENGINE
       </h1>
-      <p className="text-[var(--text-dim)] text-base mb-10">
+      <p className="text-[var(--text-dim)] text-[1.05rem] mb-6 max-w-[700px] leading-relaxed">
         Complete visual breakdown of all role categories, seniority levels,
-        salary bands, multipliers, and premiums
+        salary bands, multipliers, and premiums.
       </p>
 
-      {/* FORMULA BANNER */}
+      {/* ── STICKY NAV ────────────────────────────────────────── */}
+      <nav
+        className="sticky top-0 z-50 flex gap-2 overflow-x-auto py-3 px-1 mb-12 -mx-1"
+        style={{ background: "var(--bg)", borderBottom: "1px solid var(--card-border)" }}
+      >
+        {[
+          { href: "#calculator", label: "Calculator" },
+          { href: "#levels", label: "Levels" },
+          { href: "#matrix", label: "Salary Matrix" },
+          { href: "#multipliers", label: "Multipliers" },
+          { href: "#scarcity", label: "Scarcity" },
+          { href: "#tokens", label: "Token Model" },
+          { href: "#example", label: "Example" },
+        ].map((n) => (
+          <a key={n.href} href={n.href} className="nav-pill">
+            {n.label}
+          </a>
+        ))}
+      </nav>
+
+      {/* ── FORMULA BANNER ────────────────────────────────────── */}
       <div
-        className="rounded-2xl p-7 mb-12 text-center"
+        className="rounded-2xl p-8 mb-16 text-center"
         style={{
           background:
             "linear-gradient(135deg, rgba(85,52,167,0.3), rgba(124,92,252,0.15))",
           border: "1px solid var(--purple)",
         }}
       >
-        <h2 className="text-sm uppercase tracking-[2px] text-[var(--accent)] font-bold mb-4">
-          🔧 Master Formula
+        <h2 className="text-sm uppercase tracking-[2px] text-[var(--accent)] font-bold mb-5">
+          Master Formula
         </h2>
-        <div className="flex items-center justify-center flex-wrap gap-2 text-[1.05rem] font-medium">
+        <div className="flex items-center justify-center flex-wrap gap-3 text-[1.05rem] font-medium">
           <span
-            className="px-3 py-1 rounded-lg font-bold"
+            className="px-4 py-1.5 rounded-lg font-bold"
             style={{
               background: "rgba(16,185,129,0.15)",
               border: "1px solid rgba(16,185,129,0.3)",
@@ -41,12 +124,16 @@ export default function Home() {
             Adjusted Base
           </span>
           <span className="text-[var(--text-dim)]">=</span>
-          {["📊 Base Band", "🏆 Level Mult", "🌍 Geo Mult", "🚀 Stage Mult", "💎 Scarcity Mult"].map(
+          {["Base Band", "Level Mult", "Geo Mult", "Stage Mult", "Scarcity Mult"].map(
             (v, i) => (
               <span key={v} className="contents">
-                {i > 0 && <span className="text-[var(--text-dim)]">×</span>}
+                {i > 0 && (
+                  <span className="text-[var(--text-dim)] text-lg font-light">
+                    x
+                  </span>
+                )}
                 <span
-                  className="px-3 py-1 rounded-lg font-semibold text-[0.9rem] whitespace-nowrap"
+                  className="px-4 py-1.5 rounded-lg font-semibold text-[0.88rem] whitespace-nowrap"
                   style={{
                     background: "rgba(124,92,252,0.15)",
                     border: "1px solid rgba(124,92,252,0.3)",
@@ -58,17 +145,209 @@ export default function Home() {
             )
           )}
         </div>
-        <p className="text-[var(--text-dim)] text-[0.8rem] mt-3">
-          Total Comp = Adjusted Base + Realistic Token Value (FDV × allocation %
-          × discount stack)
+        <p className="text-[var(--text-dim)] text-[0.82rem] mt-4 leading-relaxed">
+          Total Comp = Adjusted Base + Realistic Token Value (FDV x allocation %
+          x discount stack)
         </p>
       </div>
 
-      {/* SECTION 1: LEVEL CLASSIFICATION */}
-      <Section emoji="🏆" title="Level Classification" badge="5 TIERS">
+      {/* ════════════════════════════════════════════════════════
+          SECTION: INTERACTIVE CALCULATOR
+          ════════════════════════════════════════════════════════ */}
+      <Section id="calculator" emoji="🧮" title="Compensation Calculator" badge="INTERACTIVE">
+        <div
+          className="rounded-2xl overflow-hidden"
+          style={{
+            background: "linear-gradient(135deg, rgba(85,52,167,0.2), rgba(124,92,252,0.08))",
+            border: "1px solid var(--purple)",
+          }}
+        >
+          {/* Inputs */}
+          <div className="p-8 grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+            {/* Category */}
+            <div>
+              <label className="block text-[0.72rem] font-bold uppercase tracking-[1.5px] text-[var(--text-dim)] mb-2">
+                Role Category
+              </label>
+              <select
+                className="calc-select"
+                value={calcCategory}
+                onChange={(e) => {
+                  setCalcCategory(Number(e.target.value));
+                  setHighlightRow(Number(e.target.value));
+                }}
+              >
+                {SALARY_DATA.map((r, i) => (
+                  <option key={r.name} value={i}>
+                    {r.icon} {r.name}
+                  </option>
+                ))}
+              </select>
+            </div>
+
+            {/* Seniority */}
+            <div>
+              <label className="block text-[0.72rem] font-bold uppercase tracking-[1.5px] text-[var(--text-dim)] mb-2">
+                Seniority Level
+              </label>
+              <select
+                className="calc-select"
+                value={calcSeniority}
+                onChange={(e) => setCalcSeniority(Number(e.target.value))}
+              >
+                {SENIORITY_LABELS.map((l, i) => (
+                  <option key={l} value={i}>{l}</option>
+                ))}
+              </select>
+            </div>
+
+            {/* Score */}
+            <div>
+              <label className="block text-[0.72rem] font-bold uppercase tracking-[1.5px] text-[var(--text-dim)] mb-2">
+                Protocol Rank Score — {calcScore} ({levelMult.label})
+              </label>
+              <input
+                type="range"
+                min={0}
+                max={100}
+                value={calcScore}
+                onChange={(e) => setCalcScore(Number(e.target.value))}
+                className="w-full accent-[var(--accent)] h-2 cursor-pointer"
+              />
+              <div className="flex justify-between text-[0.65rem] text-[var(--text-dim)] mt-1">
+                <span>0</span>
+                <span>50</span>
+                <span>100</span>
+              </div>
+            </div>
+
+            {/* Geo */}
+            <div>
+              <label className="block text-[0.72rem] font-bold uppercase tracking-[1.5px] text-[var(--text-dim)] mb-2">
+                Geography
+              </label>
+              <select
+                className="calc-select"
+                value={calcGeo}
+                onChange={(e) => setCalcGeo(Number(e.target.value))}
+              >
+                {GEO_DATA.map((g, i) => (
+                  <option key={g.label} value={i}>
+                    {g.label} ({g.mult}x)
+                  </option>
+                ))}
+              </select>
+            </div>
+
+            {/* Stage */}
+            <div>
+              <label className="block text-[0.72rem] font-bold uppercase tracking-[1.5px] text-[var(--text-dim)] mb-2">
+                Company Stage
+              </label>
+              <select
+                className="calc-select"
+                value={calcStage}
+                onChange={(e) => setCalcStage(Number(e.target.value))}
+              >
+                {STAGE_DATA.map((s, i) => (
+                  <option key={s.label} value={i}>
+                    {s.label} ({s.mult}x)
+                  </option>
+                ))}
+              </select>
+            </div>
+
+            {/* Scarcity Chips */}
+            <div className="md:col-span-2 lg:col-span-1">
+              <label className="block text-[0.72rem] font-bold uppercase tracking-[1.5px] text-[var(--text-dim)] mb-2">
+                Scarcity Premiums
+              </label>
+              <div className="flex flex-wrap gap-2">
+                {SCARCITY_DATA.map((s, i) => (
+                  <button
+                    key={s.name}
+                    className={`calc-chip ${calcScarcity.includes(i) ? "active" : ""}`}
+                    onClick={() =>
+                      setCalcScarcity((prev) =>
+                        prev.includes(i) ? prev.filter((x) => x !== i) : [...prev, i]
+                      )
+                    }
+                  >
+                    {s.icon} {s.mult}
+                  </button>
+                ))}
+              </div>
+            </div>
+          </div>
+
+          {/* Result */}
+          <div
+            className="px-8 py-8"
+            style={{
+              background: "rgba(13,11,20,0.5)",
+              borderTop: "1px solid var(--purple)",
+            }}
+          >
+            <div className="flex flex-col md:flex-row md:items-end md:justify-between gap-6">
+              <div>
+                <div className="text-[0.75rem] text-[var(--text-dim)] uppercase tracking-[1px] mb-1">
+                  {calcResult.category} — {calcResult.seniority}
+                </div>
+                <div className="text-[0.85rem] text-[var(--text-dim)] mb-3">
+                  ${calcResult.baseMid.toLocaleString()} x {calcResult.levelNum.toFixed(2)} x{" "}
+                  {calcResult.geo.toFixed(2)} x {calcResult.stage.toFixed(2)}
+                  {calcResult.scarcity !== 1 && ` x ${calcResult.scarcity.toFixed(2)}`}
+                </div>
+                <div className="text-[3rem] font-black text-[var(--green)] leading-none result-glow">
+                  ${Math.round(calcResult.result).toLocaleString()}
+                </div>
+                <div className="text-[var(--text-dim)] text-sm mt-2">
+                  adjusted base salary
+                </div>
+              </div>
+
+              {/* Breakdown pills */}
+              <div className="flex flex-wrap gap-3">
+                {[
+                  { label: "Base", val: `$${calcResult.baseMid.toLocaleString()}` },
+                  { label: calcResult.levelLabel, val: `${calcResult.levelNum.toFixed(2)}x` },
+                  { label: calcResult.geoLabel, val: `${calcResult.geo.toFixed(2)}x` },
+                  { label: calcResult.stageLabel, val: `${calcResult.stage.toFixed(2)}x` },
+                  ...(calcResult.scarcity !== 1
+                    ? [{ label: "Scarcity", val: `${calcResult.scarcity.toFixed(2)}x` }]
+                    : []),
+                ].map((p) => (
+                  <div
+                    key={p.label}
+                    className="px-4 py-2 rounded-xl text-center"
+                    style={{
+                      background: "rgba(124,92,252,0.12)",
+                      border: "1px solid rgba(124,92,252,0.25)",
+                    }}
+                  >
+                    <div className="text-[0.62rem] text-[var(--text-dim)] uppercase tracking-[1px]">
+                      {p.label}
+                    </div>
+                    <div className="text-[1rem] font-bold text-[var(--accent)]">{p.val}</div>
+                  </div>
+                ))}
+              </div>
+            </div>
+          </div>
+        </div>
+        <Note>
+          Click any row in the Salary Matrix below to auto-populate the calculator.
+          Toggle scarcity premiums to stack multipliers.
+        </Note>
+      </Section>
+
+      {/* ════════════════════════════════════════════════════════
+          SECTION 1: LEVEL CLASSIFICATION
+          ════════════════════════════════════════════════════════ */}
+      <Section id="levels" emoji="🏆" title="Level Classification" badge="5 TIERS">
         {/* Visual bar */}
         <div
-          className="flex h-[60px] rounded-xl overflow-hidden mb-4"
+          className="flex h-[68px] rounded-xl overflow-hidden mb-6"
           style={{ border: "1px solid var(--card-border)" }}
         >
           {[
@@ -80,7 +359,7 @@ export default function Home() {
           ].map((s) => (
             <div
               key={s.cls}
-              className="flex flex-col items-center justify-center gap-0.5 text-[0.75rem] font-bold"
+              className="flex flex-col items-center justify-center gap-1 text-[0.78rem] font-bold"
               style={{ background: s.bg, color: s.color, width: s.w }}
             >
               {s.cls}
@@ -92,27 +371,29 @@ export default function Home() {
         </div>
 
         {/* Multiplier table */}
-        <div className="grid grid-cols-1 lg:grid-cols-2 gap-6">
+        <div className="grid grid-cols-1 lg:grid-cols-2 gap-8">
           <MultiCard title="Level → Compensation Multiplier">
             {[
-              { label: "HARD PASS", sub: "(0–49)", w: "50%", bg: "var(--red)", cls: "val-low", val: "0.60×" },
-              { label: "MID", sub: "(50–65)", w: "62.5%", bg: "var(--amber)", cls: "val-mid", val: "0.75×" },
-              { label: "SOLID", sub: "(66–80)", w: "75%", bg: "var(--green)", cls: "val-high", val: "0.90×" },
-              { label: "STRONG", sub: "(81–89)", w: "83.3%", bg: "var(--accent)", cls: "val-premium", val: "1.00×" },
-              { label: "TOP SHELF", sub: "(90–100)", w: "100%", bg: "linear-gradient(90deg,var(--accent),#B388FF)", cls: "val-premium", val: "1.20×" },
+              { label: "HARD PASS", sub: "(0–49)", w: "50%", bg: "var(--red)", cls: "val-low", val: "0.60x" },
+              { label: "MID", sub: "(50–65)", w: "62.5%", bg: "var(--amber)", cls: "val-mid", val: "0.75x" },
+              { label: "SOLID", sub: "(66–80)", w: "75%", bg: "var(--green)", cls: "val-high", val: "0.90x" },
+              { label: "STRONG", sub: "(81–89)", w: "83.3%", bg: "var(--accent)", cls: "val-premium", val: "1.00x" },
+              { label: "TOP SHELF", sub: "(90–100)", w: "100%", bg: "linear-gradient(90deg,var(--accent),#B388FF)", cls: "val-premium", val: "1.20x" },
             ].map((r) => (
               <MultiRow key={r.label} label={r.label} sub={r.sub} barWidth={r.w} barBg={r.bg} valClass={r.cls} value={r.val} />
             ))}
           </MultiCard>
         </div>
         <Note>
-          ⚡ <strong>Note:</strong> Engine uses continuous interpolation within
-          bands — not flat steps. Score 57 ≠ score 63 even though both are MID.
+          Engine uses continuous interpolation within bands — not flat steps.
+          Score 57 does not equal score 63 even though both are MID.
         </Note>
       </Section>
 
-      {/* SECTION 2: SALARY MATRIX */}
-      <Section emoji="📊" title="Salary Matrix — Base Bands" badge="12 CATEGORIES × 5 LEVELS = 60 BANDS">
+      {/* ════════════════════════════════════════════════════════
+          SECTION 2: SALARY MATRIX
+          ════════════════════════════════════════════════════════ */}
+      <Section id="matrix" emoji="📊" title="Salary Matrix — Base Bands" badge="12 CATEGORIES x 5 LEVELS">
         <div className="salary-grid">
           <table>
             <thead>
@@ -126,14 +407,22 @@ export default function Home() {
               </tr>
             </thead>
             <tbody>
-              {SALARY_DATA.map((row) => (
-                <tr key={row.name} className={row.cat}>
+              {SALARY_DATA.map((row, rowIdx) => (
+                <tr
+                  key={row.name}
+                  className={`${row.cat} ${highlightRow === rowIdx ? "row-selected" : ""}`}
+                  onClick={() => handleRowClick(rowIdx)}
+                >
                   <td>{row.icon} {row.name}</td>
                   {row.bands.map((b, i) => (
                     <td key={i}>
-                      <div className="flex flex-col items-center gap-0.5">
-                        <span className={`font-bold text-[0.9rem] ${b.heat}`}>{b.mid}</span>
-                        <span className="text-[0.68rem] text-[var(--text-dim)]">{b.range}</span>
+                      <div className="flex flex-col items-center gap-1">
+                        <span className={`font-bold text-[0.92rem] ${b.heat}`}>
+                          {b.mid}
+                        </span>
+                        <span className="text-[0.68rem] text-[var(--text-dim)]">
+                          {b.range}
+                        </span>
                       </div>
                     </td>
                   ))}
@@ -147,86 +436,113 @@ export default function Home() {
           <span style={{ color: "#F59E0B" }}>█</span> BD / MARKETING &nbsp;&nbsp;
           <span style={{ color: "#10B981" }}>█</span> PRODUCT / DESIGN &nbsp;&nbsp;
           <span style={{ color: "#EF4444" }}>█</span> EXECUTIVE &nbsp;&nbsp;
-          | Values show <strong>midpoint</strong> (range below). Pre-multiplier
-          base salary in USD.
+          | Click any row to populate the calculator. Values show <strong>midpoint</strong>{" "}
+          (range below). Pre-multiplier base salary in USD.
         </Note>
       </Section>
 
-      {/* SECTION 3: MULTIPLIERS */}
-      <Section emoji="⚙️" title="Multiplier Layers" badge="3 DIMENSIONS">
-        <div className="grid grid-cols-1 lg:grid-cols-2 gap-6">
+      {/* ════════════════════════════════════════════════════════
+          SECTION 3: MULTIPLIER LAYERS
+          ════════════════════════════════════════════════════════ */}
+      <Section id="multipliers" emoji="⚙️" title="Multiplier Layers" badge="3 DIMENSIONS">
+        <div className="grid grid-cols-1 lg:grid-cols-2 gap-8">
           {/* GEO */}
           <MultiCard title="🌍 Geographic Multipliers">
-            {[
-              { label: "North America", sub: "(US/Canada)", w: "100%", bg: "var(--green)", cls: "val-high", val: "1.00×" },
-              { label: "Remote US", w: "90%", bg: "var(--green)", cls: "val-high", val: "0.90×" },
-              { label: "Western Europe", sub: "(UK, DE, FR)", w: "80%", bg: "var(--amber)", cls: "val-mid", val: "0.80×" },
-              { label: "Dubai / UAE", sub: "(0% tax offset)", w: "75%", bg: "var(--amber)", cls: "val-mid", val: "0.75×" },
-              { label: "Singapore", w: "72%", bg: "var(--amber)", cls: "val-mid", val: "0.72×" },
-              { label: "Eastern Europe", sub: "(PL, UA, RS)", w: "52%", bg: "var(--red)", cls: "val-low", val: "0.52×" },
-              { label: "Remote Global", w: "52%", bg: "var(--red)", cls: "val-low", val: "0.52×" },
-              { label: "Latin America", sub: "(AR, BR, MX)", w: "47%", bg: "var(--red)", cls: "val-low", val: "0.47×" },
-              { label: "South / SE Asia", w: "42%", bg: "var(--red)", cls: "val-low", val: "0.42×" },
-            ].map((r) => (
-              <MultiRow key={r.label} label={r.label} sub={r.sub} barWidth={r.w} barBg={r.bg} valClass={r.cls} value={r.val} />
+            {GEO_DATA.map((g) => (
+              <MultiRow
+                key={g.label}
+                label={g.label}
+                sub={g.sub}
+                barWidth={`${g.mult * 100}%`}
+                barBg={g.mult >= 0.8 ? "var(--green)" : g.mult >= 0.6 ? "var(--amber)" : "var(--red)"}
+                valClass={g.mult >= 0.8 ? "val-high" : g.mult >= 0.6 ? "val-mid" : "val-low"}
+                value={`${g.mult.toFixed(2)}x`}
+              />
             ))}
           </MultiCard>
 
           {/* STAGE */}
           <MultiCard title="🚀 Company Stage Multipliers">
-            {[
-              { label: "Pre-Seed", sub: "Lower base; 1.0–2.0% tokens for key hires", w: "68%", bg: "var(--red)", cls: "val-low", val: "0.75×" },
-              { label: "Seed", sub: "Lower base; 0.5–1.5% tokens for key hires", w: "74%", bg: "var(--amber)", cls: "val-mid", val: "0.82×" },
-              { label: "Series A", sub: "Balanced; 0.25–0.75% token grants typical", w: "84.5%", bg: "var(--amber)", cls: "val-mid", val: "0.93×" },
-              { label: "Series B+", sub: "Market-rate base; smaller but liquid tokens", w: "91%", bg: "var(--green)", cls: "val-high", val: "1.00×" },
-              { label: "Post-TGE / Public", sub: "Premium for stability; tokens may be liquid", w: "100%", bg: "var(--accent)", cls: "val-premium", val: "1.10×" },
-            ].map((r) => (
-              <MultiRow key={r.label} label={r.label} sub={r.sub} barWidth={r.w} barBg={r.bg} valClass={r.cls} value={r.val} multiline />
+            {STAGE_DATA.map((s) => (
+              <MultiRow
+                key={s.label}
+                label={s.label}
+                sub={s.desc}
+                barWidth={`${(s.mult / 1.1) * 100}%`}
+                barBg={s.mult >= 1.0 ? "var(--accent)" : s.mult >= 0.9 ? "var(--green)" : s.mult >= 0.8 ? "var(--amber)" : "var(--red)"}
+                valClass={s.mult >= 1.0 ? "val-premium" : s.mult >= 0.9 ? "val-high" : "val-mid"}
+                value={`${s.mult.toFixed(2)}x`}
+                multiline
+              />
             ))}
           </MultiCard>
         </div>
       </Section>
 
-      {/* SECTION 4: SCARCITY PREMIUMS */}
-      <Section emoji="💎" title="Scarcity Premiums" badge="9 FACTORS">
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4">
-          {SCARCITY_DATA.map((s) => (
-            <div
+      {/* ════════════════════════════════════════════════════════
+          SECTION 4: SCARCITY PREMIUMS
+          ════════════════════════════════════════════════════════ */}
+      <Section id="scarcity" emoji="💎" title="Scarcity Premiums" badge="9 FACTORS">
+        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-5">
+          {SCARCITY_DATA.map((s, i) => (
+            <button
               key={s.name}
-              className="flex items-center gap-4 rounded-xl p-5 transition-colors"
+              className="card-hover flex items-center gap-5 rounded-xl p-6 text-left"
               style={{
-                background: "var(--card)",
-                border: "1px solid var(--card-border)",
+                background: calcScarcity.includes(i)
+                  ? "rgba(124,92,252,0.12)"
+                  : "var(--card)",
+                border: calcScarcity.includes(i)
+                  ? "1px solid var(--accent)"
+                  : "1px solid var(--card-border)",
               }}
+              onClick={() =>
+                setCalcScarcity((prev) =>
+                  prev.includes(i) ? prev.filter((x) => x !== i) : [...prev, i]
+                )
+              }
             >
               <div
-                className={`text-[1.8rem] font-black min-w-[70px] text-center ${s.valCls}`}
+                className={`text-[1.9rem] font-black min-w-[72px] text-center ${s.valCls}`}
               >
                 {s.mult}
               </div>
               <div>
                 <span
-                  className="text-[0.65rem] font-bold uppercase tracking-[1px] px-2 py-0.5 rounded inline-block mb-1"
+                  className="text-[0.65rem] font-bold uppercase tracking-[1px] px-2 py-0.5 rounded inline-block mb-1.5"
                   style={{
-                    background: s.cat === "TECH" ? "rgba(124,92,252,0.2)" : "rgba(245,158,11,0.2)",
+                    background:
+                      s.cat === "TECH"
+                        ? "rgba(124,92,252,0.2)"
+                        : "rgba(245,158,11,0.2)",
                     color: s.cat === "TECH" ? "var(--accent)" : "var(--amber)",
                   }}
                 >
                   {s.cat}
                 </span>
-                <h4 className="text-[0.95rem] font-bold mb-1">{s.icon} {s.name}</h4>
-                <p className="text-[0.78rem] text-[var(--text-dim)]">{s.desc}</p>
+                <h4 className="text-[0.95rem] font-bold mb-1">
+                  {s.icon} {s.name}
+                </h4>
+                <p className="text-[0.78rem] text-[var(--text-dim)] leading-relaxed">
+                  {s.desc}
+                </p>
               </div>
-            </div>
+            </button>
           ))}
         </div>
+        <Note>
+          Click cards to toggle scarcity premiums in the calculator. Selected
+          premiums multiply together.
+        </Note>
       </Section>
 
-      {/* SECTION 5: TOKEN MODEL */}
-      <Section emoji="🪙" title="Token Compensation Model" badge="FDV-BASED">
-        <div className="grid grid-cols-1 lg:grid-cols-2 gap-6">
+      {/* ════════════════════════════════════════════════════════
+          SECTION 5: TOKEN MODEL
+          ════════════════════════════════════════════════════════ */}
+      <Section id="tokens" emoji="🪙" title="Token Compensation Model" badge="FDV-BASED">
+        <div className="grid grid-cols-1 lg:grid-cols-2 gap-8">
           {/* Allocation */}
-          <TokenCard title="📈 Token Allocation by Seniority (% of Supply)">
+          <TokenCard title="Token Allocation by Seniority (% of Supply)">
             {[
               { level: "Junior", range: "0.01% – 0.05%", color: "var(--text-dim)" },
               { level: "Mid", range: "0.05% – 0.10%", color: "var(--text-dim)" },
@@ -236,10 +552,10 @@ export default function Home() {
             ].map((t) => (
               <div
                 key={t.level}
-                className="flex justify-between items-center py-2"
+                className="flex justify-between items-center py-3"
                 style={{ borderBottom: "1px solid rgba(42,36,64,0.3)" }}
               >
-                <span>{t.level}</span>
+                <span className="font-medium">{t.level}</span>
                 <span className="font-bold" style={{ color: t.color }}>
                   {t.range}
                 </span>
@@ -248,7 +564,7 @@ export default function Home() {
           </TokenCard>
 
           {/* Discount Stack */}
-          <TokenCard title="📉 Token Discount Stack">
+          <TokenCard title="Token Discount Stack">
             {[
               { name: "Pre-TGE Discount", range: "Range: 60%–80%", val: "70%", color: "var(--red)" },
               { name: "Vesting Discount", range: "Range: 30%–40%", val: "35%", color: "var(--amber)" },
@@ -256,20 +572,25 @@ export default function Home() {
             ].map((d) => (
               <div
                 key={d.name}
-                className="flex justify-between items-center py-2"
+                className="flex justify-between items-center py-3"
                 style={{ borderBottom: "1px solid rgba(42,36,64,0.3)" }}
               >
                 <div>
                   <div className="font-semibold">{d.name}</div>
-                  <div className="text-[0.75rem] text-[var(--text-dim)]">{d.range}</div>
+                  <div className="text-[0.75rem] text-[var(--text-dim)]">
+                    {d.range}
+                  </div>
                 </div>
-                <span className="font-extrabold text-[1.2rem]" style={{ color: d.color }}>
+                <span
+                  className="font-extrabold text-[1.2rem]"
+                  style={{ color: d.color }}
+                >
                   {d.val}
                 </span>
               </div>
             ))}
             <div
-              className="pt-3 mt-2"
+              className="pt-4 mt-3"
               style={{ borderTop: "2px solid var(--card-border)" }}
             >
               <div className="flex justify-between items-center">
@@ -278,23 +599,25 @@ export default function Home() {
                   ~15.9%
                 </span>
               </div>
-              <div className="text-[0.72rem] text-[var(--text-dim)] mt-1">
-                0.70 × 0.35 × 0.25 × FDV × allocation% → realistic token value
+              <div className="text-[0.72rem] text-[var(--text-dim)] mt-1.5">
+                0.70 x 0.35 x 0.25 x FDV x allocation% = realistic token value
               </div>
             </div>
           </TokenCard>
         </div>
         <Note>
-          <strong>Formula:</strong> Realistic Token Value = FDV × allocation% ×
-          preTGE_discount × vesting_discount × liquidity_discount &nbsp;|&nbsp;
+          <strong>Formula:</strong> Realistic Token Value = FDV x allocation% x
+          preTGE_discount x vesting_discount x liquidity_discount &nbsp;|&nbsp;
           Total Comp = Adjusted Base Salary + Realistic Token Value
         </Note>
       </Section>
 
-      {/* SECTION 6: RESOLVER DEFAULTS */}
-      <Section emoji="🔧" title="Resolver Defaults" badge="FALLBACKS">
+      {/* ════════════════════════════════════════════════════════
+          SECTION 6: RESOLVER DEFAULTS
+          ════════════════════════════════════════════════════════ */}
+      <Section id="defaults" emoji="🔧" title="Resolver Defaults" badge="FALLBACKS">
         <div
-          className="flex flex-wrap gap-4 rounded-xl p-5"
+          className="flex flex-wrap gap-5 rounded-xl p-7"
           style={{
             background: "var(--card)",
             border: "1px solid var(--card-border)",
@@ -303,66 +626,68 @@ export default function Home() {
           {[
             { label: "Missing Seniority →", value: "MID" },
             { label: "Missing Years →", value: "3" },
-            { label: "Missing Geo →", value: "REMOTE_US (0.9×)" },
-            { label: "Missing Stage →", value: "SERIES_A (0.93×)" },
+            { label: "Missing Geo →", value: "REMOTE_US (0.9x)" },
+            { label: "Missing Stage →", value: "SERIES_A (0.93x)" },
           ].map((d) => (
             <div
               key={d.label}
-              className="flex items-center gap-2 px-4 py-2 rounded-lg"
+              className="flex items-center gap-3 px-5 py-3 rounded-lg"
               style={{
                 background: "rgba(124,92,252,0.1)",
                 border: "1px solid rgba(124,92,252,0.25)",
               }}
             >
-              <span className="text-[0.75rem] text-[var(--text-dim)] uppercase tracking-[0.5px]">
+              <span className="text-[0.78rem] text-[var(--text-dim)] uppercase tracking-[0.5px]">
                 {d.label}
               </span>
-              <span className="font-bold text-[var(--accent)] text-[0.9rem]">
+              <span className="font-bold text-[var(--accent)] text-[0.92rem]">
                 {d.value}
               </span>
             </div>
           ))}
         </div>
         <Note>
-          When the AI evaluation can&apos;t determine a context field, these
+          When the AI evaluation cannot determine a context field, these
           conservative defaults kick in. Designed to slightly undershoot rather
           than overshoot.
         </Note>
       </Section>
 
-      {/* SECTION 7: WORKED EXAMPLE */}
-      <Section emoji="🧮" title="Worked Example" badge="FULL CALC">
+      {/* ════════════════════════════════════════════════════════
+          SECTION 7: WORKED EXAMPLE
+          ════════════════════════════════════════════════════════ */}
+      <Section id="example" emoji="📐" title="Worked Example" badge="FULL CALC">
         <div
-          className="rounded-2xl p-7 text-left"
+          className="rounded-2xl p-8"
           style={{
             background:
               "linear-gradient(135deg, rgba(85,52,167,0.3), rgba(124,92,252,0.15))",
             border: "1px solid var(--purple)",
           }}
         >
-          <h2 className="text-sm uppercase tracking-[2px] text-[var(--accent)] font-bold mb-5 text-left">
+          <h2 className="text-sm uppercase tracking-[2px] text-[var(--accent)] font-bold mb-6">
             Senior Solana Protocol Engineer — Series A — Singapore — Score: 85
             (STRONG)
           </h2>
-          <div className="grid grid-cols-[repeat(auto-fit,minmax(250px,1fr))] gap-4 mb-5">
+          <div className="grid grid-cols-[repeat(auto-fit,minmax(260px,1fr))] gap-5 mb-6">
             {[
-              { label: "Base Band (PROTOCOL_INFRA × SENIOR)", val: "$210,000", note: "midpoint", color: undefined },
-              { label: "Level Multiplier (STRONG)", val: "1.00×", color: "var(--accent)" },
-              { label: "Geo Multiplier (Singapore)", val: "0.72×", color: "var(--amber)" },
-              { label: "Stage Multiplier (Series A)", val: "0.93×", color: "var(--amber)" },
-              { label: "Scarcity (Rust+Solana)", val: "1.15×", color: "var(--accent)" },
+              { label: "Base Band (PROTOCOL_INFRA x SENIOR)", val: "$210,000", note: "midpoint", color: undefined },
+              { label: "Level Multiplier (STRONG)", val: "1.00x", color: "var(--accent)" },
+              { label: "Geo Multiplier (Singapore)", val: "0.72x", color: "var(--amber)" },
+              { label: "Stage Multiplier (Series A)", val: "0.93x", color: "var(--amber)" },
+              { label: "Scarcity (Rust+Solana)", val: "1.15x", color: "var(--accent)" },
             ].map((f) => (
-              <div key={f.label}>
-                <div className="text-[var(--text-dim)] text-[0.75rem] uppercase tracking-[1px]">
+              <div key={f.label} className="py-1">
+                <div className="text-[var(--text-dim)] text-[0.75rem] uppercase tracking-[1px] mb-1">
                   {f.label}
                 </div>
                 <div
-                  className="text-[1.4rem] font-extrabold"
+                  className="text-[1.5rem] font-extrabold"
                   style={f.color ? { color: f.color } : undefined}
                 >
                   {f.val}
                   {f.note && (
-                    <span className="text-[0.8rem] font-normal text-[var(--text-dim)] ml-2">
+                    <span className="text-[0.82rem] font-normal text-[var(--text-dim)] ml-2">
                       {f.note}
                     </span>
                   )}
@@ -370,32 +695,29 @@ export default function Home() {
               </div>
             ))}
           </div>
-          <div
-            className="pt-4"
-            style={{ borderTop: "1px solid var(--purple)" }}
-          >
-            <div className="text-[0.85rem] text-[var(--text-dim)] mb-2">
-              $210,000 × 1.00 × 0.72 × 0.93 × 1.15 =
+          <div className="pt-5" style={{ borderTop: "1px solid var(--purple)" }}>
+            <div className="text-[0.88rem] text-[var(--text-dim)] mb-3">
+              $210,000 x 1.00 x 0.72 x 0.93 x 1.15 =
             </div>
-            <div className="text-[2rem] font-black text-[var(--green)]">
+            <div className="text-[2.2rem] font-black text-[var(--green)]">
               $161,762{" "}
               <span className="text-base font-medium text-[var(--text-dim)]">
                 adjusted base salary
               </span>
             </div>
-            <div className="text-[0.8rem] text-[var(--text-dim)] mt-2">
-              + token grant value calculated separately via FDV × 0.10–0.25% ×
+            <div className="text-[0.82rem] text-[var(--text-dim)] mt-2">
+              + token grant value calculated separately via FDV x 0.10–0.25% x
               discount stack
             </div>
           </div>
         </div>
       </Section>
 
-      {/* FOOTER */}
-      <footer className="text-center mt-16 pb-8">
+      {/* ── FOOTER ────────────────────────────────────────────── */}
+      <footer className="text-center mt-20 pb-10">
         <div className="flex items-center justify-center gap-3 mb-3">
           <div
-            className="w-8 h-8 rounded-lg flex items-center justify-center text-sm font-black text-white"
+            className="w-9 h-9 rounded-lg flex items-center justify-center text-sm font-black text-white"
             style={{ background: "var(--purple)" }}
           >
             UT
@@ -413,31 +735,35 @@ export default function Home() {
   );
 }
 
-/* ── Reusable Components ────────────────────────────────────── */
+/* ══════════════════════════════════════════════════════════════════
+   REUSABLE COMPONENTS
+   ══════════════════════════════════════════════════════════════════ */
 
 function Section({
+  id,
   emoji,
   title,
   badge,
   children,
 }: {
+  id?: string;
   emoji: string;
   title: string;
   badge: string;
   children: React.ReactNode;
 }) {
   return (
-    <div className="mb-14">
+    <div id={id} className="mb-20 scroll-mt-16">
       <div
-        className="flex items-center gap-3 mb-5 pb-3"
+        className="flex items-center gap-3 mb-7 pb-4"
         style={{ borderBottom: "1px solid var(--card-border)" }}
       >
-        <span className="text-2xl">{emoji}</span>
-        <h2 className="text-[1.4rem] font-extrabold uppercase tracking-[1px]">
+        <span className="text-[1.6rem]">{emoji}</span>
+        <h2 className="text-[1.5rem] font-extrabold uppercase tracking-[1px]">
           {title}
         </h2>
         <span
-          className="text-[0.75rem] font-semibold px-2.5 py-0.5 rounded-full"
+          className="text-[0.72rem] font-semibold px-3 py-1 rounded-full"
           style={{
             background: "rgba(124,92,252,0.2)",
             color: "var(--accent)",
@@ -467,17 +793,17 @@ function MultiCard({
       }}
     >
       <div
-        className="px-5 py-4 flex items-center gap-2.5"
+        className="px-6 py-5 flex items-center gap-2.5"
         style={{
           background: "rgba(31,19,63,0.6)",
           borderBottom: "1px solid var(--card-border)",
         }}
       >
-        <h3 className="text-base font-bold uppercase tracking-[0.5px]">
+        <h3 className="text-[0.95rem] font-bold uppercase tracking-[0.5px]">
           {title}
         </h3>
       </div>
-      <div>{children}</div>
+      <div className="py-1">{children}</div>
     </div>
   );
 }
@@ -501,7 +827,7 @@ function MultiRow({
 }) {
   return (
     <div
-      className="flex items-center px-5 py-3 gap-3"
+      className="flex items-center px-6 py-4 gap-4"
       style={{ borderBottom: "1px solid rgba(42,36,64,0.4)" }}
     >
       <div className="flex-1 font-medium text-[0.88rem]">
@@ -509,7 +835,7 @@ function MultiRow({
           <>
             {label}
             <br />
-            <span className="text-[var(--text-dim)] text-[0.75rem] font-normal">
+            <span className="text-[var(--text-dim)] text-[0.75rem] font-normal leading-relaxed">
               {sub}
             </span>
           </>
@@ -525,7 +851,7 @@ function MultiRow({
         )}
       </div>
       <div
-        className="w-[120px] h-2 rounded overflow-hidden"
+        className="w-[130px] h-2.5 rounded overflow-hidden"
         style={{ background: "rgba(255,255,255,0.06)" }}
       >
         <div
@@ -533,7 +859,9 @@ function MultiRow({
           style={{ width: barWidth, background: barBg }}
         />
       </div>
-      <div className={`font-extrabold text-[1.1rem] min-w-[55px] text-right ${valClass}`}>
+      <div
+        className={`font-extrabold text-[1.1rem] min-w-[60px] text-right ${valClass}`}
+      >
         {value}
       </div>
     </div>
@@ -556,28 +884,62 @@ function TokenCard({
       }}
     >
       <div
-        className="px-5 py-4"
+        className="px-6 py-5"
         style={{
           background: "rgba(31,19,63,0.6)",
           borderBottom: "1px solid var(--card-border)",
         }}
       >
-        <h3 className="text-base font-bold uppercase tracking-[0.5px]">
+        <h3 className="text-[0.95rem] font-bold uppercase tracking-[0.5px]">
           {title}
         </h3>
       </div>
-      <div className="px-5 py-4">{children}</div>
+      <div className="px-6 py-5">{children}</div>
     </div>
   );
 }
 
 function Note({ children }: { children: React.ReactNode }) {
   return (
-    <p className="text-[var(--text-dim)] text-[0.78rem] mt-3">{children}</p>
+    <p className="text-[var(--text-dim)] text-[0.8rem] mt-5 leading-relaxed">
+      {children}
+    </p>
   );
 }
 
-/* ── Static Data ────────────────────────────────────────────── */
+/* ══════════════════════════════════════════════════════════════════
+   HELPERS
+   ══════════════════════════════════════════════════════════════════ */
+
+function parseSalary(s: string): number {
+  return Number(s.replace(/[^0-9]/g, "")) * 1000;
+}
+
+const SENIORITY_LABELS = ["Junior", "Mid", "Senior", "Lead", "Executive"];
+
+/* ══════════════════════════════════════════════════════════════════
+   STATIC DATA
+   ══════════════════════════════════════════════════════════════════ */
+
+const GEO_DATA = [
+  { label: "North America", sub: "(US/Canada)", mult: 1.0 },
+  { label: "Remote US", mult: 0.9 },
+  { label: "Western Europe", sub: "(UK, DE, FR)", mult: 0.8 },
+  { label: "Dubai / UAE", sub: "(0% tax offset)", mult: 0.75 },
+  { label: "Singapore", mult: 0.72 },
+  { label: "Eastern Europe", sub: "(PL, UA, RS)", mult: 0.52 },
+  { label: "Remote Global", mult: 0.52 },
+  { label: "Latin America", sub: "(AR, BR, MX)", mult: 0.47 },
+  { label: "South / SE Asia", mult: 0.42 },
+];
+
+const STAGE_DATA = [
+  { label: "Pre-Seed", desc: "Lower base; 1.0–2.0% tokens for key hires", mult: 0.75 },
+  { label: "Seed", desc: "Lower base; 0.5–1.5% tokens for key hires", mult: 0.82 },
+  { label: "Series A", desc: "Balanced; 0.25–0.75% token grants typical", mult: 0.93 },
+  { label: "Series B+", desc: "Market-rate base; smaller but liquid tokens", mult: 1.0 },
+  { label: "Post-TGE / Public", desc: "Premium for stability; tokens may be liquid", mult: 1.1 },
+];
 
 const SALARY_DATA = [
   {
@@ -629,7 +991,7 @@ const SALARY_DATA = [
     ],
   },
   {
-    name: "AI × CRYPTO",
+    name: "AI x CRYPTO",
     icon: "🤖",
     cat: "cat-tech",
     bands: [
@@ -727,13 +1089,13 @@ const SALARY_DATA = [
 ];
 
 const SCARCITY_DATA = [
-  { mult: "1.40×", icon: "🔐", name: "ZK / Cryptography PhD", desc: "Advanced cryptography research background", cat: "TECH", valCls: "val-premium" },
-  { mult: "1.20×", icon: "🛡️", name: "Security Audit Background", desc: "Formal security auditing experience", cat: "TECH", valCls: "val-premium" },
-  { mult: "1.20×", icon: "✅", name: "Formal Verification Skills", desc: "Formal verification and mathematical proofs", cat: "TECH", valCls: "val-premium" },
-  { mult: "1.17×", icon: "🔗", name: "Prior L1/L2 Core Team", desc: "Core team experience at major blockchain", cat: "TECH", valCls: "val-premium" },
-  { mult: "1.15×", icon: "🦀", name: "Rust + Solana Expertise", desc: "Specialized Solana/Rust development skills", cat: "TECH", valCls: "val-premium" },
-  { mult: "1.15×", icon: "⚖️", name: "Regulatory Navigation", desc: "Proven compliance and regulatory experience", cat: "BD", valCls: "val-mid" },
-  { mult: "1.15×", icon: "🌐", name: "Category-Defining Network", desc: "Exceptional industry network and relationships", cat: "BD", valCls: "val-mid" },
-  { mult: "1.12×", icon: "🏦", name: "RWA / TradFi Bridge", desc: "Real-world asset tokenization experience", cat: "BD", valCls: "val-mid" },
-  { mult: "1.12×", icon: "🏛️", name: "Institutional Sales", desc: "Top-tier institutional sales experience", cat: "BD", valCls: "val-mid" },
+  { mult: "1.40x", multNum: 1.4, icon: "🔐", name: "ZK / Cryptography PhD", desc: "Advanced cryptography research background", cat: "TECH", valCls: "val-premium" },
+  { mult: "1.20x", multNum: 1.2, icon: "🛡️", name: "Security Audit Background", desc: "Formal security auditing experience", cat: "TECH", valCls: "val-premium" },
+  { mult: "1.20x", multNum: 1.2, icon: "✅", name: "Formal Verification Skills", desc: "Formal verification and mathematical proofs", cat: "TECH", valCls: "val-premium" },
+  { mult: "1.17x", multNum: 1.17, icon: "🔗", name: "Prior L1/L2 Core Team", desc: "Core team experience at major blockchain", cat: "TECH", valCls: "val-premium" },
+  { mult: "1.15x", multNum: 1.15, icon: "🦀", name: "Rust + Solana Expertise", desc: "Specialized Solana/Rust development skills", cat: "TECH", valCls: "val-premium" },
+  { mult: "1.15x", multNum: 1.15, icon: "⚖️", name: "Regulatory Navigation", desc: "Proven compliance and regulatory experience", cat: "BD", valCls: "val-mid" },
+  { mult: "1.15x", multNum: 1.15, icon: "🌐", name: "Category-Defining Network", desc: "Exceptional industry network and relationships", cat: "BD", valCls: "val-mid" },
+  { mult: "1.12x", multNum: 1.12, icon: "🏦", name: "RWA / TradFi Bridge", desc: "Real-world asset tokenization experience", cat: "BD", valCls: "val-mid" },
+  { mult: "1.12x", multNum: 1.12, icon: "🏛️", name: "Institutional Sales", desc: "Top-tier institutional sales experience", cat: "BD", valCls: "val-mid" },
 ];
