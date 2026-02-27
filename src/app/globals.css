@@ -1,55 +1,98 @@
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&display=swap');
 @import "tailwindcss";
 
 :root {
-  --background: #0D0A1A;
-  --foreground: #E8E4F0;
-  --purple-primary: #5534A7;
-  --purple-dark: #1F133F;
-  --purple-light: #7C5FCF;
-  --purple-glow: #9B7EE8;
+  --purple: #5534A7;
+  --dark-purple: #1F133F;
   --green: #10B981;
   --amber: #F59E0B;
   --red: #EF4444;
-  --surface: #161229;
-  --surface-light: #1E1838;
-  --border: #2A2247;
+  --bg: #0D0B14;
+  --card: #161222;
+  --card-border: #2A2440;
+  --text: #E8E4F0;
+  --text-dim: #9B93AD;
+  --accent: #7C5CFC;
 }
 
 @theme inline {
-  --color-background: var(--background);
-  --color-foreground: var(--foreground);
-  --color-purple-primary: var(--purple-primary);
-  --color-purple-dark: var(--purple-dark);
-  --color-purple-light: var(--purple-light);
-  --color-purple-glow: var(--purple-glow);
-  --color-green: var(--green);
-  --color-amber: var(--amber);
-  --color-red: var(--red);
-  --color-surface: var(--surface);
-  --color-surface-light: var(--surface-light);
-  --color-border: var(--border);
-  --font-sans: var(--font-geist-sans);
-  --font-mono: var(--font-geist-mono);
+  --color-background: var(--bg);
+  --color-foreground: var(--text);
+  --font-sans: 'Inter', -apple-system, sans-serif;
 }
 
+* { margin: 0; padding: 0; box-sizing: border-box; }
+
 body {
-  background: var(--background);
-  color: var(--foreground);
-  font-family: var(--font-sans), Arial, Helvetica, sans-serif;
+  font-family: 'Inter', -apple-system, sans-serif;
+  background: var(--bg);
+  color: var(--text);
+  line-height: 1.5;
 }
 
 /* Custom scrollbar */
 ::-webkit-scrollbar { width: 6px; height: 6px; }
-::-webkit-scrollbar-track { background: var(--surface); }
-::-webkit-scrollbar-thumb { background: var(--purple-primary); border-radius: 3px; }
+::-webkit-scrollbar-track { background: var(--card); }
+::-webkit-scrollbar-thumb { background: var(--purple); border-radius: 3px; }
 
-/* Glow effects */
-.glow-purple { box-shadow: 0 0 20px rgba(85, 52, 167, 0.3); }
-.glow-green { box-shadow: 0 0 15px rgba(16, 185, 129, 0.2); }
-
-/* Bar chart animation */
-@keyframes growBar {
-  from { transform: scaleX(0); }
-  to { transform: scaleX(1); }
+/* Salary heatmap table */
+.salary-grid { overflow-x: auto; border-radius: 12px; border: 1px solid var(--card-border); }
+.salary-grid table { width: 100%; border-collapse: collapse; font-size: 0.82rem; }
+.salary-grid th {
+  background: var(--dark-purple);
+  padding: 12px 10px;
+  text-align: center;
+  font-weight: 700;
+  text-transform: uppercase;
+  font-size: 0.7rem;
+  letter-spacing: 1px;
+  color: var(--accent);
+  border-bottom: 2px solid var(--purple);
+  position: sticky;
+  top: 0;
+  white-space: nowrap;
 }
-.animate-bar { animation: growBar 0.6s ease-out forwards; transform-origin: left; }
+.salary-grid th:first-child { text-align: left; padding-left: 16px; min-width: 200px; }
+.salary-grid td {
+  padding: 10px;
+  text-align: center;
+  border-bottom: 1px solid rgba(42,36,64,0.5);
+  font-variant-numeric: tabular-nums;
+}
+.salary-grid td:first-child {
+  text-align: left;
+  padding-left: 16px;
+  font-weight: 600;
+  color: var(--text);
+  background: rgba(31,19,63,0.5);
+  white-space: nowrap;
+}
+.salary-grid tr:hover td { background: rgba(124,92,252,0.06); }
+.salary-grid tr:hover td:first-child { background: rgba(124,92,252,0.12); }
+
+/* Heat colors */
+.heat-1 { color: #6EE7B7; }
+.heat-2 { color: #A7F3D0; }
+.heat-3 { color: #FDE68A; }
+.heat-4 { color: #FCA5A5; }
+.heat-5 { color: #F87171; }
+
+/* Category border tags */
+.cat-tech { border-left: 3px solid #7C5CFC; }
+.cat-bd { border-left: 3px solid #F59E0B; }
+.cat-exec { border-left: 3px solid #EF4444; }
+.cat-creative { border-left: 3px solid #10B981; }
+
+/* Multiplier bar transitions */
+.multi-bar { transition: width 0.6s ease; }
+
+/* Value color classes */
+.val-low { color: #F87171; }
+.val-mid { color: #FDE68A; }
+.val-high { color: #6EE7B7; }
+.val-premium { color: #7C5CFC; }
+
+/* Responsive */
+@media (max-width: 768px) {
+  h1 { font-size: 1.6rem !important; }
+}
