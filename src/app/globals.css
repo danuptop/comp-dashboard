@@ -1,26 +1,55 @@
 @import "tailwindcss";
 
 :root {
-  --background: #ffffff;
-  --foreground: #171717;
+  --background: #0D0A1A;
+  --foreground: #E8E4F0;
+  --purple-primary: #5534A7;
+  --purple-dark: #1F133F;
+  --purple-light: #7C5FCF;
+  --purple-glow: #9B7EE8;
+  --green: #10B981;
+  --amber: #F59E0B;
+  --red: #EF4444;
+  --surface: #161229;
+  --surface-light: #1E1838;
+  --border: #2A2247;
 }
 
 @theme inline {
   --color-background: var(--background);
   --color-foreground: var(--foreground);
+  --color-purple-primary: var(--purple-primary);
+  --color-purple-dark: var(--purple-dark);
+  --color-purple-light: var(--purple-light);
+  --color-purple-glow: var(--purple-glow);
+  --color-green: var(--green);
+  --color-amber: var(--amber);
+  --color-red: var(--red);
+  --color-surface: var(--surface);
+  --color-surface-light: var(--surface-light);
+  --color-border: var(--border);
   --font-sans: var(--font-geist-sans);
   --font-mono: var(--font-geist-mono);
-}
-
-@media (prefers-color-scheme: dark) {
-  :root {
-    --background: #0a0a0a;
-    --foreground: #ededed;
-  }
 }
 
 body {
   background: var(--background);
   color: var(--foreground);
-  font-family: Arial, Helvetica, sans-serif;
+  font-family: var(--font-sans), Arial, Helvetica, sans-serif;
 }
+
+/* Custom scrollbar */
+::-webkit-scrollbar { width: 6px; height: 6px; }
+::-webkit-scrollbar-track { background: var(--surface); }
+::-webkit-scrollbar-thumb { background: var(--purple-primary); border-radius: 3px; }
+
+/* Glow effects */
+.glow-purple { box-shadow: 0 0 20px rgba(85, 52, 167, 0.3); }
+.glow-green { box-shadow: 0 0 15px rgba(16, 185, 129, 0.2); }
+
+/* Bar chart animation */
+@keyframes growBar {
+  from { transform: scaleX(0); }
+  to { transform: scaleX(1); }
+}
+.animate-bar { animation: growBar 0.6s ease-out forwards; transform-origin: left; }
