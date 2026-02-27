@@ -63,10 +63,10 @@ export default function Home() {
   };
 
   return (
-    <div className="max-w-[1400px] mx-auto px-8 md:px-16 py-28">
+    <div className="max-w-[1400px] mx-auto px-8 md:px-16 py-40">
       {/* ── HEADER ────────────────────────────────────────────── */}
       <h1
-        className="text-[2.8rem] font-black tracking-tight mb-5"
+        className="text-[3rem] font-black tracking-tight mb-8"
         style={{
           background: "linear-gradient(135deg, #7C5CFC, #B388FF)",
           WebkitBackgroundClip: "text",
@@ -75,14 +75,14 @@ export default function Home() {
       >
         PROTOCOL RANK — COMPENSATION ENGINE
       </h1>
-      <p className="text-[var(--text-dim)] text-[1.08rem] mb-12 max-w-[700px] leading-relaxed">
+      <p className="text-[var(--text-dim)] text-[1.1rem] mb-20 max-w-[700px] leading-loose">
         Complete visual breakdown of all role categories, seniority levels,
         salary bands, multipliers, and premiums.
       </p>
 
       {/* ── STICKY NAV ────────────────────────────────────────── */}
       <nav
-        className="sticky top-0 z-50 flex gap-4 overflow-x-auto py-5 px-3 mb-20 -mx-3"
+        className="sticky top-0 z-50 flex gap-5 overflow-x-auto py-6 px-4 mb-28 -mx-4"
         style={{ background: "var(--bg)", borderBottom: "1px solid var(--card-border)" }}
       >
         {[
@@ -102,17 +102,17 @@ export default function Home() {
 
       {/* ── FORMULA BANNER ────────────────────────────────────── */}
       <div
-        className="rounded-2xl p-14 mb-28 text-center"
+        className="rounded-2xl p-16 mb-40 text-center"
         style={{
           background:
             "linear-gradient(135deg, rgba(85,52,167,0.3), rgba(124,92,252,0.15))",
           border: "1px solid var(--purple)",
         }}
       >
-        <h2 className="text-sm uppercase tracking-[2px] text-[var(--accent)] font-bold mb-6">
+        <h2 className="text-sm uppercase tracking-[2px] text-[var(--accent)] font-bold mb-8">
           Master Formula
         </h2>
-        <div className="flex items-center justify-center flex-wrap gap-4 text-[1.05rem] font-medium">
+        <div className="flex items-center justify-center flex-wrap gap-5 text-[1.05rem] font-medium">
           <span
             className="px-4 py-1.5 rounded-lg font-bold"
             style={{
@@ -145,7 +145,7 @@ export default function Home() {
             )
           )}
         </div>
-        <p className="text-[var(--text-dim)] text-[0.82rem] mt-7 leading-relaxed">
+        <p className="text-[var(--text-dim)] text-[0.82rem] mt-10 leading-relaxed">
           Total Comp = Adjusted Base + Realistic Token Value (FDV x allocation %
           x discount stack)
         </p>
@@ -163,7 +163,7 @@ export default function Home() {
           }}
         >
           {/* Inputs */}
-          <div className="p-12 grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-10">
+          <div className="p-14 grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-12">
             {/* Category */}
             <div>
               <label className="block text-[0.72rem] font-bold uppercase tracking-[1.5px] text-[var(--text-dim)] mb-3">
@@ -282,7 +282,7 @@ export default function Home() {
 
           {/* Result */}
           <div
-            className="px-12 py-12"
+            className="px-14 py-14"
             style={{
               background: "rgba(13,11,20,0.5)",
               borderTop: "1px solid var(--purple)",
@@ -347,7 +347,7 @@ export default function Home() {
       <Section id="levels" emoji="🏆" title="Level Classification" badge="5 TIERS">
         {/* Visual bar */}
         <div
-          className="flex h-[68px] rounded-xl overflow-hidden mb-8"
+          className="flex h-[68px] rounded-xl overflow-hidden mb-12"
           style={{ border: "1px solid var(--card-border)" }}
         >
           {[
@@ -371,7 +371,7 @@ export default function Home() {
         </div>
 
         {/* Multiplier table */}
-        <div className="grid grid-cols-1 lg:grid-cols-2 gap-12">
+        <div className="grid grid-cols-1 lg:grid-cols-2 gap-16">
           <MultiCard title="Level → Compensation Multiplier">
             {[
               { label: "HARD PASS", sub: "(0–49)", w: "50%", bg: "var(--red)", cls: "val-low", val: "0.60x" },
@@ -445,7 +445,7 @@ export default function Home() {
           SECTION 3: MULTIPLIER LAYERS
           ════════════════════════════════════════════════════════ */}
       <Section id="multipliers" emoji="⚙️" title="Multiplier Layers" badge="3 DIMENSIONS">
-        <div className="grid grid-cols-1 lg:grid-cols-2 gap-12">
+        <div className="grid grid-cols-1 lg:grid-cols-2 gap-16">
           {/* GEO */}
           <MultiCard title="🌍 Geographic Multipliers">
             {GEO_DATA.map((g) => (
@@ -483,11 +483,11 @@ export default function Home() {
           SECTION 4: SCARCITY PREMIUMS
           ════════════════════════════════════════════════════════ */}
       <Section id="scarcity" emoji="💎" title="Scarcity Premiums" badge="9 FACTORS">
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-10">
           {SCARCITY_DATA.map((s, i) => (
             <button
               key={s.name}
-              className="card-hover flex items-center gap-5 rounded-xl p-8 text-left"
+              className="card-hover flex items-center gap-5 rounded-xl p-10 text-left"
               style={{
                 background: calcScarcity.includes(i)
                   ? "rgba(124,92,252,0.12)"
@@ -540,7 +540,7 @@ export default function Home() {
           SECTION 5: TOKEN MODEL
           ════════════════════════════════════════════════════════ */}
       <Section id="tokens" emoji="🪙" title="Token Compensation Model" badge="FDV-BASED">
-        <div className="grid grid-cols-1 lg:grid-cols-2 gap-12">
+        <div className="grid grid-cols-1 lg:grid-cols-2 gap-16">
           {/* Allocation */}
           <TokenCard title="Token Allocation by Seniority (% of Supply)">
             {[
@@ -552,7 +552,7 @@ export default function Home() {
             ].map((t) => (
               <div
                 key={t.level}
-                className="flex justify-between items-center py-4"
+                className="flex justify-between items-center py-5"
                 style={{ borderBottom: "1px solid rgba(42,36,64,0.3)" }}
               >
                 <span className="font-medium">{t.level}</span>
@@ -572,7 +572,7 @@ export default function Home() {
             ].map((d) => (
               <div
                 key={d.name}
-                className="flex justify-between items-center py-4"
+                className="flex justify-between items-center py-5"
                 style={{ borderBottom: "1px solid rgba(42,36,64,0.3)" }}
               >
                 <div>
@@ -617,7 +617,7 @@ export default function Home() {
           ════════════════════════════════════════════════════════ */}
       <Section id="defaults" emoji="🔧" title="Resolver Defaults" badge="FALLBACKS">
         <div
-          className="flex flex-wrap gap-8 rounded-xl p-10"
+          className="flex flex-wrap gap-10 rounded-xl p-12"
           style={{
             background: "var(--card)",
             border: "1px solid var(--card-border)",
@@ -658,18 +658,18 @@ export default function Home() {
           ════════════════════════════════════════════════════════ */}
       <Section id="example" emoji="📐" title="Worked Example" badge="FULL CALC">
         <div
-          className="rounded-2xl p-12"
+          className="rounded-2xl p-16"
           style={{
             background:
               "linear-gradient(135deg, rgba(85,52,167,0.3), rgba(124,92,252,0.15))",
             border: "1px solid var(--purple)",
           }}
         >
-          <h2 className="text-sm uppercase tracking-[2px] text-[var(--accent)] font-bold mb-10">
+          <h2 className="text-sm uppercase tracking-[2px] text-[var(--accent)] font-bold mb-14">
             Senior Solana Protocol Engineer — Series A — Singapore — Score: 85
             (STRONG)
           </h2>
-          <div className="grid grid-cols-[repeat(auto-fit,minmax(260px,1fr))] gap-8 mb-10">
+          <div className="grid grid-cols-[repeat(auto-fit,minmax(260px,1fr))] gap-10 mb-14">
             {[
               { label: "Base Band (PROTOCOL_INFRA x SENIOR)", val: "$210,000", note: "midpoint", color: undefined },
               { label: "Level Multiplier (STRONG)", val: "1.00x", color: "var(--accent)" },
@@ -714,7 +714,7 @@ export default function Home() {
       </Section>
 
       {/* ── FOOTER ────────────────────────────────────────────── */}
-      <footer className="text-center mt-36 pb-20">
+      <footer className="text-center mt-48 pb-24">
         <div className="flex items-center justify-center gap-4 mb-4">
           {/* eslint-disable-next-line @next/next/no-img-element */}
           <img src="/logo.png" alt="Up Top Search" className="w-10 h-10 rounded-lg" />
@@ -748,9 +748,9 @@ function Section({
   children: React.ReactNode;
 }) {
   return (
-    <div id={id} className="mb-36 scroll-mt-20">
+    <div id={id} className="mb-48 scroll-mt-24">
       <div
-        className="flex items-center gap-4 mb-10 pb-6"
+        className="flex items-center gap-5 mb-14 pb-8"
         style={{ borderBottom: "1px solid var(--card-border)" }}
       >
         <span className="text-[1.6rem]">{emoji}</span>
@@ -798,7 +798,7 @@ function MultiCard({
           {title}
         </h3>
       </div>
-      <div className="py-3">{children}</div>
+      <div className="py-5">{children}</div>
     </div>
   );
 }
@@ -822,7 +822,7 @@ function MultiRow({
 }) {
   return (
     <div
-      className="flex items-center px-7 py-6 gap-5"
+      className="flex items-center px-8 py-8 gap-5"
       style={{ borderBottom: "1px solid rgba(42,36,64,0.4)" }}
     >
       <div className="flex-1 font-medium text-[0.88rem]">
@@ -889,14 +889,14 @@ function TokenCard({
           {title}
         </h3>
       </div>
-      <div className="px-8 py-8">{children}</div>
+      <div className="px-10 py-10">{children}</div>
     </div>
   );
 }
 
 function Note({ children }: { children: React.ReactNode }) {
   return (
-    <p className="text-[var(--text-dim)] text-[0.8rem] mt-10 leading-relaxed">
+    <p className="text-[var(--text-dim)] text-[0.8rem] mt-14 leading-relaxed">
       {children}
     </p>
   );
