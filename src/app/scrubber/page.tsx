@@ -40,32 +40,38 @@ type RedactionEntry = {
   index: number;
 };
 
-type CustomName = { id: number; value: string };
+type NameEntry = { id: number; value: string };
 
 function scrubTranscript(
   text: string,
-  customNames: string[]
+  candidateNames: string[],
+  interviewerSafe: string[]
 ): { scrubbed: string; redactions: RedactionEntry[] } {
   const redactions: RedactionEntry[] = [];
   let result = text;
 
-  // First pass: custom names (case-insensitive whole word)
-  for (const name of customNames) {
+  // Build a set of interviewer/safe strings to preserve (lowercased for comparison)
+  const safeSet = new Set(
+    interviewerSafe.filter(Boolean).map((s) => s.trim().toLowerCase())
+  );
+
+  // First pass: replace candidate names (case-insensitive whole word)
+  for (const name of candidateNames) {
     if (!name.trim()) continue;
     const escaped = name.trim().replace(/[.*+?^${}()|[\]\\]/g, "\\$&");
     const namePattern = new RegExp(`\\b${escaped}\\b`, "gi");
     result = result.replace(namePattern, (match, offset) => {
-      const replacement = "[NAME REDACTED]";
-      redactions.push({ original: match, replacement, patternName: "custom_name", index: offset });
+      const replacement = "[CANDIDATE REDACTED]";
+      redactions.push({ original: match, replacement, patternName: "candidate_name", index: offset });
       return replacement;
     });
   }
 
-  // Second pass: regex patterns
+  // Second pass: regex patterns — skip matches that are in the safe list
   for (const { name, pattern, replacement } of PII_PATTERNS) {
-    // Reset the regex lastIndex
     const freshPattern = new RegExp(pattern.source, pattern.flags);
     result = result.replace(freshPattern, (match, ...args) => {
+      if (safeSet.has(match.trim().toLowerCase())) return match;
       const offset = typeof args[args.length - 2] === "number" ? args[args.length - 2] : 0;
       redactions.push({ original: match, replacement, patternName: name, index: offset });
       return replacement;
@@ -79,19 +85,21 @@ export default function ScrubberPage() {
   const [inputText, setInputText] = useState("");
   const [scrubbedText, setScrubbedText] = useState("");
   const [redactions, setRedactions] = useState<RedactionEntry[]>([]);
-  const [customNames, setCustomNames] = useState<CustomName[]>([{ id: 1, value: "" }]);
+  const [candidateNames, setCandidateNames] = useState<NameEntry[]>([{ id: 1, value: "" }]);
+  const [interviewerNames, setInterviewerNames] = useState<NameEntry[]>([{ id: 100, value: "" }]);
   const [hasRun, setHasRun] = useState(false);
   const [showPolicy, setShowPolicy] = useState(false);
   const fileInputRef = useRef<HTMLInputElement>(null);
   const nextNameId = useRef(2);
 
   const handleScrub = useCallback(() => {
-    const names = customNames.map((n) => n.value).filter(Boolean);
-    const { scrubbed, redactions: r } = scrubTranscript(inputText, names);
+    const candidates = candidateNames.map((n) => n.value).filter(Boolean);
+    const safe = interviewerNames.map((n) => n.value).filter(Boolean);
+    const { scrubbed, redactions: r } = scrubTranscript(inputText, candidates, safe);
     setScrubbedText(scrubbed);
     setRedactions(r);
     setHasRun(true);
-  }, [inputText, customNames]);
+  }, [inputText, candidateNames, interviewerNames]);
 
   const handleFileUpload = useCallback((e: React.ChangeEvent<HTMLInputElement>) => {
     const file = e.target.files?.[0];
@@ -119,16 +127,16 @@ export default function ScrubberPage() {
     navigator.clipboard.writeText(scrubbedText);
   }, [scrubbedText]);
 
-  const addNameField = () => {
-    setCustomNames((prev) => [...prev, { id: nextNameId.current++, value: "" }]);
+  const addEntry = (setter: React.Dispatch<React.SetStateAction<NameEntry[]>>) => {
+    setter((prev) => [...prev, { id: nextNameId.current++, value: "" }]);
   };
 
-  const removeNameField = (id: number) => {
-    setCustomNames((prev) => (prev.length <= 1 ? prev : prev.filter((n) => n.id !== id)));
+  const removeEntry = (setter: React.Dispatch<React.SetStateAction<NameEntry[]>>, id: number) => {
+    setter((prev) => (prev.length <= 1 ? prev : prev.filter((n) => n.id !== id)));
   };
 
-  const updateNameField = (id: number, value: string) => {
-    setCustomNames((prev) => prev.map((n) => (n.id === id ? { ...n, value } : n)));
+  const updateEntry = (setter: React.Dispatch<React.SetStateAction<NameEntry[]>>, id: number, value: string) => {
+    setter((prev) => prev.map((n) => (n.id === id ? { ...n, value } : n)));
   };
 
   const handleReset = () => {
@@ -136,7 +144,8 @@ export default function ScrubberPage() {
     setScrubbedText("");
     setRedactions([]);
     setHasRun(false);
-    setCustomNames([{ id: 1, value: "" }]);
+    setCandidateNames([{ id: 1, value: "" }]);
+    setInterviewerNames([{ id: 100, value: "" }]);
   };
 
   const redactionSummary = redactions.reduce<Record<string, number>>((acc, r) => {
@@ -145,7 +154,7 @@ export default function ScrubberPage() {
   }, {});
 
   const PATTERN_LABELS: Record<string, string> = {
-    custom_name: "Names",
+    candidate_name: "Candidate Names",
     email: "Emails",
     phone: "Phone Numbers",
     ssn: "SSNs",
@@ -179,7 +188,7 @@ export default function ScrubberPage() {
         Transcript Privacy Scrubber
       </h1>
       <p className="text-[var(--text-dim)] text-[1.05rem] mb-8 max-w-[700px] leading-relaxed">
-        Remove personal data from your interview transcripts before sharing.
+        Remove <strong className="text-[var(--text)]">candidate personal data</strong> from interview transcripts before sharing &mdash; while preserving interviewer info.
         Everything runs locally in your browser &mdash; <strong className="text-[var(--text)]">no data is ever sent to any server</strong>.
       </p>
 
@@ -246,45 +255,103 @@ export default function ScrubberPage() {
         </div>
       </div>
 
-      {/* Custom Names */}
-      <div className="mb-8">
-        <label className="block text-[0.75rem] font-bold uppercase tracking-[1.5px] text-[var(--text-dim)] mb-3">
-          Names to Redact
-        </label>
-        <p className="text-[var(--text-dim)] text-[0.82rem] mb-4">
-          Add the names of people mentioned in the transcript (interviewee, interviewer, references, etc.)
-        </p>
-        <div className="flex flex-wrap gap-3 mb-3">
-          {customNames.map((n) => (
-            <div key={n.id} className="flex items-center gap-2">
-              <input
-                type="text"
-                value={n.value}
-                onChange={(e) => updateNameField(n.id, e.target.value)}
-                placeholder="e.g. John Smith"
-                className="scrubber-input w-[200px]"
-              />
-              {customNames.length > 1 && (
-                <button
-                  onClick={() => removeNameField(n.id)}
-                  className="text-[var(--text-dim)] hover:text-[var(--red)] transition-colors text-lg leading-none px-1"
-                  title="Remove"
-                >
-                  &times;
-                </button>
-              )}
-            </div>
-          ))}
+      {/* Name Fields — Candidate vs Interviewer */}
+      <div className="grid grid-cols-1 md:grid-cols-2 gap-8 mb-8">
+        {/* Candidate names — WILL be scrubbed */}
+        <div
+          className="rounded-xl p-6"
+          style={{
+            background: "rgba(239,68,68,0.06)",
+            border: "1px solid rgba(239,68,68,0.2)",
+          }}
+        >
+          <label className="block text-[0.75rem] font-bold uppercase tracking-[1.5px] text-[var(--red)] mb-2">
+            Candidate Info (will be scrubbed)
+          </label>
+          <p className="text-[var(--text-dim)] text-[0.78rem] mb-4">
+            Add the candidate&apos;s name, email, phone, or any personal details to redact.
+          </p>
+          <div className="flex flex-col gap-2.5 mb-3">
+            {candidateNames.map((n) => (
+              <div key={n.id} className="flex items-center gap-2">
+                <input
+                  type="text"
+                  value={n.value}
+                  onChange={(e) => updateEntry(setCandidateNames, n.id, e.target.value)}
+                  placeholder="e.g. John Smith"
+                  className="scrubber-input flex-1"
+                />
+                {candidateNames.length > 1 && (
+                  <button
+                    onClick={() => removeEntry(setCandidateNames, n.id)}
+                    className="text-[var(--text-dim)] hover:text-[var(--red)] transition-colors text-lg leading-none px-1"
+                    title="Remove"
+                  >
+                    &times;
+                  </button>
+                )}
+              </div>
+            ))}
+          </div>
           <button
-            onClick={addNameField}
-            className="px-4 py-2 rounded-lg text-[0.82rem] font-semibold transition-all"
+            onClick={() => addEntry(setCandidateNames)}
+            className="px-4 py-2 rounded-lg text-[0.78rem] font-semibold transition-all"
             style={{
-              background: "rgba(124,92,252,0.12)",
-              border: "1px solid rgba(124,92,252,0.3)",
-              color: "var(--accent)",
+              background: "rgba(239,68,68,0.1)",
+              border: "1px solid rgba(239,68,68,0.25)",
+              color: "var(--red)",
             }}
           >
-            + Add Name
+            + Add
+          </button>
+        </div>
+
+        {/* Interviewer names — will be PRESERVED */}
+        <div
+          className="rounded-xl p-6"
+          style={{
+            background: "rgba(16,185,129,0.06)",
+            border: "1px solid rgba(16,185,129,0.2)",
+          }}
+        >
+          <label className="block text-[0.75rem] font-bold uppercase tracking-[1.5px] text-[var(--green)] mb-2">
+            Interviewer Info (will be kept)
+          </label>
+          <p className="text-[var(--text-dim)] text-[0.78rem] mb-4">
+            Add interviewer names, emails, or other info that should NOT be redacted.
+          </p>
+          <div className="flex flex-col gap-2.5 mb-3">
+            {interviewerNames.map((n) => (
+              <div key={n.id} className="flex items-center gap-2">
+                <input
+                  type="text"
+                  value={n.value}
+                  onChange={(e) => updateEntry(setInterviewerNames, n.id, e.target.value)}
+                  placeholder="e.g. Sarah from Up Top"
+                  className="scrubber-input flex-1"
+                />
+                {interviewerNames.length > 1 && (
+                  <button
+                    onClick={() => removeEntry(setInterviewerNames, n.id)}
+                    className="text-[var(--text-dim)] hover:text-[var(--red)] transition-colors text-lg leading-none px-1"
+                    title="Remove"
+                  >
+                    &times;
+                  </button>
+                )}
+              </div>
+            ))}
+          </div>
+          <button
+            onClick={() => addEntry(setInterviewerNames)}
+            className="px-4 py-2 rounded-lg text-[0.78rem] font-semibold transition-all"
+            style={{
+              background: "rgba(16,185,129,0.1)",
+              border: "1px solid rgba(16,185,129,0.25)",
+              color: "var(--green)",
+            }}
+          >
+            + Add
           </button>
         </div>
       </div>
@@ -319,7 +386,7 @@ export default function ScrubberPage() {
         <textarea
           value={inputText}
           onChange={(e) => setInputText(e.target.value)}
-          placeholder={"Paste your interview transcript here...\n\nExample:\nInterviewer: Hi John, thanks for coming in today. Can you tell me about your experience at Acme Corp?\nJohn Smith: Sure! I've been working there since 2019. You can reach me at john.smith@email.com or 555-123-4567."}
+          placeholder={"Paste your interview transcript here...\n\nExample:\nSarah (Interviewer): Hi John, thanks for coming in today. Can you tell me about your experience?\nJohn Smith: Sure! You can reach me at john.smith@email.com or 555-123-4567.\n\nThe scrubber will redact John's info while preserving Sarah's."}
           className="scrubber-textarea"
           rows={12}
         />
@@ -480,9 +547,9 @@ export default function ScrubberPage() {
           </div>
 
           <p className="text-[var(--text-dim)] text-[0.78rem] leading-relaxed">
-            Please review the scrubbed transcript carefully before sharing. Automated scrubbing may miss
-            context-specific personal information like nicknames, project names, or company-internal references.
-            You can add additional names above and re-run the scrubber.
+            Please review the scrubbed transcript carefully before sharing. Automated scrubbing targets candidate
+            data only &mdash; interviewer info is preserved. It may miss context-specific details like nicknames or
+            personal anecdotes. You can add more candidate details above and re-run the scrubber.
           </p>
         </div>
       )}
