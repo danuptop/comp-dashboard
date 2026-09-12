@@ -12,8 +12,8 @@ export function Section({ id, eyebrow, title, lede, children, aside }: {
   return (
     <section id={id} className="border-b border-line" aria-labelledby={`${id}-title`}>
       <Reveal className="mx-auto max-w-6xl px-5 py-14 sm:px-8 sm:py-20">
-        <div className="flex flex-col gap-6 lg:flex-row lg:items-end lg:justify-between">
-          <div>
+        <div className="flex flex-col gap-8 lg:flex-row lg:items-end lg:justify-between lg:gap-12">
+          <div className="min-w-0 lg:max-w-[38rem]">
             <p className="eyebrow">{eyebrow}</p>
             <h2 id={`${id}-title`} className="mt-4 max-w-[24ch] font-display text-3xl tracking-[-0.02em] sm:text-4xl">
               {title}
@@ -21,7 +21,7 @@ export function Section({ id, eyebrow, title, lede, children, aside }: {
             <TitleRule />
             {lede ? <p className="mt-5 max-w-2xl text-[0.95rem] leading-relaxed text-muted">{lede}</p> : null}
           </div>
-          {aside ? <div className="shrink-0">{aside}</div> : null}
+          {aside ? <div className="min-w-0 lg:w-[26rem] lg:shrink-0">{aside}</div> : null}
         </div>
         <div className="mt-10">{children}</div>
       </Reveal>

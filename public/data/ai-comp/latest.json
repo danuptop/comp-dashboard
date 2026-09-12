@@ -2,7 +2,7 @@
  "schema_version": "1.0.0",
  "release_id": "2026-09-08",
  "path": "2026-09-08/manifest.json",
- "manifest_sha256": "ea4267085b3617531da561743118cf3c5c2bedd48c09758eecdec04fe0287f29",
+ "manifest_sha256": "d9e3547c0666868c7274d83a03240a366512961713ba45ccf5b6436830ee0fe3",
  "observations_sha256": "2d8d5106cfe094b929efa5b70ed2d326bf4e755dc249f17a5411083eb4b7f6e8",
- "updated_at": "2026-09-12T00:30:37Z"
+ "updated_at": "2026-09-12T00:53:05Z"
 }

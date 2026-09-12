@@ -8,7 +8,7 @@ import { fmtInt } from "@/lib/format";
 export function MarketSelector({ market, onChange, manifest }: { market: MarketId; onChange: (m: MarketId) => void; manifest: ReleaseManifest }) {
   const m = manifest.markets[market];
   return (
-    <div className="flex flex-col gap-5 lg:flex-row lg:items-start lg:justify-between">
+    <div className="flex flex-col gap-4">
       <div className="seg" role="tablist" aria-label="Market">
         {MARKETS.map((opt) => (
           <button key={opt.id} type="button" role="tab" aria-selected={market === opt.id} onClick={() => onChange(opt.id)}>
@@ -16,7 +16,7 @@ export function MarketSelector({ market, onChange, manifest }: { market: MarketI
           </button>
         ))}
       </div>
-      <div className="max-w-2xl text-sm leading-relaxed text-muted">
+      <div className="text-sm leading-relaxed text-muted">
         <p>
           <span className="text-fg">{m.label}.</span> {m.definition}
         </p>
