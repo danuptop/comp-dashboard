@@ -124,22 +124,21 @@ export function CompanyComparison({ market, observations, state, manifest }: {
             <table className="data-table">
               <thead>
                 <tr>
-                  <th>Title</th>
-                  <th>Level</th>
+                  <th>Title · level · posted</th>
                   <th>Location</th>
                   <th className="right">Posted range</th>
-                  <th>Posted</th>
                   <th>Source</th>
                 </tr>
               </thead>
               <tbody>
                 {selectedRows.map((o) => (
                   <tr key={o.id}>
-                    <td className="min-w-[14rem]">{o.title}</td>
-                    <td className="whitespace-nowrap text-muted">{manifest.levels[o.level] ?? o.level}</td>
+                    <td className="min-w-[12rem]">
+                      {o.title}
+                      <span className="block text-xs text-subtle">{manifest.levels[o.level] ?? o.level} · posted {fmtDate(o.observed_at)}</span>
+                    </td>
                     <td className="max-w-[14rem] truncate text-muted" title={o.location_raw}>{o.location_raw || "—"}</td>
                     <td className="right num whitespace-nowrap">{fmtRange(o.amount_low, o.amount_high)}</td>
-                    <td className="whitespace-nowrap text-muted">{fmtDate(o.observed_at)}</td>
                     <td>{o.source_url ? <a className="link-accent whitespace-nowrap" href={o.source_url} target="_blank" rel="noopener noreferrer">Posting ↗</a> : "—"}</td>
                   </tr>
                 ))}
