@@ -1,0 +1,386 @@
+{
+ "schema_version": "1.0.0",
+ "release_id": "2026-09-08",
+ "generated_at": "2026-09-12T00:30:37Z",
+ "generator": {
+  "script": "scripts/frontier_public_export.py",
+  "rules_version": "2026-09-11.1",
+  "cohort_config": {
+   "schema_version": "1.0.0",
+   "reviewed_at": "2026-09-11",
+   "sha256": "51c146c9f1e8ae587c8c5f902ab599eebfeab884fea3883fd64b8ded012ec468"
+  }
+ },
+ "source": {
+  "kind": "frontier-labs-monitor SQLite store (first-party ATS boards: Ashby / Greenhouse / Lever / Google Careers)",
+  "store_file": "frontier_comp.sqlite",
+  "store_sha256": "a801fa6f511e5c1ade05701d46d183b89d35754941198804c916182d33f09593",
+  "batch": {
+   "batch_id": "2026-09-08T17:26:45.112505+00:00",
+   "started_at": "2026-09-08T17:26:45.112505+00:00",
+   "completed_at": "2026-09-08T17:29:38.339102+00:00",
+   "status": "complete",
+   "expected_boards": 247,
+   "success_boards": 247,
+   "failed_boards": 0
+  },
+  "boards_configured": 247,
+  "companies_with_open_roles_in_store": 246
+ },
+ "observation_window": {
+  "posted_at_min": "2016-02-08",
+  "posted_at_max": "2026-09-08",
+  "verified_open_on": "2026-09-08",
+  "note": "observed_at is the employer's posting date; every included posting was still open on verified_open_on."
+ },
+ "counts": {
+  "store_open_roles": 11868,
+  "market_companies": 164,
+  "observations": 9737,
+  "with_posted_range": 5253,
+  "usd_annual_eligible": 4928,
+  "duplicates_collapsed": 29,
+  "excluded_rows": {
+   "company_not_in_any_market": 1997,
+   "company_not_in_labs_config_or_cohorts": 5,
+   "not_confirmed_in_source_batch": 100
+  },
+  "observation_flags": {
+   "below_annual_floor": 5,
+   "employment_contract": 83,
+   "employment_intern": 82,
+   "employment_part_time": 2,
+   "no_posted_range": 4484,
+   "non_usd": 290,
+   "pay_period_monthly": 7,
+   "pay_period_unspecified": 12
+  }
+ },
+ "markets": {
+  "ai": {
+   "label": "AI",
+   "definition": "AI-native companies: frontier labs, AI model developers, AI infrastructure & compute, AI hardware & silicon, applied-AI startups, and physical AI & robotics. Membership requires a reviewed cohort at medium or high confidence.",
+   "cohorts": [
+    "frontier_lab",
+    "ai_model_developer",
+    "ai_infrastructure_compute",
+    "ai_hardware_silicon",
+    "applied_ai",
+    "physical_ai_robotics"
+   ],
+   "companies": 156,
+   "open_postings": 9631,
+   "usd_annual_eligible": 4913
+  },
+  "crypto": {
+   "label": "Crypto",
+   "definition": "Crypto-native companies. Employer-posted ranges are thin here; Up Top's crypto model bands carry most of this market.",
+   "cohorts": [
+    "crypto"
+   ],
+   "companies": 8,
+   "open_postings": 135,
+   "usd_annual_eligible": 15
+  },
+  "ai_crypto": {
+   "label": "AI × Crypto",
+   "definition": "Companies explicitly building AI-native products on crypto rails. Membership is listed per company, never inferred.",
+   "cohorts": [],
+   "companies": 1,
+   "open_postings": 4,
+   "usd_annual_eligible": 0
+  }
+ },
+ "cohorts": {
+  "frontier_lab": {
+   "label": "Frontier labs",
+   "sector": "ai",
+   "definition": "Labs training general-purpose frontier foundation models.",
+   "companies_in_release": 7
+  },
+  "ai_model_developer": {
+   "label": "AI model developers",
+   "sector": "ai",
+   "definition": "Companies training their own domain or media models (voice, video, music, image, code, science, world models) that are not general frontier labs.",
+   "companies_in_release": 26
+  },
+  "ai_infrastructure_compute": {
+   "label": "AI infrastructure & compute",
+   "sector": "ai",
+   "definition": "GPU clouds and neoclouds, inference and serving platforms, vector databases, agent frameworks, evals and observability, and AI training-data vendors.",
+   "companies_in_release": 40
+  },
+  "ai_hardware_silicon": {
+   "label": "AI hardware & silicon",
+   "sector": "ai",
+   "definition": "Companies designing AI accelerators and AI-specific compute hardware.",
+   "companies_in_release": 6
+  },
+  "applied_ai": {
+   "label": "Applied-AI startups",
+   "sector": "ai",
+   "definition": "AI-native application companies selling an AI product into a vertical or function.",
+   "companies_in_release": 68
+  },
+  "physical_ai_robotics": {
+   "label": "Physical AI & robotics",
+   "sector": "ai",
+   "definition": "Humanoids, robot foundation models, and autonomous vehicles. Boards carry many mechanical, electrical, and manufacturing roles.",
+   "companies_in_release": 9
+  },
+  "crypto": {
+   "label": "Crypto",
+   "sector": "crypto",
+   "definition": "Crypto-native protocols, exchanges, market makers, wallets, and tokenization companies.",
+   "companies_in_release": 8
+  },
+  "fintech": {
+   "label": "Fintech",
+   "sector": "non_ai",
+   "definition": "Financial technology companies that are not AI-native or crypto-native.",
+   "companies_in_release": 0
+  },
+  "health": {
+   "label": "Health",
+   "sector": "non_ai",
+   "definition": "Care providers and health-data companies that are not AI-native products.",
+   "companies_in_release": 0
+  },
+  "defense_space": {
+   "label": "Defense & space",
+   "sector": "non_ai",
+   "definition": "Defense autonomy and space infrastructure companies.",
+   "companies_in_release": 0
+  },
+  "energy_climate": {
+   "label": "Energy & climate",
+   "sector": "non_ai",
+   "definition": "Energy, nuclear, and climate companies.",
+   "companies_in_release": 0
+  },
+  "developer_tools": {
+   "label": "Developer tools & cloud",
+   "sector": "non_ai",
+   "definition": "General developer infrastructure that is not AI-specific.",
+   "companies_in_release": 0
+  },
+  "consumer_other": {
+   "label": "Consumer",
+   "sector": "non_ai",
+   "definition": "Consumer products and marketplaces.",
+   "companies_in_release": 0
+  },
+  "other": {
+   "label": "Other",
+   "sector": "non_ai",
+   "definition": "Reviewed and found outside the AI and crypto markets.",
+   "companies_in_release": 0
+  },
+  "unknown": {
+   "label": "Unknown",
+   "sector": "unknown",
+   "definition": "Not yet verified. Excluded from every market until reviewed.",
+   "companies_in_release": 0
+  }
+ },
+ "role_families": {
+  "forward_deployed_engineer": "Forward deployed engineer",
+  "research_scientist": "Research scientist",
+  "research_engineer": "Research engineer",
+  "ai_infrastructure_engineer": "AI infrastructure / GPU / inference engineer",
+  "applied_ai_engineer": "Applied AI / ML engineer",
+  "data_engineer": "Data engineer",
+  "data_scientist": "Data scientist / analyst",
+  "software_engineer": "Software engineer",
+  "security_engineer": "Security engineer",
+  "hardware_silicon_engineer": "Hardware / silicon / electrical engineer",
+  "solutions_engineer": "Solutions / customer engineer",
+  "product_manager": "Product manager",
+  "design": "Design",
+  "developer_relations": "Developer relations",
+  "gtm_sales": "Sales / BD / partnerships",
+  "marketing": "Marketing / growth / community",
+  "people_recruiting": "People / recruiting",
+  "legal_finance": "Legal / finance",
+  "business_operations": "Operations / program management",
+  "general_management": "General management",
+  "clinical": "Clinical",
+  "skilled_trades_facilities": "Skilled trades / facilities",
+  "other": "Other / unclassified"
+ },
+ "levels": {
+  "intern": "Intern",
+  "junior": "Junior / early career",
+  "unspecified": "Level not stated",
+  "senior": "Senior",
+  "staff": "Staff",
+  "principal": "Principal / distinguished",
+  "lead": "Lead",
+  "manager": "Manager",
+  "director": "Director",
+  "head_of": "Head of function",
+  "executive": "Executive"
+ },
+ "display_rules": {
+  "min_postings": 20,
+  "min_employers": 5
+ },
+ "definitions": {
+  "evidence_kind": "employer_posting — a range the employer published on its own ATS board. No calls, budgets, expectations, offers, or surveys are in this release.",
+  "component": "base_salary as posted. Bonus, commission/OTE, sign-on, equity, and token value are not in these numbers; equity_offered is the board's boolean only.",
+  "component_confidence": "medium on Sales/BD and Solutions families because a posted band there may be an on-target figure the source does not label.",
+  "posted_low": "percentiles of the LOWER bound of posted ranges (USD, annual, full-time-eligible rows).",
+  "posted_high": "percentiles of the UPPER bound of posted ranges. p50 here is the median advertised ceiling — not median pay.",
+  "posted_midpoint": "percentiles of (low + high) / 2 per posting — 'posted range midpoint', never 'median salary'.",
+  "company_balanced_midpoint_p50": "median of per-company median midpoints; compare with posted_midpoint.p50 to see whether large boards dominate.",
+  "employer_hhi": "Herfindahl index of eligible postings by employer, 0–10000; higher means fewer employers define the cohort.",
+  "meets_display_rule": "true only when usd_annual_eligible >= 20 and eligible_employers >= 5 — a product heuristic, not a statistical guarantee.",
+  "level": "parsed from the title only; 'unspecified' means the employer did not state a level.",
+  "funding_stage": "always null in this release — no dated funding evidence is attached to boards; never inferred from a name."
+ },
+ "privacy": {
+  "private_evidence_included": false,
+  "statement": "This exporter reads only the ATS-derived store and static config. Recruiter calls, candidate expectations, client budgets, offers, and accepted packages have no path into this artifact."
+ },
+ "quality_checks": [
+  {
+   "name": "store_integrity_ok",
+   "status": "pass",
+   "detail": "PRAGMA integrity_check = ok"
+  },
+  {
+   "name": "latest_batch_complete",
+   "status": "pass",
+   "detail": "2026-09-08T17:26:45.112505+00:00 status=complete boards=247/247"
+  },
+  {
+   "name": "every_board_has_cohort",
+   "status": "pass",
+   "detail": "labs without cohort: none"
+  },
+  {
+   "name": "no_duplicate_cohort_rows",
+   "status": "pass",
+   "detail": "duplicates: none"
+  },
+  {
+   "name": "cohort_rows_match_boards",
+   "status": "pass",
+   "detail": "cohort rows without a board: none"
+  },
+  {
+   "name": "orphan_store_companies_excluded",
+   "status": "pass",
+   "detail": "1 store companies not in current config, excluded: ['Vibiz']"
+  },
+  {
+   "name": "no_reversed_ranges",
+   "status": "pass",
+   "detail": "0 ranges arrived reversed and were swapped"
+  },
+  {
+   "name": "no_missing_lower_endpoint",
+   "status": "pass",
+   "detail": "0 rows had an upper bound without a lower bound"
+  },
+  {
+   "name": "non_usd_excluded_from_usd_stats",
+   "status": "pass",
+   "detail": "290 non-USD posted ranges retained as observations, excluded from USD statistics"
+  },
+  {
+   "name": "non_annual_pay_periods_excluded",
+   "status": "pass",
+   "detail": "19 non-annual ranges excluded from annual statistics"
+  },
+  {
+   "name": "annual_floor_ceiling_enforced",
+   "status": "pass",
+   "detail": "5 below $40,000 · 0 above $2,000,000"
+  },
+  {
+   "name": "non_full_time_excluded",
+   "status": "pass",
+   "detail": "167 intern / part-time / contract / fellowship postings excluded from statistics"
+  },
+  {
+   "name": "all_evidence_is_employer_posting",
+   "status": "pass",
+   "detail": "no private evidence kinds are reachable from this exporter"
+  },
+  {
+   "name": "every_observation_has_source_url",
+   "status": "pass",
+   "detail": "0 observations lack a public source URL"
+  },
+  {
+   "name": "no_market_company_below_confidence",
+   "status": "pass",
+   "detail": "market membership requires medium/high cohort confidence"
+  },
+  {
+   "name": "stale_open_rows_excluded",
+   "status": "pass",
+   "detail": "100 rows marked open but not confirmed in the source batch were excluded"
+  },
+  {
+   "name": "duplicates_collapsed",
+   "status": "pass",
+   "detail": "29 exact duplicate postings collapsed"
+  },
+  {
+   "name": "has_observations",
+   "status": "pass",
+   "detail": "9737 observations"
+  }
+ ],
+ "files": {
+  "observations.json": {
+   "sha256": "2d8d5106cfe094b929efa5b70ed2d326bf4e755dc249f17a5411083eb4b7f6e8",
+   "bytes": 4435367,
+   "rows": 9737,
+   "format": "columnar",
+   "columns": [
+    "id",
+    "company_id",
+    "company",
+    "cohort",
+    "markets",
+    "title",
+    "role_family",
+    "role_family_confidence",
+    "level",
+    "level_confidence",
+    "employment_type",
+    "location_raw",
+    "country",
+    "metro",
+    "metros",
+    "work_arrangement",
+    "geo_confidence",
+    "evidence_kind",
+    "component",
+    "component_confidence",
+    "currency",
+    "pay_period",
+    "pay_period_confidence",
+    "amount_low",
+    "amount_high",
+    "range_swapped",
+    "source_text",
+    "source_url",
+    "observed_at",
+    "fetched_at",
+    "equity_offered",
+    "usd_annual_eligible",
+    "exclusion_reasons",
+    "duplicate_count"
+   ]
+  },
+  "summaries.json": {
+   "sha256": "d2c6c8d928caa2be22d738d2a000a6801808978fba67d20591a01a015f4294f4",
+   "bytes": 130577
+  }
+ },
+ "messages": []
+}

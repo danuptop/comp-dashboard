@@ -1,36 +1,51 @@
-This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://nextjs.org/docs/app/api-reference/cli/create-next-app).
+# Pay Up — compensation intelligence by Up Top Search
 
-## Getting Started
+Next.js (App Router) + Tailwind v4. Deployed on Vercel at payup.uptopsearch.com.
 
-First, run the development server:
+Pay Up shows two kinds of numbers and keeps them apart:
+
+- **Observed** — employer-posted base-salary ranges pulled first-party from company job boards
+  by Up Top's frontier monitor and shipped here as a versioned static release
+  (`public/data/ai-comp/`). Every observation links to its posting.
+- **Modelled** — Up Top's band matrix, multipliers, score tiers, and discount stacks
+  (`src/data/crypto-model.ts`, `src/data/ai-model.ts`). Assumptions, labelled as such.
+
+## Develop
 
 ```bash
-npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-# or
-bun dev
+npm ci
+npm run dev        # http://localhost:3000
+npm run lint
+npm run typecheck
+npm test           # vitest: data-contract, statistics-mirror, benchmark, package, model tests
+npm run build
 ```
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+## Data release
 
-You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
+The release is produced by `scripts/frontier_public_export.py` in the `uptop-crons` repository
+(read-only over the monitor's SQLite store, deterministic, fail-closed). It writes
+`public/data/ai-comp/<release_id>/{observations,summaries,manifest}.json`, then
+`latest.json` and `latest-manifest.json` — the last two only after the release verified.
+`src/data/release.ts` imports `latest-manifest.json` at build time and fetches
+`observations.json` at runtime, verifying its SHA-256 against the manifest before any
+statistic is rendered.
 
-This project uses [`next/font`](https://nextjs.org/docs/app/building-your-application/optimizing/fonts) to automatically optimize and load [Geist](https://vercel.com/font), a new font family for Vercel.
+Refresh (Mac, store copied read-only from EC2):
 
-## Learn More
+```bash
+ssh ec2 'cat /data/uptop/crons/state/frontier-labs-monitor/frontier_comp.sqlite' > /tmp/frontier_comp.sqlite
+python3 ~/uptop-crons/scripts/frontier_public_export.py --db /tmp/frontier_comp.sqlite --out public/data/ai-comp
+npm test && npm run build
+```
 
-To learn more about Next.js, take a look at the following resources:
+The exporter exits 75 and writes nothing when the latest monitor batch is not complete, and
+exits 1 and writes nothing when any quality check fails, so a broken collection leaves the
+site on the last valid release. Company → market membership is a reviewed decision in
+`uptop-crons/config/frontier_company_cohorts.json`; unknown or low-confidence companies are
+excluded from every market.
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
+Private recruiting evidence (calls, budgets, candidate expectations, offers) has no path into
+this repository.
 
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js) - your feedback and contributions are welcome!
-
-## Deploy on Vercel
-
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
-
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/app/building-your-application/deploying) for more details.
+Brand assets and their provenance: `public/BRAND-ASSETS.md`.
