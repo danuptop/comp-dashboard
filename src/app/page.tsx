@@ -1,9 +1,9 @@
 "use client";
 
-import { useState, useMemo } from "react";
+import { useState, useMemo, useEffect, useRef } from "react";
 
 /* ══════════════════════════════════════════════════════════════════
-   PROTOCOL RANK — COMPENSATION ENGINE
+   COMPENSATION ENGINE
    Interactive dashboard with live calculator, clickable salary matrix,
    section navigation, and hover effects.
    ══════════════════════════════════════════════════════════════════ */
@@ -19,6 +19,57 @@ export default function Home() {
 
   // Salary matrix highlight
   const [highlightRow, setHighlightRow] = useState<number | null>(1);
+
+  // Active nav section tracking
+  const [activeSection, setActiveSection] = useState("");
+
+  // Scroll-reveal observer: adds .visible when elements enter viewport
+  useEffect(() => {
+    const obs = new IntersectionObserver(
+      (entries) => entries.forEach((e) => { if (e.isIntersecting) e.target.classList.add("visible"); }),
+      { threshold: 0.12 }
+    );
+    document.querySelectorAll(".reveal").forEach((el) => obs.observe(el));
+    return () => obs.disconnect();
+  }, []);
+
+  // Section tracking for active nav pill
+  useEffect(() => {
+    const ids = ["calculator", "levels", "matrix", "multipliers", "scarcity", "tokens", "example"];
+    const obs = new IntersectionObserver(
+      (entries) => {
+        const visible = entries.filter((e) => e.isIntersecting);
+        if (visible.length) setActiveSection(visible[0].target.id);
+      },
+      { rootMargin: "-30% 0px -60% 0px" }
+    );
+    ids.forEach((id) => { const el = document.getElementById(id); if (el) obs.observe(el); });
+    return () => obs.disconnect();
+  }, []);
+
+  // 3D card tilt on mouse move
+  useEffect(() => {
+    const cards = document.querySelectorAll<HTMLElement>(".tilt-3d");
+    const handlers = new Map<HTMLElement, { move: (e: MouseEvent) => void; leave: () => void }>();
+    cards.forEach((card) => {
+      const move = (e: MouseEvent) => {
+        const r = card.getBoundingClientRect();
+        const x = (e.clientX - r.left) / r.width - 0.5;
+        const y = (e.clientY - r.top) / r.height - 0.5;
+        card.style.transform = `perspective(800px) rotateX(${-y * 6}deg) rotateY(${x * 6}deg) scale3d(1.01,1.01,1.01)`;
+      };
+      const leave = () => { card.style.transform = ""; };
+      card.addEventListener("mousemove", move);
+      card.addEventListener("mouseleave", leave);
+      handlers.set(card, { move, leave });
+    });
+    return () => {
+      handlers.forEach(({ move, leave }, card) => {
+        card.removeEventListener("mousemove", move);
+        card.removeEventListener("mouseleave", leave);
+      });
+    };
+  }, []);
 
   // Compute level multiplier from score
   const levelMult = useMemo(() => {
@@ -56,6 +107,29 @@ export default function Home() {
     };
   }, [calcCategory, calcSeniority, calcGeo, calcStage, calcScarcity, levelMult]);
 
+  // Animated counter for result display
+  const [displayValue, setDisplayValue] = useState(0);
+  const prevResult = useRef(0);
+
+  useEffect(() => {
+    const from = prevResult.current;
+    const to = Math.round(calcResult.result);
+    prevResult.current = to;
+    if (from === to) return;
+
+    const duration = 500;
+    const start = performance.now();
+
+    const step = (now: number) => {
+      const elapsed = now - start;
+      const t = Math.min(elapsed / duration, 1);
+      const ease = 1 - Math.pow(1 - t, 3); // ease-out cubic
+      setDisplayValue(Math.round(from + (to - from) * ease));
+      if (t < 1) requestAnimationFrame(step);
+    };
+    requestAnimationFrame(step);
+  }, [calcResult.result]);
+
   // Click salary row → populate calculator
   const handleRowClick = (rowIndex: number) => {
     setHighlightRow(rowIndex);
@@ -63,27 +137,53 @@ export default function Home() {
   };
 
   return (
-    <div className="max-w-[1400px] mx-auto px-8 md:px-16 py-40">
+    <div style={{ maxWidth: '1120px', margin: '0 auto', paddingTop: 'var(--sp-3xl)', paddingBottom: 'var(--sp-3xl)', paddingLeft: 'var(--sp-md)', paddingRight: 'var(--sp-md)', position: 'relative' }}>
+      {/* Ambient glow orbs */}
+      <div className="glow-orb" style={{ width: '500px', height: '500px', background: 'rgba(124,92,252,0.12)', top: '-100px', left: '-200px' }} />
+      <div className="glow-orb" style={{ width: '400px', height: '400px', background: 'rgba(16,185,129,0.10)', top: '600px', right: '-150px' }} />
+      <div className="glow-orb" style={{ width: '350px', height: '350px', background: 'rgba(124,92,252,0.08)', top: '1800px', left: '-100px' }} />
+
+      {/* ── BRANDING + LAST UPDATED ────────────────────────────── */}
+      <div className="hero-enter hero-d1" style={{ display: 'flex', alignItems: 'center', justifyContent: 'space-between', marginBottom: 'var(--sp-lg)' }}>
+        <div style={{ display: 'flex', alignItems: 'center', gap: '14px' }}>
+          {/* eslint-disable-next-line @next/next/no-img-element */}
+          <img src="/logo.png" alt="Up Top Search" style={{ width: '40px', height: '40px', borderRadius: '10px' }} />
+          <div style={{ display: 'flex', flexDirection: 'column', gap: '2px' }}>
+            <span style={{ fontSize: '1.3rem', fontWeight: 900, letterSpacing: '2px', lineHeight: 1 }}>
+              <span style={{ color: '#FFFFFF' }}>PAY</span>
+              <span style={{ color: '#7C5CFC' }}>UP</span>
+            </span>
+            <span style={{ fontSize: '0.7rem', fontWeight: 500, letterSpacing: '1px', color: 'var(--text-dim)', lineHeight: 1 }}>
+              by Up Top Search
+            </span>
+          </div>
+        </div>
+        <span style={{ fontSize: '0.75rem', color: 'var(--text-dim)', fontWeight: 500 }}>
+          Last updated Feb 2026
+        </span>
+      </div>
+
       {/* ── HEADER ────────────────────────────────────────────── */}
       <h1
-        className="text-[3rem] font-black tracking-tight mb-8"
+        className="text-[3rem] font-black tracking-tight hero-enter hero-d2"
         style={{
+          marginBottom: 'var(--sp-sm)',
           background: "linear-gradient(135deg, #7C5CFC, #B388FF)",
           WebkitBackgroundClip: "text",
           WebkitTextFillColor: "transparent",
         }}
       >
-        PROTOCOL RANK — COMPENSATION ENGINE
+        COMPENSATION ENGINE
       </h1>
-      <p className="text-[var(--text-dim)] text-[1.1rem] mb-20 max-w-[700px] leading-loose">
+      <p className="text-[var(--text-dim)] text-[1.1rem] max-w-[700px] leading-loose hero-enter hero-d3" style={{ marginBottom: 'var(--sp-2xl)', fontStyle: 'italic' }}>
         Complete visual breakdown of all role categories, seniority levels,
         salary bands, multipliers, and premiums.
       </p>
 
       {/* ── STICKY NAV ────────────────────────────────────────── */}
       <nav
-        className="sticky top-0 z-50 flex gap-5 overflow-x-auto py-6 px-4 mb-28 -mx-4"
-        style={{ background: "var(--bg)", borderBottom: "1px solid var(--card-border)" }}
+        className="sticky top-0 z-50 flex gap-5 overflow-x-auto px-4 -mx-4 hero-enter hero-d4 glass-nav"
+        style={{ paddingTop: 'var(--sp-xs)', paddingBottom: 'var(--sp-xs)', marginBottom: 'var(--sp-2xl)' }}
       >
         {[
           { href: "#calculator", label: "Calculator" },
@@ -94,7 +194,7 @@ export default function Home() {
           { href: "#tokens", label: "Token Model" },
           { href: "#example", label: "Example" },
         ].map((n) => (
-          <a key={n.href} href={n.href} className="nav-pill">
+          <a key={n.href} href={n.href} className={`nav-pill${activeSection === n.href.slice(1) ? ' active' : ''}`}>
             {n.label}
           </a>
         ))}
@@ -102,10 +202,11 @@ export default function Home() {
 
       {/* ── FORMULA BANNER ────────────────────────────────────── */}
       <div
-        className="rounded-2xl p-16 mb-40 text-center"
+        className="rounded-2xl text-center reveal"
         style={{
-          background:
-            "linear-gradient(135deg, rgba(85,52,167,0.3), rgba(124,92,252,0.15))",
+          padding: 'var(--sp-xl) var(--sp-lg)',
+          marginBottom: 'var(--sp-2xl)',
+          background: "linear-gradient(135deg, rgba(85,52,167,0.3), rgba(124,92,252,0.15))",
           border: "1px solid var(--purple)",
         }}
       >
@@ -145,7 +246,7 @@ export default function Home() {
             )
           )}
         </div>
-        <p className="text-[var(--text-dim)] text-[0.82rem] mt-10 leading-relaxed">
+        <p className="text-[var(--text-dim)] text-[0.82rem] leading-relaxed" style={{ marginTop: 'var(--sp-md)' }}>
           Total Comp = Adjusted Base + Realistic Token Value (FDV x allocation %
           x discount stack)
         </p>
@@ -163,7 +264,7 @@ export default function Home() {
           }}
         >
           {/* Inputs */}
-          <div className="p-14 grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-12">
+          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3" style={{ padding: 'var(--sp-lg)', gap: 'var(--sp-lg)' }}>
             {/* Category */}
             <div>
               <label className="block text-[0.72rem] font-bold uppercase tracking-[1.5px] text-[var(--text-dim)] mb-3">
@@ -204,7 +305,7 @@ export default function Home() {
             {/* Score */}
             <div>
               <label className="block text-[0.72rem] font-bold uppercase tracking-[1.5px] text-[var(--text-dim)] mb-3">
-                Protocol Rank Score — {calcScore} ({levelMult.label})
+                PayUp Score — {calcScore} ({levelMult.label})
               </label>
               <input
                 type="range"
@@ -282,8 +383,8 @@ export default function Home() {
 
           {/* Result */}
           <div
-            className="px-14 py-14"
             style={{
+              padding: 'var(--sp-lg)',
               background: "rgba(13,11,20,0.5)",
               borderTop: "1px solid var(--purple)",
             }}
@@ -298,8 +399,8 @@ export default function Home() {
                   {calcResult.geo.toFixed(2)} x {calcResult.stage.toFixed(2)}
                   {calcResult.scarcity !== 1 && ` x ${calcResult.scarcity.toFixed(2)}`}
                 </div>
-                <div className="text-[3rem] font-black text-[var(--green)] leading-none result-glow">
-                  ${Math.round(calcResult.result).toLocaleString()}
+                <div className="text-[3rem] font-black text-[var(--green)] leading-none result-glow count-bump" key={Math.round(calcResult.result)}>
+                  ${displayValue.toLocaleString()}
                 </div>
                 <div className="text-[var(--text-dim)] text-sm mt-2">
                   adjusted base salary
@@ -347,8 +448,8 @@ export default function Home() {
       <Section id="levels" emoji="🏆" title="Level Classification" badge="5 TIERS">
         {/* Visual bar */}
         <div
-          className="flex h-[68px] rounded-xl overflow-hidden mb-12"
-          style={{ border: "1px solid var(--card-border)" }}
+          className="flex h-[68px] rounded-xl overflow-hidden"
+          style={{ marginBottom: 'var(--sp-lg)', border: "1px solid var(--card-border)" }}
         >
           {[
             { cls: "HARD PASS", range: "0–49", bg: "rgba(239,68,68,0.25)", color: "#FCA5A5", w: "50%" },
@@ -371,7 +472,7 @@ export default function Home() {
         </div>
 
         {/* Multiplier table */}
-        <div className="grid grid-cols-1 lg:grid-cols-2 gap-16">
+        <div className="grid grid-cols-1 lg:grid-cols-2" style={{ gap: 'var(--sp-lg)' }}>
           <MultiCard title="Level → Compensation Multiplier">
             {[
               { label: "HARD PASS", sub: "(0–49)", w: "50%", bg: "var(--red)", cls: "val-low", val: "0.60x" },
@@ -445,7 +546,7 @@ export default function Home() {
           SECTION 3: MULTIPLIER LAYERS
           ════════════════════════════════════════════════════════ */}
       <Section id="multipliers" emoji="⚙️" title="Multiplier Layers" badge="3 DIMENSIONS">
-        <div className="grid grid-cols-1 lg:grid-cols-2 gap-16">
+        <div className="grid grid-cols-1 lg:grid-cols-2 stagger-grid" style={{ gap: 'var(--sp-lg)' }}>
           {/* GEO */}
           <MultiCard title="🌍 Geographic Multipliers">
             {GEO_DATA.map((g) => (
@@ -483,12 +584,13 @@ export default function Home() {
           SECTION 4: SCARCITY PREMIUMS
           ════════════════════════════════════════════════════════ */}
       <Section id="scarcity" emoji="💎" title="Scarcity Premiums" badge="9 FACTORS">
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-10">
+        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 stagger-grid" style={{ gap: 'var(--sp-md)' }}>
           {SCARCITY_DATA.map((s, i) => (
             <button
               key={s.name}
-              className="card-hover flex items-center gap-5 rounded-xl p-10 text-left"
+              className="card-hover flex items-center gap-5 rounded-xl text-left"
               style={{
+                padding: 'var(--sp-md)',
                 background: calcScarcity.includes(i)
                   ? "rgba(124,92,252,0.12)"
                   : "var(--card)",
@@ -540,7 +642,7 @@ export default function Home() {
           SECTION 5: TOKEN MODEL
           ════════════════════════════════════════════════════════ */}
       <Section id="tokens" emoji="🪙" title="Token Compensation Model" badge="FDV-BASED">
-        <div className="grid grid-cols-1 lg:grid-cols-2 gap-16">
+        <div className="grid grid-cols-1 lg:grid-cols-2 stagger-grid" style={{ gap: 'var(--sp-lg)' }}>
           {/* Allocation */}
           <TokenCard title="Token Allocation by Seniority (% of Supply)">
             {[
@@ -552,8 +654,8 @@ export default function Home() {
             ].map((t) => (
               <div
                 key={t.level}
-                className="flex justify-between items-center py-5"
-                style={{ borderBottom: "1px solid rgba(42,36,64,0.3)" }}
+                className="flex justify-between items-center"
+                style={{ padding: 'var(--sp-xs) 0', borderBottom: "1px solid rgba(42,36,64,0.3)" }}
               >
                 <span className="font-medium">{t.level}</span>
                 <span className="font-bold" style={{ color: t.color }}>
@@ -572,8 +674,8 @@ export default function Home() {
             ].map((d) => (
               <div
                 key={d.name}
-                className="flex justify-between items-center py-5"
-                style={{ borderBottom: "1px solid rgba(42,36,64,0.3)" }}
+                className="flex justify-between items-center"
+                style={{ padding: 'var(--sp-xs) 0', borderBottom: "1px solid rgba(42,36,64,0.3)" }}
               >
                 <div>
                   <div className="font-semibold">{d.name}</div>
@@ -617,8 +719,10 @@ export default function Home() {
           ════════════════════════════════════════════════════════ */}
       <Section id="defaults" emoji="🔧" title="Resolver Defaults" badge="FALLBACKS">
         <div
-          className="flex flex-wrap gap-10 rounded-xl p-12"
+          className="flex flex-wrap rounded-xl"
           style={{
+            gap: 'var(--sp-md)',
+            padding: 'var(--sp-lg)',
             background: "var(--card)",
             border: "1px solid var(--card-border)",
           }}
@@ -658,18 +762,18 @@ export default function Home() {
           ════════════════════════════════════════════════════════ */}
       <Section id="example" emoji="📐" title="Worked Example" badge="FULL CALC">
         <div
-          className="rounded-2xl p-16"
+          className="rounded-2xl"
           style={{
-            background:
-              "linear-gradient(135deg, rgba(85,52,167,0.3), rgba(124,92,252,0.15))",
+            padding: 'var(--sp-xl)',
+            background: "linear-gradient(135deg, rgba(85,52,167,0.3), rgba(124,92,252,0.15))",
             border: "1px solid var(--purple)",
           }}
         >
-          <h2 className="text-sm uppercase tracking-[2px] text-[var(--accent)] font-bold mb-14">
+          <h2 className="text-sm uppercase tracking-[2px] text-[var(--accent)] font-bold" style={{ marginBottom: 'var(--sp-lg)' }}>
             Senior Solana Protocol Engineer — Series A — Singapore — Score: 85
             (STRONG)
           </h2>
-          <div className="grid grid-cols-[repeat(auto-fit,minmax(260px,1fr))] gap-10 mb-14">
+          <div className="grid grid-cols-[repeat(auto-fit,minmax(260px,1fr))]" style={{ gap: 'var(--sp-md)', marginBottom: 'var(--sp-lg)' }}>
             {[
               { label: "Base Band (PROTOCOL_INFRA x SENIOR)", val: "$210,000", note: "midpoint", color: undefined },
               { label: "Level Multiplier (STRONG)", val: "1.00x", color: "var(--accent)" },
@@ -714,16 +818,20 @@ export default function Home() {
       </Section>
 
       {/* ── FOOTER ────────────────────────────────────────────── */}
-      <footer className="text-center mt-48 pb-24">
+      <footer className="text-center reveal" style={{ marginTop: 'var(--sp-3xl)', paddingBottom: 'var(--sp-2xl)' }}>
         <div className="flex items-center justify-center gap-4 mb-4">
           {/* eslint-disable-next-line @next/next/no-img-element */}
           <img src="/logo.png" alt="Up Top Search" className="w-10 h-10 rounded-lg" />
-          <span className="text-[var(--text-dim)] text-sm font-semibold tracking-wide uppercase">
-            Up Top Search
+          <span style={{ fontSize: '1.1rem', fontWeight: 900, letterSpacing: '2px' }}>
+            <span style={{ color: '#FFFFFF' }}>PAY</span>
+            <span style={{ color: '#7C5CFC' }}>UP</span>
           </span>
         </div>
-        <p className="text-[var(--text-dim)] text-xs">
-          Protocol Rank Compensation Engine
+        <p style={{ color: 'var(--text-dim)', fontSize: '0.85rem', fontStyle: 'italic', marginTop: '16px' }}>
+          step your game up at{' '}
+          <a href="https://uptopsearch.com" target="_blank" rel="noopener noreferrer" style={{ color: '#7C5CFC', textDecoration: 'none' }}>
+            uptopsearch.com
+          </a>
         </p>
       </footer>
     </div>
@@ -748,10 +856,10 @@ function Section({
   children: React.ReactNode;
 }) {
   return (
-    <div id={id} className="mb-48 scroll-mt-24">
+    <div id={id} className="scroll-mt-24 reveal" style={{ marginBottom: 'var(--sp-3xl)' }}>
       <div
-        className="flex items-center gap-5 mb-14 pb-8"
-        style={{ borderBottom: "1px solid var(--card-border)" }}
+        className="flex items-center gap-5"
+        style={{ marginBottom: 'var(--sp-lg)', paddingBottom: 'var(--sp-sm)', borderBottom: "1px solid var(--card-border)" }}
       >
         <span className="text-[1.6rem]">{emoji}</span>
         <h2 className="text-[1.5rem] font-extrabold uppercase tracking-[1px]">
@@ -781,10 +889,11 @@ function MultiCard({
 }) {
   return (
     <div
-      className="rounded-[14px] overflow-hidden"
+      className="tilt-3d rounded-[14px] overflow-hidden"
       style={{
         background: "var(--card)",
         border: "1px solid var(--card-border)",
+        transition: "transform 0.15s ease",
       }}
     >
       <div
@@ -798,7 +907,7 @@ function MultiCard({
           {title}
         </h3>
       </div>
-      <div className="py-5">{children}</div>
+      <div style={{ padding: 'var(--sp-xs) 0' }}>{children}</div>
     </div>
   );
 }
@@ -822,8 +931,8 @@ function MultiRow({
 }) {
   return (
     <div
-      className="flex items-center px-8 py-8 gap-5"
-      style={{ borderBottom: "1px solid rgba(42,36,64,0.4)" }}
+      className="flex items-center"
+      style={{ padding: 'var(--sp-sm)', gap: 'var(--sp-xs)', borderBottom: "1px solid rgba(42,36,64,0.4)" }}
     >
       <div className="flex-1 font-medium text-[0.88rem]">
         {multiline ? (
@@ -872,10 +981,11 @@ function TokenCard({
 }) {
   return (
     <div
-      className="rounded-[14px] overflow-hidden"
+      className="tilt-3d rounded-[14px] overflow-hidden"
       style={{
         background: "var(--card)",
         border: "1px solid var(--card-border)",
+        transition: "transform 0.15s ease",
       }}
     >
       <div
@@ -889,14 +999,14 @@ function TokenCard({
           {title}
         </h3>
       </div>
-      <div className="px-10 py-10">{children}</div>
+      <div style={{ padding: 'var(--sp-lg)' }}>{children}</div>
     </div>
   );
 }
 
 function Note({ children }: { children: React.ReactNode }) {
   return (
-    <p className="text-[var(--text-dim)] text-[0.8rem] mt-14 leading-relaxed">
+    <p className="text-[var(--text-dim)] text-[0.8rem] leading-relaxed" style={{ marginTop: 'var(--sp-lg)' }}>
       {children}
     </p>
   );
@@ -910,30 +1020,30 @@ function parseSalary(s: string): number {
   return Number(s.replace(/[^0-9]/g, "")) * 1000;
 }
 
-const SENIORITY_LABELS = ["Junior", "Mid", "Senior", "Lead", "Executive"];
+const SENIORITY_LABELS = ["JUNIOR", "MID", "SENIOR", "LEAD", "EXECUTIVE"];
 
 /* ══════════════════════════════════════════════════════════════════
    STATIC DATA
    ══════════════════════════════════════════════════════════════════ */
 
 const GEO_DATA = [
-  { label: "North America", sub: "(US/Canada)", mult: 1.0 },
-  { label: "Remote US", mult: 0.9 },
-  { label: "Western Europe", sub: "(UK, DE, FR)", mult: 0.8 },
-  { label: "Dubai / UAE", sub: "(0% tax offset)", mult: 0.75 },
-  { label: "Singapore", mult: 0.72 },
-  { label: "Eastern Europe", sub: "(PL, UA, RS)", mult: 0.52 },
-  { label: "Remote Global", mult: 0.52 },
-  { label: "Latin America", sub: "(AR, BR, MX)", mult: 0.47 },
-  { label: "South / SE Asia", mult: 0.42 },
+  { label: "NORTH AMERICA", sub: "(US/CANADA)", mult: 1.0 },
+  { label: "REMOTE US", mult: 0.9 },
+  { label: "WESTERN EUROPE", sub: "(UK, DE, FR)", mult: 0.8 },
+  { label: "DUBAI / UAE", sub: "(0% TAX OFFSET)", mult: 0.75 },
+  { label: "SINGAPORE", mult: 0.72 },
+  { label: "EASTERN EUROPE", sub: "(PL, UA, RS)", mult: 0.52 },
+  { label: "REMOTE GLOBAL", mult: 0.52 },
+  { label: "LATIN AMERICA", sub: "(AR, BR, MX)", mult: 0.47 },
+  { label: "SOUTH / SE ASIA", mult: 0.42 },
 ];
 
 const STAGE_DATA = [
-  { label: "Pre-Seed", desc: "Lower base; 1.0–2.0% tokens for key hires", mult: 0.75 },
-  { label: "Seed", desc: "Lower base; 0.5–1.5% tokens for key hires", mult: 0.82 },
-  { label: "Series A", desc: "Balanced; 0.25–0.75% token grants typical", mult: 0.93 },
-  { label: "Series B+", desc: "Market-rate base; smaller but liquid tokens", mult: 1.0 },
-  { label: "Post-TGE / Public", desc: "Premium for stability; tokens may be liquid", mult: 1.1 },
+  { label: "PRE-SEED", desc: "Lower base; 1.0–2.0% tokens for key hires", mult: 0.75 },
+  { label: "SEED", desc: "Lower base; 0.5–1.5% tokens for key hires", mult: 0.82 },
+  { label: "SERIES A", desc: "Balanced; 0.25–0.75% token grants typical", mult: 0.93 },
+  { label: "SERIES B+", desc: "Market-rate base; smaller but liquid tokens", mult: 1.0 },
+  { label: "POST-TGE / PUBLIC", desc: "Premium for stability; tokens may be liquid", mult: 1.1 },
 ];
 
 const SALARY_DATA = [
@@ -1010,7 +1120,7 @@ const SALARY_DATA = [
     ],
   },
   {
-    name: "MARKETING / COMMUNITY",
+    name: "SOCIAL / COMMUNITY",
     icon: "📢",
     cat: "cat-bd",
     bands: [

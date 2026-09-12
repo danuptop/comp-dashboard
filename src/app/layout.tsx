@@ -14,10 +14,10 @@ const geistMono = Geist_Mono({
 
 export const metadata: Metadata = {
   title: "Compensation Framework | Up Top Search",
-  description: "Protocol Rank compensation engine — market-calibrated salary bands, multipliers, and token evaluation for crypto/web3 recruiting.",
+  description: "PayUp compensation engine — market-calibrated salary bands, multipliers, and token evaluation for crypto/web3 recruiting.",
   openGraph: {
     title: "Compensation Framework | Up Top Search",
-    description: "Protocol Rank compensation engine for crypto/web3 recruiting.",
+    description: "PayUp compensation engine for crypto/web3 recruiting.",
     type: "website",
   },
 };
