@@ -7,7 +7,24 @@ import { createHash } from "node:crypto";
 import { readFileSync } from "node:fs";
 import { join } from "node:path";
 import { describe, expect, it } from "vitest";
-import { hydrate, MANIFEST, RELEASE_ID, type ColumnarPayload } from "@/data/release";
+import { hydrate, MANIFEST, RELEASE_ID, type ColumnarPayload, type ReleaseManifest } from "@/data/release";
+
+/**
+ * A release ships from a complete batch, or from a partial one whose failed boards are all in
+ * no market: those boards cannot change a number on this page. `no_failed_board_in_a_market`
+ * is what separates that from an exporter --allow-partial override, which must not ship.
+ */
+function batchClearedGate(m: Pick<ReleaseManifest, "source" | "quality_checks">): boolean {
+  const statusOf = (name: string) => m.quality_checks.find((c) => c.name === name)?.status;
+  const { status, failed_boards } = m.source.batch;
+  if (status === "complete") return failed_boards === 0 && statusOf("latest_batch_complete") === "pass";
+  return (
+    status === "partial" &&
+    failed_boards > 0 &&
+    statusOf("latest_batch_complete") === "warn" &&
+    statusOf("no_failed_board_in_a_market") === "pass"
+  );
+}
 
 const ROOT = join(__dirname, "..", "..", "..");
 const REL = join(ROOT, "public", "data", "ai-comp", RELEASE_ID);
@@ -32,7 +49,35 @@ describe("release integrity", () => {
   it("records no failing quality checks and no private evidence", () => {
     expect(MANIFEST.quality_checks.filter((c) => c.status === "fail")).toEqual([]);
     expect(MANIFEST.privacy.private_evidence_included).toBe(false);
-    expect(MANIFEST.source.batch.status).toBe("complete");
+  });
+  it("ships from a batch that cleared the exporter's gate", () => {
+    expect(batchClearedGate(MANIFEST)).toBe(true);
+  });
+});
+
+describe("batch gate", () => {
+  type Status = "pass" | "warn" | "fail";
+  const release = (status: string, failed_boards: number, checks: Record<string, Status>) => ({
+    source: { ...MANIFEST.source, batch: { ...MANIFEST.source.batch, status, failed_boards } },
+    quality_checks: Object.entries(checks).map(([name, s]) => ({ name, status: s, detail: "" })),
+  });
+
+  it.each([
+    ["a complete batch from before the market check existed", release("complete", 0, { latest_batch_complete: "pass" })],
+    ["a complete batch", release("complete", 0, { latest_batch_complete: "pass", no_failed_board_in_a_market: "pass" })],
+    ["a partial batch whose failed boards are all in no market", release("partial", 2, { latest_batch_complete: "warn", no_failed_board_in_a_market: "pass" })],
+  ])("accepts %s", (_name, manifest) => {
+    expect(batchClearedGate(manifest)).toBe(true);
+  });
+
+  it.each([
+    ["an --allow-partial override past a failed market board", release("partial", 1, { latest_batch_complete: "warn", no_failed_board_in_a_market: "warn" })],
+    ["a partial batch with no market check", release("partial", 1, { latest_batch_complete: "warn" })],
+    ["a partial batch reporting no failed boards", release("partial", 0, { latest_batch_complete: "warn", no_failed_board_in_a_market: "pass" })],
+    ["a batch whose report write failed", release("report_failed", 1, { latest_batch_complete: "warn", no_failed_board_in_a_market: "pass" })],
+    ["a complete batch that lists failed boards", release("complete", 1, { latest_batch_complete: "pass" })],
+  ])("rejects %s", (_name, manifest) => {
+    expect(batchClearedGate(manifest)).toBe(false);
   });
 });
 

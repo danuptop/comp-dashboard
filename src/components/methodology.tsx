@@ -111,7 +111,8 @@ export function Methodology({ manifest }: { manifest: ReleaseManifest }) {
         <div className="text-xs leading-relaxed text-subtle">
           <p>
             Refresh: run <code className="text-muted">scripts/frontier_public_export.py</code> in uptop-crons against the monitor store and commit the new <code className="text-muted">public/data/ai-comp/</code> release. The
-            exporter refuses partial batches and failing checks, so a broken collection leaves this page on the last valid release.
+            exporter refuses any batch where a board in a market failed, and any failing check, so a broken collection leaves this page on the last valid release. A failed board in no market can’t change these
+            numbers, so it appears above as a warning.
           </p>
         </div>
       </div>
