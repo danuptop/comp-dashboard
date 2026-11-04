@@ -1,0 +1,5549 @@
+{
+ "schema_version": "1.0.0",
+ "markets": {
+  "ai": {
+   "label": "AI",
+   "definition": "AI-native companies: frontier labs, AI model developers, AI infrastructure & compute, AI hardware & silicon, applied-AI startups, and physical AI & robotics. Membership requires a reviewed cohort at medium or high confidence.",
+   "overall": {
+    "postings": 10046,
+    "employers": 153,
+    "with_posted_range": 5541,
+    "disclosure_coverage_pct": 55,
+    "usd_annual_eligible": 5174,
+    "eligible_employers": 112,
+    "posted_low": {
+     "n": 5174,
+     "min": 40000,
+     "p25": 151000,
+     "p50": 195350,
+     "p75": 240000,
+     "max": 570000
+    },
+    "posted_high": {
+     "n": 5174,
+     "min": 50000,
+     "p25": 220000,
+     "p50": 275000,
+     "p75": 350000,
+     "max": 850000
+    },
+    "posted_midpoint": {
+     "n": 5174,
+     "min": 45000,
+     "p25": 187500,
+     "p50": 237500,
+     "p75": 300000,
+     "max": 675000
+    },
+    "company_balanced_midpoint_p50": 220000,
+    "top_employer": {
+     "company_id": "ashby:openai",
+     "postings": 626,
+     "share_pct": 12
+    },
+    "employer_hhi": 416,
+    "meets_display_rule": true,
+    "posted_window": {
+     "min": "2016-02-08",
+     "max": "2026-11-03"
+    }
+   },
+   "by_role_family": {
+    "ai_infrastructure_engineer": {
+     "postings": 278,
+     "employers": 59,
+     "with_posted_range": 152,
+     "disclosure_coverage_pct": 55,
+     "usd_annual_eligible": 142,
+     "eligible_employers": 38,
+     "posted_low": {
+      "n": 142,
+      "min": 92000,
+      "p25": 175000,
+      "p50": 200000,
+      "p75": 248750,
+      "max": 500000
+     },
+     "posted_high": {
+      "n": 142,
+      "min": 135000,
+      "p25": 284750,
+      "p50": 350000,
+      "p75": 440000,
+      "max": 850000
+     },
+     "posted_midpoint": {
+      "n": 142,
+      "min": 113500,
+      "p25": 237750,
+      "p50": 270000,
+      "p75": 312500,
+      "max": 675000
+     },
+     "company_balanced_midpoint_p50": 254750,
+     "top_employer": {
+      "company_id": "greenhouse:anthropic",
+      "postings": 16,
+      "share_pct": 11
+     },
+     "employer_hhi": 533,
+     "meets_display_rule": true,
+     "posted_window": {
+      "min": "2023-10-28",
+      "max": "2026-11-02"
+     }
+    },
+    "applied_ai_engineer": {
+     "postings": 400,
+     "employers": 82,
+     "with_posted_range": 219,
+     "disclosure_coverage_pct": 55,
+     "usd_annual_eligible": 196,
+     "eligible_employers": 55,
+     "posted_low": {
+      "n": 196,
+      "min": 100000,
+      "p25": 180000,
+      "p50": 216500,
+      "p75": 250000,
+      "max": 500000
+     },
+     "posted_high": {
+      "n": 196,
+      "min": 160000,
+      "p25": 276000,
+      "p50": 317500,
+      "p75": 390000,
+      "max": 555000
+     },
+     "posted_midpoint": {
+      "n": 196,
+      "min": 137500,
+      "p25": 237500,
+      "p50": 277500,
+      "p75": 310000,
+      "max": 527500
+     },
+     "company_balanced_midpoint_p50": 250000,
+     "top_employer": {
+      "company_id": "ashby:openai",
+      "postings": 35,
+      "share_pct": 18
+     },
+     "employer_hhi": 672,
+     "meets_display_rule": true,
+     "posted_window": {
+      "min": "2022-06-29",
+      "max": "2026-11-03"
+     }
+    },
+    "business_operations": {
+     "postings": 1182,
+     "employers": 101,
+     "with_posted_range": 627,
+     "disclosure_coverage_pct": 53,
+     "usd_annual_eligible": 604,
+     "eligible_employers": 63,
+     "posted_low": {
+      "n": 604,
+      "min": 55000,
+      "p25": 140000,
+      "p50": 179000,
+      "p75": 216000,
+      "max": 405000
+     },
+     "posted_high": {
+      "n": 604,
+      "min": 84000,
+      "p25": 190750,
+      "p50": 239000,
+      "p75": 295000,
+      "max": 510000
+     },
+     "posted_midpoint": {
+      "n": 604,
+      "min": 74500,
+      "p25": 167500,
+      "p50": 212000,
+      "p75": 258125,
+      "max": 445000
+     },
+     "company_balanced_midpoint_p50": 187500,
+     "top_employer": {
+      "company_id": "ashby:fluidstack",
+      "postings": 79,
+      "share_pct": 13
+     },
+     "employer_hhi": 667,
+     "meets_display_rule": true,
+     "posted_window": {
+      "min": "2016-02-08",
+      "max": "2026-11-03"
+     }
+    },
+    "clinical": {
+     "postings": 15,
+     "employers": 8,
+     "with_posted_range": 6,
+     "disclosure_coverage_pct": 40,
+     "usd_annual_eligible": 4,
+     "eligible_employers": 4,
+     "posted_low": {
+      "n": 4,
+      "min": 143650,
+      "p25": 185913,
+      "p50": 225000,
+      "p75": 256250,
+      "max": 275000
+     },
+     "posted_high": {
+      "n": 4,
+      "min": 216580,
+      "p25": 241645,
+      "p50": 275000,
+      "p75": 306250,
+      "max": 325000
+     },
+     "posted_midpoint": {
+      "n": 4,
+      "min": 180115,
+      "p25": 213779,
+      "p50": 250000,
+      "p75": 281250,
+      "max": 300000
+     },
+     "company_balanced_midpoint_p50": 250000,
+     "top_employer": {
+      "company_id": "ashby:abridge",
+      "postings": 1,
+      "share_pct": 25
+     },
+     "employer_hhi": 2500,
+     "meets_display_rule": false,
+     "posted_window": {
+      "min": "2026-02-10",
+      "max": "2026-11-03"
+     }
+    },
+    "data_engineer": {
+     "postings": 81,
+     "employers": 47,
+     "with_posted_range": 51,
+     "disclosure_coverage_pct": 63,
+     "usd_annual_eligible": 50,
+     "eligible_employers": 31,
+     "posted_low": {
+      "n": 50,
+      "min": 125000,
+      "p25": 161250,
+      "p50": 183500,
+      "p75": 233750,
+      "max": 500000
+     },
+     "posted_high": {
+      "n": 50,
+      "min": 192000,
+      "p25": 252000,
+      "p50": 320000,
+      "p75": 400000,
+      "max": 850000
+     },
+     "posted_midpoint": {
+      "n": 50,
+      "min": 166750,
+      "p25": 213125,
+      "p50": 258000,
+      "p75": 311875,
+      "max": 675000
+     },
+     "company_balanced_midpoint_p50": 251500,
+     "top_employer": {
+      "company_id": "greenhouse:anthropic",
+      "postings": 6,
+      "share_pct": 12
+     },
+     "employer_hhi": 496,
+     "meets_display_rule": true,
+     "posted_window": {
+      "min": "2023-09-26",
+      "max": "2026-11-03"
+     }
+    },
+    "data_scientist": {
+     "postings": 116,
+     "employers": 43,
+     "with_posted_range": 64,
+     "disclosure_coverage_pct": 55,
+     "usd_annual_eligible": 60,
+     "eligible_employers": 26,
+     "posted_low": {
+      "n": 60,
+      "min": 75000,
+      "p25": 138150,
+      "p50": 195500,
+      "p75": 253250,
+      "max": 460000
+     },
+     "posted_high": {
+      "n": 60,
+      "min": 110000,
+      "p25": 199500,
+      "p50": 259000,
+      "p75": 376250,
+      "max": 515000
+     },
+     "posted_midpoint": {
+      "n": 60,
+      "min": 92500,
+      "p25": 178000,
+      "p50": 223675,
+      "p75": 305625,
+      "max": 460000
+     },
+     "company_balanced_midpoint_p50": 216500,
+     "top_employer": {
+      "company_id": "ashby:openai",
+      "postings": 10,
+      "share_pct": 17
+     },
+     "employer_hhi": 744,
+     "meets_display_rule": true,
+     "posted_window": {
+      "min": "2022-05-04",
+      "max": "2026-11-03"
+     }
+    },
+    "design": {
+     "postings": 113,
+     "employers": 55,
+     "with_posted_range": 72,
+     "disclosure_coverage_pct": 64,
+     "usd_annual_eligible": 68,
+     "eligible_employers": 36,
+     "posted_low": {
+      "n": 68,
+      "min": 90000,
+      "p25": 160000,
+      "p50": 180000,
+      "p75": 210500,
+      "max": 305000
+     },
+     "posted_high": {
+      "n": 68,
+      "min": 142500,
+      "p25": 220000,
+      "p50": 250650,
+      "p75": 299250,
+      "max": 460000
+     },
+     "posted_midpoint": {
+      "n": 68,
+      "min": 128750,
+      "p25": 187000,
+      "p50": 217500,
+      "p75": 255625,
+      "max": 382500
+     },
+     "company_balanced_midpoint_p50": 205000,
+     "top_employer": {
+      "company_id": "ashby:harvey",
+      "postings": 11,
+      "share_pct": 16
+     },
+     "employer_hhi": 675,
+     "meets_display_rule": true,
+     "posted_window": {
+      "min": "2024-07-17",
+      "max": "2026-11-03"
+     }
+    },
+    "developer_relations": {
+     "postings": 49,
+     "employers": 33,
+     "with_posted_range": 26,
+     "disclosure_coverage_pct": 53,
+     "usd_annual_eligible": 26,
+     "eligible_employers": 18,
+     "posted_low": {
+      "n": 26,
+      "min": 110000,
+      "p25": 166250,
+      "p50": 194000,
+      "p75": 219500,
+      "max": 405000
+     },
+     "posted_high": {
+      "n": 26,
+      "min": 190000,
+      "p25": 246000,
+      "p50": 286500,
+      "p75": 338750,
+      "max": 485000
+     },
+     "posted_midpoint": {
+      "n": 26,
+      "min": 150000,
+      "p25": 217250,
+      "p50": 240000,
+      "p75": 276625,
+      "max": 445000
+     },
+     "company_balanced_midpoint_p50": 228750,
+     "top_employer": {
+      "company_id": "greenhouse:anthropic",
+      "postings": 4,
+      "share_pct": 15
+     },
+     "employer_hhi": 740,
+     "meets_display_rule": true,
+     "posted_window": {
+      "min": "2025-09-04",
+      "max": "2026-11-02"
+     }
+    },
+    "forward_deployed_engineer": {
+     "postings": 267,
+     "employers": 62,
+     "with_posted_range": 114,
+     "disclosure_coverage_pct": 43,
+     "usd_annual_eligible": 95,
+     "eligible_employers": 42,
+     "posted_low": {
+      "n": 95,
+      "min": 112700,
+      "p25": 154000,
+      "p50": 180000,
+      "p75": 200000,
+      "max": 320000
+     },
+     "posted_high": {
+      "n": 95,
+      "min": 135000,
+      "p25": 232500,
+      "p50": 280000,
+      "p75": 320000,
+      "max": 415000
+     },
+     "posted_midpoint": {
+      "n": 95,
+      "min": 125000,
+      "p25": 202200,
+      "p50": 230000,
+      "p75": 261000,
+      "max": 362500
+     },
+     "company_balanced_midpoint_p50": 222500,
+     "top_employer": {
+      "company_id": "ashby:openai",
+      "postings": 16,
+      "share_pct": 17
+     },
+     "employer_hhi": 531,
+     "meets_display_rule": true,
+     "posted_window": {
+      "min": "2024-03-28",
+      "max": "2026-11-03"
+     }
+    },
+    "general_management": {
+     "postings": 11,
+     "employers": 9,
+     "with_posted_range": 5,
+     "disclosure_coverage_pct": 45,
+     "usd_annual_eligible": 5,
+     "eligible_employers": 4,
+     "posted_low": {
+      "n": 5,
+      "min": 150000,
+      "p25": 200000,
+      "p50": 364000,
+      "p75": 500000,
+      "max": 500000
+     },
+     "posted_high": {
+      "n": 5,
+      "min": 230000,
+      "p25": 250000,
+      "p50": 440000,
+      "p75": 520000,
+      "max": 520000
+     },
+     "posted_midpoint": {
+      "n": 5,
+      "min": 190000,
+      "p25": 225000,
+      "p50": 402000,
+      "p75": 510000,
+      "max": 510000
+     },
+     "company_balanced_midpoint_p50": 313500,
+     "top_employer": {
+      "company_id": "ashby:sierra",
+      "postings": 2,
+      "share_pct": 40
+     },
+     "employer_hhi": 2800,
+     "meets_display_rule": false,
+     "posted_window": {
+      "min": "2026-03-11",
+      "max": "2026-11-03"
+     }
+    },
+    "gtm_sales": {
+     "postings": 1414,
+     "employers": 130,
+     "with_posted_range": 720,
+     "disclosure_coverage_pct": 51,
+     "usd_annual_eligible": 653,
+     "eligible_employers": 88,
+     "posted_low": {
+      "n": 653,
+      "min": 60000,
+      "p25": 150000,
+      "p50": 215000,
+      "p75": 284000,
+      "max": 560000
+     },
+     "posted_high": {
+      "n": 653,
+      "min": 65000,
+      "p25": 200000,
+      "p50": 275000,
+      "p75": 350000,
+      "max": 750000
+     },
+     "posted_midpoint": {
+      "n": 653,
+      "min": 62500,
+      "p25": 178500,
+      "p50": 240000,
+      "p75": 318000,
+      "max": 650000
+     },
+     "company_balanced_midpoint_p50": 216000,
+     "top_employer": {
+      "company_id": "greenhouse:anthropic",
+      "postings": 80,
+      "share_pct": 12
+     },
+     "employer_hhi": 378,
+     "meets_display_rule": true,
+     "posted_window": {
+      "min": "2024-03-27",
+      "max": "2026-11-03"
+     }
+    },
+    "hardware_silicon_engineer": {
+     "postings": 563,
+     "employers": 35,
+     "with_posted_range": 327,
+     "disclosure_coverage_pct": 58,
+     "usd_annual_eligible": 321,
+     "eligible_employers": 22,
+     "posted_low": {
+      "n": 321,
+      "min": 90000,
+      "p25": 140000,
+      "p50": 175000,
+      "p75": 217000,
+      "max": 500000
+     },
+     "posted_high": {
+      "n": 321,
+      "min": 105000,
+      "p25": 223000,
+      "p50": 271000,
+      "p75": 386000,
+      "max": 850000
+     },
+     "posted_midpoint": {
+      "n": 321,
+      "min": 100000,
+      "p25": 187000,
+      "p50": 235000,
+      "p75": 300000,
+      "max": 675000
+     },
+     "company_balanced_midpoint_p50": 212625,
+     "top_employer": {
+      "company_id": "ashby:openai",
+      "postings": 45,
+      "share_pct": 14
+     },
+     "employer_hhi": 823,
+     "meets_display_rule": true,
+     "posted_window": {
+      "min": "2023-10-25",
+      "max": "2026-11-03"
+     }
+    },
+    "legal_finance": {
+     "postings": 641,
+     "employers": 85,
+     "with_posted_range": 400,
+     "disclosure_coverage_pct": 62,
+     "usd_annual_eligible": 394,
+     "eligible_employers": 57,
+     "posted_low": {
+      "n": 394,
+      "min": 40000,
+      "p25": 140000,
+      "p50": 190000,
+      "p75": 234000,
+      "max": 570000
+     },
+     "posted_high": {
+      "n": 394,
+      "min": 50000,
+      "p25": 186000,
+      "p50": 244500,
+      "p75": 300000,
+      "max": 610000
+     },
+     "posted_midpoint": {
+      "n": 394,
+      "min": 45000,
+      "p25": 170000,
+      "p50": 222750,
+      "p75": 270000,
+      "max": 590000
+     },
+     "company_balanced_midpoint_p50": 212500,
+     "top_employer": {
+      "company_id": "greenhouse:anthropic",
+      "postings": 65,
+      "share_pct": 16
+     },
+     "employer_hhi": 689,
+     "meets_display_rule": true,
+     "posted_window": {
+      "min": "2023-12-18",
+      "max": "2026-11-03"
+     }
+    },
+    "marketing": {
+     "postings": 518,
+     "employers": 107,
+     "with_posted_range": 296,
+     "disclosure_coverage_pct": 57,
+     "usd_annual_eligible": 289,
+     "eligible_employers": 64,
+     "posted_low": {
+      "n": 289,
+      "min": 80000,
+      "p25": 150000,
+      "p50": 175000,
+      "p75": 210000,
+      "max": 400000
+     },
+     "posted_high": {
+      "n": 289,
+      "min": 107000,
+      "p25": 190000,
+      "p50": 225000,
+      "p75": 266000,
+      "max": 415000
+     },
+     "posted_midpoint": {
+      "n": 289,
+      "min": 94500,
+      "p25": 170000,
+      "p50": 204306,
+      "p75": 241000,
+      "max": 400000
+     },
+     "company_balanced_midpoint_p50": 188750,
+     "top_employer": {
+      "company_id": "ashby:openai",
+      "postings": 31,
+      "share_pct": 11
+     },
+     "employer_hhi": 428,
+     "meets_display_rule": true,
+     "posted_window": {
+      "min": "2024-10-21",
+      "max": "2026-11-03"
+     }
+    },
+    "other": {
+     "postings": 340,
+     "employers": 65,
+     "with_posted_range": 145,
+     "disclosure_coverage_pct": 43,
+     "usd_annual_eligible": 129,
+     "eligible_employers": 32,
+     "posted_low": {
+      "n": 129,
+      "min": 70000,
+      "p25": 115000,
+      "p50": 160000,
+      "p75": 200800,
+      "max": 347000
+     },
+     "posted_high": {
+      "n": 129,
+      "min": 90000,
+      "p25": 170000,
+      "p50": 225000,
+      "p75": 285000,
+      "max": 500000
+     },
+     "posted_midpoint": {
+      "n": 129,
+      "min": 80000,
+      "p25": 150000,
+      "p50": 197500,
+      "p75": 240000,
+      "max": 389000
+     },
+     "company_balanced_midpoint_p50": 189250,
+     "top_employer": {
+      "company_id": "ashby:harvey",
+      "postings": 17,
+      "share_pct": 13
+     },
+     "employer_hhi": 719,
+     "meets_display_rule": true,
+     "posted_window": {
+      "min": "2022-02-08",
+      "max": "2026-11-03"
+     }
+    },
+    "people_recruiting": {
+     "postings": 440,
+     "employers": 78,
+     "with_posted_range": 239,
+     "disclosure_coverage_pct": 54,
+     "usd_annual_eligible": 230,
+     "eligible_employers": 51,
+     "posted_low": {
+      "n": 230,
+      "min": 54000,
+      "p25": 125000,
+      "p50": 150000,
+      "p75": 177250,
+      "max": 405000
+     },
+     "posted_high": {
+      "n": 230,
+      "min": 84000,
+      "p25": 180000,
+      "p50": 204000,
+      "p75": 240000,
+      "max": 500000
+     },
+     "posted_midpoint": {
+      "n": 230,
+      "min": 69000,
+      "p25": 150000,
+      "p50": 180000,
+      "p75": 206600,
+      "max": 445000
+     },
+     "company_balanced_midpoint_p50": 180000,
+     "top_employer": {
+      "company_id": "ashby:harvey",
+      "postings": 19,
+      "share_pct": 8
+     },
+     "employer_hhi": 388,
+     "meets_display_rule": true,
+     "posted_window": {
+      "min": "2023-08-01",
+      "max": "2026-11-03"
+     }
+    },
+    "product_manager": {
+     "postings": 295,
+     "employers": 81,
+     "with_posted_range": 190,
+     "disclosure_coverage_pct": 64,
+     "usd_annual_eligible": 168,
+     "eligible_employers": 51,
+     "posted_low": {
+      "n": 168,
+      "min": 120000,
+      "p25": 179250,
+      "p50": 200000,
+      "p75": 246050,
+      "max": 401000
+     },
+     "posted_high": {
+      "n": 168,
+      "min": 175000,
+      "p25": 266500,
+      "p50": 290000,
+      "p75": 338000,
+      "max": 540000
+     },
+     "posted_midpoint": {
+      "n": 168,
+      "min": 157500,
+      "p25": 225000,
+      "p50": 245000,
+      "p75": 285000,
+      "max": 465500
+     },
+     "company_balanced_midpoint_p50": 233000,
+     "top_employer": {
+      "company_id": "greenhouse:anthropic",
+      "postings": 18,
+      "share_pct": 11
+     },
+     "employer_hhi": 480,
+     "meets_display_rule": true,
+     "posted_window": {
+      "min": "2025-02-05",
+      "max": "2026-11-03"
+     }
+    },
+    "research_engineer": {
+     "postings": 219,
+     "employers": 59,
+     "with_posted_range": 109,
+     "disclosure_coverage_pct": 50,
+     "usd_annual_eligible": 93,
+     "eligible_employers": 35,
+     "posted_low": {
+      "n": 93,
+      "min": 100000,
+      "p25": 187000,
+      "p50": 210000,
+      "p75": 315000,
+      "max": 500000
+     },
+     "posted_high": {
+      "n": 93,
+      "min": 220000,
+      "p25": 300000,
+      "p50": 400000,
+      "p75": 500000,
+      "max": 850000
+     },
+     "posted_midpoint": {
+      "n": 93,
+      "min": 200000,
+      "p25": 265000,
+      "p50": 300000,
+      "p75": 396000,
+      "max": 675000
+     },
+     "company_balanced_midpoint_p50": 265000,
+     "top_employer": {
+      "company_id": "greenhouse:anthropic",
+      "postings": 20,
+      "share_pct": 22
+     },
+     "employer_hhi": 762,
+     "meets_display_rule": true,
+     "posted_window": {
+      "min": "2023-12-28",
+      "max": "2026-11-03"
+     }
+    },
+    "research_scientist": {
+     "postings": 262,
+     "employers": 63,
+     "with_posted_range": 127,
+     "disclosure_coverage_pct": 48,
+     "usd_annual_eligible": 111,
+     "eligible_employers": 33,
+     "posted_low": {
+      "n": 111,
+      "min": 150000,
+      "p25": 200000,
+      "p50": 250000,
+      "p75": 380000,
+      "max": 500000
+     },
+     "posted_high": {
+      "n": 111,
+      "min": 195000,
+      "p25": 320000,
+      "p50": 419760,
+      "p75": 500000,
+      "max": 850000
+     },
+     "posted_midpoint": {
+      "n": 111,
+      "min": 185500,
+      "p25": 272500,
+      "p50": 330000,
+      "p75": 440000,
+      "max": 675000
+     },
+     "company_balanced_midpoint_p50": 265000,
+     "top_employer": {
+      "company_id": "ashby:openai",
+      "postings": 33,
+      "share_pct": 30
+     },
+     "employer_hhi": 1265,
+     "meets_display_rule": true,
+     "posted_window": {
+      "min": "2021-05-13",
+      "max": "2026-11-03"
+     }
+    },
+    "security_engineer": {
+     "postings": 333,
+     "employers": 74,
+     "with_posted_range": 227,
+     "disclosure_coverage_pct": 68,
+     "usd_annual_eligible": 220,
+     "eligible_employers": 47,
+     "posted_low": {
+      "n": 220,
+      "min": 50000,
+      "p25": 180000,
+      "p50": 222000,
+      "p75": 280000,
+      "max": 485000
+     },
+     "posted_high": {
+      "n": 220,
+      "min": 50000,
+      "p25": 258000,
+      "p50": 325000,
+      "p75": 400000,
+      "max": 625000
+     },
+     "posted_midpoint": {
+      "n": 220,
+      "min": 50000,
+      "p25": 212000,
+      "p50": 265000,
+      "p75": 332500,
+      "max": 555000
+     },
+     "company_balanced_midpoint_p50": 240000,
+     "top_employer": {
+      "company_id": "greenhouse:anthropic",
+      "postings": 50,
+      "share_pct": 23
+     },
+     "employer_hhi": 819,
+     "meets_display_rule": true,
+     "posted_window": {
+      "min": "2024-09-04",
+      "max": "2026-11-03"
+     }
+    },
+    "skilled_trades_facilities": {
+     "postings": 135,
+     "employers": 16,
+     "with_posted_range": 26,
+     "disclosure_coverage_pct": 19,
+     "usd_annual_eligible": 26,
+     "eligible_employers": 9,
+     "posted_low": {
+      "n": 26,
+      "min": 65000,
+      "p25": 65000,
+      "p50": 86600,
+      "p75": 118750,
+      "max": 169000
+     },
+     "posted_high": {
+      "n": 26,
+      "min": 83000,
+      "p25": 85000,
+      "p50": 101300,
+      "p75": 169750,
+      "max": 350000
+     },
+     "posted_midpoint": {
+      "n": 26,
+      "min": 74000,
+      "p25": 75000,
+      "p50": 93260,
+      "p75": 157500,
+      "max": 250000
+     },
+     "company_balanced_midpoint_p50": 120000,
+     "top_employer": {
+      "company_id": "greenhouse:coreweave",
+      "postings": 9,
+      "share_pct": 35
+     },
+     "employer_hhi": 1953,
+     "meets_display_rule": true,
+     "posted_window": {
+      "min": "2024-08-08",
+      "max": "2026-10-30"
+     }
+    },
+    "software_engineer": {
+     "postings": 1567,
+     "employers": 133,
+     "with_posted_range": 992,
+     "disclosure_coverage_pct": 63,
+     "usd_annual_eligible": 941,
+     "eligible_employers": 85,
+     "posted_low": {
+      "n": 941,
+      "min": 40000,
+      "p25": 177000,
+      "p50": 208000,
+      "p75": 266000,
+      "max": 510000
+     },
+     "posted_high": {
+      "n": 941,
+      "min": 50000,
+      "p25": 250000,
+      "p50": 315000,
+      "p75": 405000,
+      "max": 850000
+     },
+     "posted_midpoint": {
+      "n": 941,
+      "min": 45000,
+      "p25": 219000,
+      "p50": 267500,
+      "p75": 320500,
+      "max": 627500
+     },
+     "company_balanced_midpoint_p50": 240000,
+     "top_employer": {
+      "company_id": "ashby:openai",
+      "postings": 153,
+      "share_pct": 16
+     },
+     "employer_hhi": 518,
+     "meets_display_rule": true,
+     "posted_window": {
+      "min": "2022-04-08",
+      "max": "2026-11-03"
+     }
+    },
+    "solutions_engineer": {
+     "postings": 807,
+     "employers": 101,
+     "with_posted_range": 407,
+     "disclosure_coverage_pct": 50,
+     "usd_annual_eligible": 349,
+     "eligible_employers": 66,
+     "posted_low": {
+      "n": 349,
+      "min": 72000,
+      "p25": 145000,
+      "p50": 182000,
+      "p75": 220000,
+      "max": 365000
+     },
+     "posted_high": {
+      "n": 349,
+      "min": 95000,
+      "p25": 200000,
+      "p50": 242000,
+      "p75": 290000,
+      "max": 500000
+     },
+     "posted_midpoint": {
+      "n": 349,
+      "min": 83500,
+      "p25": 172950,
+      "p50": 212000,
+      "p75": 256500,
+      "max": 400000
+     },
+     "company_balanced_midpoint_p50": 194100,
+     "top_employer": {
+      "company_id": "greenhouse:coreweave",
+      "postings": 36,
+      "share_pct": 10
+     },
+     "employer_hhi": 498,
+     "meets_display_rule": true,
+     "posted_window": {
+      "min": "2024-01-28",
+      "max": "2026-11-03"
+     }
+    }
+   },
+   "by_cohort": {
+    "ai_hardware_silicon": {
+     "postings": 513,
+     "employers": 6,
+     "with_posted_range": 208,
+     "disclosure_coverage_pct": 41,
+     "usd_annual_eligible": 202,
+     "eligible_employers": 4,
+     "posted_low": {
+      "n": 202,
+      "min": 100000,
+      "p25": 100000,
+      "p50": 150000,
+      "p75": 196000,
+      "max": 274000
+     },
+     "posted_high": {
+      "n": 202,
+      "min": 140000,
+      "p25": 255000,
+      "p50": 350000,
+      "p75": 500000,
+      "max": 500000
+     },
+     "posted_midpoint": {
+      "n": 202,
+      "min": 125000,
+      "p25": 218000,
+      "p50": 275000,
+      "p75": 300000,
+      "max": 325000
+     },
+     "company_balanced_midpoint_p50": 263556,
+     "top_employer": {
+      "company_id": "greenhouse:tenstorrent",
+      "postings": 68,
+      "share_pct": 34
+     },
+     "employer_hhi": 2703,
+     "meets_display_rule": false,
+     "posted_window": {
+      "min": "2023-10-25",
+      "max": "2026-11-03"
+     }
+    },
+    "ai_infrastructure_compute": {
+     "postings": 2390,
+     "employers": 38,
+     "with_posted_range": 1310,
+     "disclosure_coverage_pct": 55,
+     "usd_annual_eligible": 1264,
+     "eligible_employers": 27,
+     "posted_low": {
+      "n": 1264,
+      "min": 50000,
+      "p25": 150000,
+      "p50": 179500,
+      "p75": 208000,
+      "max": 400000
+     },
+     "posted_high": {
+      "n": 1264,
+      "min": 50000,
+      "p25": 200000,
+      "p50": 242000,
+      "p75": 300000,
+      "max": 540000
+     },
+     "posted_midpoint": {
+      "n": 1264,
+      "min": 50000,
+      "p25": 176500,
+      "p50": 212000,
+      "p75": 250000,
+      "max": 452500
+     },
+     "company_balanced_midpoint_p50": 220000,
+     "top_employer": {
+      "company_id": "greenhouse:coreweave",
+      "postings": 277,
+      "share_pct": 22
+     },
+     "employer_hhi": 1142,
+     "meets_display_rule": true,
+     "posted_window": {
+      "min": "2024-01-16",
+      "max": "2026-11-03"
+     }
+    },
+    "ai_model_developer": {
+     "postings": 722,
+     "employers": 26,
+     "with_posted_range": 252,
+     "disclosure_coverage_pct": 35,
+     "usd_annual_eligible": 245,
+     "eligible_employers": 16,
+     "posted_low": {
+      "n": 245,
+      "min": 80000,
+      "p25": 160000,
+      "p50": 188000,
+      "p75": 220000,
+      "max": 400000
+     },
+     "posted_high": {
+      "n": 245,
+      "min": 95000,
+      "p25": 220000,
+      "p50": 268000,
+      "p75": 350000,
+      "max": 600000
+     },
+     "posted_midpoint": {
+      "n": 245,
+      "min": 90000,
+      "p25": 187500,
+      "p50": 231500,
+      "p75": 285000,
+      "max": 500000
+     },
+     "company_balanced_midpoint_p50": 220000,
+     "top_employer": {
+      "company_id": "ashby:suno",
+      "postings": 65,
+      "share_pct": 27
+     },
+     "employer_hhi": 1513,
+     "meets_display_rule": true,
+     "posted_window": {
+      "min": "2022-02-08",
+      "max": "2026-11-03"
+     }
+    },
+    "applied_ai": {
+     "postings": 3260,
+     "employers": 67,
+     "with_posted_range": 1906,
+     "disclosure_coverage_pct": 58,
+     "usd_annual_eligible": 1708,
+     "eligible_employers": 54,
+     "posted_low": {
+      "n": 1708,
+      "min": 40000,
+      "p25": 150000,
+      "p50": 180000,
+      "p75": 220000,
+      "max": 500000
+     },
+     "posted_high": {
+      "n": 1708,
+      "min": 50000,
+      "p25": 200000,
+      "p50": 250000,
+      "p75": 300000,
+      "max": 520000
+     },
+     "posted_midpoint": {
+      "n": 1708,
+      "min": 45000,
+      "p25": 175000,
+      "p50": 215000,
+      "p75": 262625,
+      "max": 510000
+     },
+     "company_balanced_midpoint_p50": 213750,
+     "top_employer": {
+      "company_id": "ashby:harvey",
+      "postings": 260,
+      "share_pct": 15
+     },
+     "employer_hhi": 572,
+     "meets_display_rule": true,
+     "posted_window": {
+      "min": "2022-04-08",
+      "max": "2026-11-03"
+     }
+    },
+    "frontier_lab": {
+     "postings": 2327,
+     "employers": 7,
+     "with_posted_range": 1379,
+     "disclosure_coverage_pct": 59,
+     "usd_annual_eligible": 1273,
+     "eligible_employers": 5,
+     "posted_low": {
+      "n": 1273,
+      "min": 55000,
+      "p25": 216000,
+      "p50": 266000,
+      "p75": 320000,
+      "max": 570000
+     },
+     "posted_high": {
+      "n": 1273,
+      "min": 95000,
+      "p25": 295000,
+      "p50": 380000,
+      "p75": 445000,
+      "max": 850000
+     },
+     "posted_midpoint": {
+      "n": 1273,
+      "min": 82500,
+      "p25": 259000,
+      "p50": 317500,
+      "p75": 376000,
+      "max": 675000
+     },
+     "company_balanced_midpoint_p50": 307500,
+     "top_employer": {
+      "company_id": "ashby:openai",
+      "postings": 626,
+      "share_pct": 49
+     },
+     "employer_hhi": 4218,
+     "meets_display_rule": true,
+     "posted_window": {
+      "min": "2023-05-25",
+      "max": "2026-11-03"
+     }
+    },
+    "physical_ai_robotics": {
+     "postings": 834,
+     "employers": 9,
+     "with_posted_range": 486,
+     "disclosure_coverage_pct": 58,
+     "usd_annual_eligible": 482,
+     "eligible_employers": 6,
+     "posted_low": {
+      "n": 482,
+      "min": 54000,
+      "p25": 150000,
+      "p50": 186500,
+      "p75": 217750,
+      "max": 500000
+     },
+     "posted_high": {
+      "n": 482,
+      "min": 84000,
+      "p25": 210250,
+      "p50": 250000,
+      "p75": 300000,
+      "max": 600000
+     },
+     "posted_midpoint": {
+      "n": 482,
+      "min": 69000,
+      "p25": 182125,
+      "p50": 219000,
+      "p75": 254500,
+      "max": 550000
+     },
+     "company_balanced_midpoint_p50": 202500,
+     "top_employer": {
+      "company_id": "lever:zoox",
+      "postings": 203,
+      "share_pct": 42
+     },
+     "employer_hhi": 2620,
+     "meets_display_rule": true,
+     "posted_window": {
+      "min": "2016-02-08",
+      "max": "2026-11-03"
+     }
+    }
+   },
+   "by_level": {
+    "director": {
+     "postings": 352,
+     "employers": 60,
+     "with_posted_range": 212,
+     "disclosure_coverage_pct": 60,
+     "usd_annual_eligible": 193,
+     "eligible_employers": 44,
+     "posted_low": {
+      "n": 193,
+      "min": 100000,
+      "p25": 189000,
+      "p50": 230000,
+      "p75": 280000,
+      "max": 431800
+     },
+     "posted_high": {
+      "n": 193,
+      "min": 160000,
+      "p25": 250000,
+      "p50": 300000,
+      "p75": 373400,
+      "max": 540000
+     },
+     "posted_midpoint": {
+      "n": 193,
+      "min": 140000,
+      "p25": 222000,
+      "p50": 265000,
+      "p75": 325000,
+      "max": 469900
+     },
+     "company_balanced_midpoint_p50": 265000,
+     "top_employer": {
+      "company_id": "ashby:openai",
+      "postings": 21,
+      "share_pct": 11
+     },
+     "employer_hhi": 475,
+     "meets_display_rule": true,
+     "posted_window": {
+      "min": "2024-09-19",
+      "max": "2026-11-03"
+     }
+    },
+    "executive": {
+     "postings": 91,
+     "employers": 46,
+     "with_posted_range": 36,
+     "disclosure_coverage_pct": 40,
+     "usd_annual_eligible": 34,
+     "eligible_employers": 22,
+     "posted_low": {
+      "n": 34,
+      "min": 140000,
+      "p25": 192500,
+      "p50": 260000,
+      "p75": 317750,
+      "max": 560000
+     },
+     "posted_high": {
+      "n": 34,
+      "min": 170000,
+      "p25": 260750,
+      "p50": 310000,
+      "p75": 399750,
+      "max": 675000
+     },
+     "posted_midpoint": {
+      "n": 34,
+      "min": 155000,
+      "p25": 230000,
+      "p50": 285000,
+      "p75": 357000,
+      "max": 617500
+     },
+     "company_balanced_midpoint_p50": 291250,
+     "top_employer": {
+      "company_id": "ashby:fluidstack",
+      "postings": 5,
+      "share_pct": 15
+     },
+     "employer_hhi": 623,
+     "meets_display_rule": true,
+     "posted_window": {
+      "min": "2025-01-17",
+      "max": "2026-11-03"
+     }
+    },
+    "head_of": {
+     "postings": 174,
+     "employers": 74,
+     "with_posted_range": 100,
+     "disclosure_coverage_pct": 57,
+     "usd_annual_eligible": 90,
+     "eligible_employers": 45,
+     "posted_low": {
+      "n": 90,
+      "min": 110000,
+      "p25": 200000,
+      "p50": 244500,
+      "p75": 300000,
+      "max": 570000
+     },
+     "posted_high": {
+      "n": 90,
+      "min": 180000,
+      "p25": 260263,
+      "p50": 300000,
+      "p75": 373500,
+      "max": 750000
+     },
+     "posted_midpoint": {
+      "n": 90,
+      "min": 170000,
+      "p25": 234750,
+      "p50": 275000,
+      "p75": 333750,
+      "max": 650000
+     },
+     "company_balanced_midpoint_p50": 255000,
+     "top_employer": {
+      "company_id": "ashby:fireworks",
+      "postings": 9,
+      "share_pct": 10
+     },
+     "employer_hhi": 417,
+     "meets_display_rule": true,
+     "posted_window": {
+      "min": "2023-08-01",
+      "max": "2026-11-03"
+     }
+    },
+    "intern": {
+     "postings": 117,
+     "employers": 40,
+     "with_posted_range": 21,
+     "disclosure_coverage_pct": 18,
+     "usd_annual_eligible": 0,
+     "eligible_employers": 0,
+     "posted_low": null,
+     "posted_high": null,
+     "posted_midpoint": null,
+     "company_balanced_midpoint_p50": null,
+     "top_employer": null,
+     "employer_hhi": null,
+     "meets_display_rule": false,
+     "posted_window": {
+      "min": "2023-11-09",
+      "max": "2026-11-02"
+     }
+    },
+    "junior": {
+     "postings": 140,
+     "employers": 44,
+     "with_posted_range": 69,
+     "disclosure_coverage_pct": 49,
+     "usd_annual_eligible": 65,
+     "eligible_employers": 27,
+     "posted_low": {
+      "n": 65,
+      "min": 65000,
+      "p25": 110000,
+      "p50": 120000,
+      "p75": 145000,
+      "max": 225000
+     },
+     "posted_high": {
+      "n": 65,
+      "min": 70000,
+      "p25": 130000,
+      "p50": 159500,
+      "p75": 196200,
+      "max": 330000
+     },
+     "posted_midpoint": {
+      "n": 65,
+      "min": 70000,
+      "p25": 125000,
+      "p50": 140000,
+      "p75": 165000,
+      "max": 277500
+     },
+     "company_balanced_midpoint_p50": 140000,
+     "top_employer": {
+      "company_id": "greenhouse:sambanovasystems",
+      "postings": 9,
+      "share_pct": 14
+     },
+     "employer_hhi": 675,
+     "meets_display_rule": true,
+     "posted_window": {
+      "min": "2025-06-20",
+      "max": "2026-11-03"
+     }
+    },
+    "lead": {
+     "postings": 657,
+     "employers": 105,
+     "with_posted_range": 386,
+     "disclosure_coverage_pct": 59,
+     "usd_annual_eligible": 375,
+     "eligible_employers": 64,
+     "posted_low": {
+      "n": 375,
+      "min": 80000,
+      "p25": 164000,
+      "p50": 200000,
+      "p75": 255000,
+      "max": 410000
+     },
+     "posted_high": {
+      "n": 375,
+      "min": 102000,
+      "p25": 225000,
+      "p50": 275000,
+      "p75": 334500,
+      "max": 600000
+     },
+     "posted_midpoint": {
+      "n": 375,
+      "min": 92500,
+      "p25": 195450,
+      "p50": 240000,
+      "p75": 299500,
+      "max": 500000
+     },
+     "company_balanced_midpoint_p50": 205000,
+     "top_employer": {
+      "company_id": "ashby:openai",
+      "postings": 79,
+      "share_pct": 21
+     },
+     "employer_hhi": 767,
+     "meets_display_rule": true,
+     "posted_window": {
+      "min": "2025-02-17",
+      "max": "2026-11-03"
+     }
+    },
+    "manager": {
+     "postings": 1902,
+     "employers": 117,
+     "with_posted_range": 1175,
+     "disclosure_coverage_pct": 62,
+     "usd_annual_eligible": 1129,
+     "eligible_employers": 77,
+     "posted_low": {
+      "n": 1129,
+      "min": 65000,
+      "p25": 150000,
+      "p50": 180000,
+      "p75": 230000,
+      "max": 510000
+     },
+     "posted_high": {
+      "n": 1129,
+      "min": 95000,
+      "p25": 200000,
+      "p50": 242000,
+      "p75": 310000,
+      "max": 850000
+     },
+     "posted_midpoint": {
+      "n": 1129,
+      "min": 83500,
+      "p25": 175000,
+      "p50": 215500,
+      "p75": 275000,
+      "max": 675000
+     },
+     "company_balanced_midpoint_p50": 205000,
+     "top_employer": {
+      "company_id": "greenhouse:anthropic",
+      "postings": 147,
+      "share_pct": 13
+     },
+     "employer_hhi": 502,
+     "meets_display_rule": true,
+     "posted_window": {
+      "min": "2024-03-25",
+      "max": "2026-11-03"
+     }
+    },
+    "principal": {
+     "postings": 84,
+     "employers": 24,
+     "with_posted_range": 49,
+     "disclosure_coverage_pct": 58,
+     "usd_annual_eligible": 48,
+     "eligible_employers": 17,
+     "posted_low": {
+      "n": 48,
+      "min": 145000,
+      "p25": 206000,
+      "p50": 222500,
+      "p75": 320000,
+      "max": 500000
+     },
+     "posted_high": {
+      "n": 48,
+      "min": 200000,
+      "p25": 267750,
+      "p50": 303000,
+      "p75": 442175,
+      "max": 600000
+     },
+     "posted_midpoint": {
+      "n": 48,
+      "min": 186000,
+      "p25": 237250,
+      "p50": 260000,
+      "p75": 393588,
+      "max": 550000
+     },
+     "company_balanced_midpoint_p50": 254500,
+     "top_employer": {
+      "company_id": "greenhouse:sambanovasystems",
+      "postings": 11,
+      "share_pct": 23
+     },
+     "employer_hhi": 1163,
+     "meets_display_rule": true,
+     "posted_window": {
+      "min": "2025-07-28",
+      "max": "2026-11-03"
+     }
+    },
+    "senior": {
+     "postings": 914,
+     "employers": 104,
+     "with_posted_range": 526,
+     "disclosure_coverage_pct": 58,
+     "usd_annual_eligible": 498,
+     "eligible_employers": 66,
+     "posted_low": {
+      "n": 498,
+      "min": 40000,
+      "p25": 152000,
+      "p50": 180000,
+      "p75": 200000,
+      "max": 330000
+     },
+     "posted_high": {
+      "n": 498,
+      "min": 50000,
+      "p25": 205750,
+      "p50": 240000,
+      "p75": 280000,
+      "max": 600000
+     },
+     "posted_midpoint": {
+      "n": 498,
+      "min": 50000,
+      "p25": 180000,
+      "p50": 210000,
+      "p75": 240375,
+      "max": 402500
+     },
+     "company_balanced_midpoint_p50": 212000,
+     "top_employer": {
+      "company_id": "greenhouse:coreweave",
+      "postings": 84,
+      "share_pct": 17
+     },
+     "employer_hhi": 539,
+     "meets_display_rule": true,
+     "posted_window": {
+      "min": "2024-03-08",
+      "max": "2026-11-03"
+     }
+    },
+    "staff": {
+     "postings": 552,
+     "employers": 62,
+     "with_posted_range": 367,
+     "disclosure_coverage_pct": 66,
+     "usd_annual_eligible": 354,
+     "eligible_employers": 46,
+     "posted_low": {
+      "n": 354,
+      "min": 100000,
+      "p25": 200000,
+      "p50": 231000,
+      "p75": 320000,
+      "max": 500000
+     },
+     "posted_high": {
+      "n": 354,
+      "min": 165000,
+      "p25": 280000,
+      "p50": 340000,
+      "p75": 465000,
+      "max": 850000
+     },
+     "posted_midpoint": {
+      "n": 354,
+      "min": 148000,
+      "p25": 245375,
+      "p50": 285500,
+      "p75": 364726,
+      "max": 675000
+     },
+     "company_balanced_midpoint_p50": 253500,
+     "top_employer": {
+      "company_id": "greenhouse:anthropic",
+      "postings": 87,
+      "share_pct": 25
+     },
+     "employer_hhi": 981,
+     "meets_display_rule": true,
+     "posted_window": {
+      "min": "2023-02-11",
+      "max": "2026-11-03"
+     }
+    },
+    "unspecified": {
+     "postings": 5063,
+     "employers": 152,
+     "with_posted_range": 2600,
+     "disclosure_coverage_pct": 51,
+     "usd_annual_eligible": 2388,
+     "eligible_employers": 106,
+     "posted_low": {
+      "n": 2388,
+      "min": 40000,
+      "p25": 150000,
+      "p50": 189000,
+      "p75": 240000,
+      "max": 500000
+     },
+     "posted_high": {
+      "n": 2388,
+      "min": 50000,
+      "p25": 220000,
+      "p50": 285000,
+      "p75": 385000,
+      "max": 850000
+     },
+     "posted_midpoint": {
+      "n": 2388,
+      "min": 45000,
+      "p25": 187500,
+      "p50": 244925,
+      "p75": 300000,
+      "max": 675000
+     },
+     "company_balanced_midpoint_p50": 220000,
+     "top_employer": {
+      "company_id": "ashby:openai",
+      "postings": 385,
+      "share_pct": 16
+     },
+     "employer_hhi": 490,
+     "meets_display_rule": true,
+     "posted_window": {
+      "min": "2016-02-08",
+      "max": "2026-11-03"
+     }
+    }
+   },
+   "companies": [
+    {
+     "company_id": "ashby:openai",
+     "company": "OpenAI",
+     "cohort": "frontier_lab",
+     "open_postings": 809,
+     "usd_annual_eligible": 626,
+     "share_of_market_eligible_pct": 12,
+     "posted_low_p50": 252000,
+     "posted_high_p50": 365000,
+     "posted_midpoint_p50": 307500,
+     "top_role_families": [
+      "software_engineer",
+      "gtm_sales",
+      "business_operations"
+     ]
+    },
+    {
+     "company_id": "greenhouse:anthropic",
+     "company": "Anthropic",
+     "cohort": "frontier_lab",
+     "open_postings": 681,
+     "usd_annual_eligible": 533,
+     "share_of_market_eligible_pct": 10,
+     "posted_low_p50": 305000,
+     "posted_high_p50": 385000,
+     "posted_midpoint_p50": 352500,
+     "top_role_families": [
+      "gtm_sales",
+      "software_engineer",
+      "business_operations"
+     ]
+    },
+    {
+     "company_id": "greenhouse:coreweave",
+     "company": "CoreWeave",
+     "cohort": "ai_infrastructure_compute",
+     "open_postings": 304,
+     "usd_annual_eligible": 277,
+     "share_of_market_eligible_pct": 5,
+     "posted_low_p50": 153000,
+     "posted_high_p50": 210000,
+     "posted_midpoint_p50": 181000,
+     "top_role_families": [
+      "software_engineer",
+      "legal_finance",
+      "business_operations"
+     ]
+    },
+    {
+     "company_id": "ashby:harvey",
+     "company": "Harvey",
+     "cohort": "applied_ai",
+     "open_postings": 374,
+     "usd_annual_eligible": 260,
+     "share_of_market_eligible_pct": 5,
+     "posted_low_p50": 195750,
+     "posted_high_p50": 264500,
+     "posted_midpoint_p50": 234000,
+     "top_role_families": [
+      "gtm_sales",
+      "software_engineer",
+      "solutions_engineer"
+     ]
+    },
+    {
+     "company_id": "ashby:fluidstack",
+     "company": "FluidStack",
+     "cohort": "ai_infrastructure_compute",
+     "open_postings": 251,
+     "usd_annual_eligible": 247,
+     "share_of_market_eligible_pct": 5,
+     "posted_low_p50": 199000,
+     "posted_high_p50": 258000,
+     "posted_midpoint_p50": 225000,
+     "top_role_families": [
+      "business_operations",
+      "hardware_silicon_engineer",
+      "software_engineer"
+     ]
+    },
+    {
+     "company_id": "lever:zoox",
+     "company": "Zoox",
+     "cohort": "physical_ai_robotics",
+     "open_postings": 225,
+     "usd_annual_eligible": 203,
+     "share_of_market_eligible_pct": 4,
+     "posted_low_p50": 195000,
+     "posted_high_p50": 265000,
+     "posted_midpoint_p50": 225000,
+     "top_role_families": [
+      "software_engineer",
+      "business_operations",
+      "hardware_silicon_engineer"
+     ]
+    },
+    {
+     "company_id": "ashby:legora",
+     "company": "Legora",
+     "cohort": "applied_ai",
+     "open_postings": 309,
+     "usd_annual_eligible": 143,
+     "share_of_market_eligible_pct": 3,
+     "posted_low_p50": 175000,
+     "posted_high_p50": 230000,
+     "posted_midpoint_p50": 202500,
+     "top_role_families": [
+      "solutions_engineer",
+      "gtm_sales",
+      "software_engineer"
+     ]
+    },
+    {
+     "company_id": "ashby:perplexity",
+     "company": "Perplexity",
+     "cohort": "applied_ai",
+     "open_postings": 136,
+     "usd_annual_eligible": 114,
+     "share_of_market_eligible_pct": 2,
+     "posted_low_p50": 200000,
+     "posted_high_p50": 300000,
+     "posted_midpoint_p50": 251250,
+     "top_role_families": [
+      "software_engineer",
+      "gtm_sales",
+      "legal_finance"
+     ]
+    },
+    {
+     "company_id": "ashby:sierra",
+     "company": "Sierra",
+     "cohort": "applied_ai",
+     "open_postings": 216,
+     "usd_annual_eligible": 114,
+     "share_of_market_eligible_pct": 2,
+     "posted_low_p50": 212500,
+     "posted_high_p50": 292500,
+     "posted_midpoint_p50": 285000,
+     "top_role_families": [
+      "gtm_sales",
+      "product_manager",
+      "solutions_engineer"
+     ]
+    },
+    {
+     "company_id": "greenhouse:nebius",
+     "company": "Nebius",
+     "cohort": "ai_infrastructure_compute",
+     "open_postings": 381,
+     "usd_annual_eligible": 101,
+     "share_of_market_eligible_pct": 2,
+     "posted_low_p50": 147200,
+     "posted_high_p50": 222200,
+     "posted_midpoint_p50": 174100,
+     "top_role_families": [
+      "business_operations",
+      "software_engineer",
+      "hardware_silicon_engineer"
+     ]
+    },
+    {
+     "company_id": "ashby:baseten",
+     "company": "Baseten",
+     "cohort": "ai_infrastructure_compute",
+     "open_postings": 105,
+     "usd_annual_eligible": 99,
+     "share_of_market_eligible_pct": 2,
+     "posted_low_p50": 165000,
+     "posted_high_p50": 270000,
+     "posted_midpoint_p50": 237500,
+     "top_role_families": [
+      "gtm_sales",
+      "software_engineer",
+      "ai_infrastructure_engineer"
+     ]
+    },
+    {
+     "company_id": "ashby:decagon",
+     "company": "Decagon",
+     "cohort": "applied_ai",
+     "open_postings": 133,
+     "usd_annual_eligible": 99,
+     "share_of_market_eligible_pct": 2,
+     "posted_low_p50": 200000,
+     "posted_high_p50": 280000,
+     "posted_midpoint_p50": 242500,
+     "top_role_families": [
+      "gtm_sales",
+      "business_operations",
+      "solutions_engineer"
+     ]
+    },
+    {
+     "company_id": "ashby:mercor",
+     "company": "Mercor",
+     "cohort": "applied_ai",
+     "open_postings": 105,
+     "usd_annual_eligible": 94,
+     "share_of_market_eligible_pct": 2,
+     "posted_low_p50": 160000,
+     "posted_high_p50": 292500,
+     "posted_midpoint_p50": 225000,
+     "top_role_families": [
+      "software_engineer",
+      "business_operations",
+      "applied_ai_engineer"
+     ]
+    },
+    {
+     "company_id": "greenhouse:gleanwork",
+     "company": "Glean",
+     "cohort": "applied_ai",
+     "open_postings": 126,
+     "usd_annual_eligible": 92,
+     "share_of_market_eligible_pct": 2,
+     "posted_low_p50": 192538,
+     "posted_high_p50": 267500,
+     "posted_midpoint_p50": 225000,
+     "top_role_families": [
+      "gtm_sales",
+      "solutions_engineer",
+      "software_engineer"
+     ]
+    },
+    {
+     "company_id": "ashby:lambda",
+     "company": "Lambda",
+     "cohort": "ai_infrastructure_compute",
+     "open_postings": 93,
+     "usd_annual_eligible": 88,
+     "share_of_market_eligible_pct": 2,
+     "posted_low_p50": 227000,
+     "posted_high_p50": 338000,
+     "posted_midpoint_p50": 283250,
+     "top_role_families": [
+      "software_engineer",
+      "business_operations",
+      "legal_finance"
+     ]
+    },
+    {
+     "company_id": "greenhouse:xai",
+     "company": "xAI",
+     "cohort": "frontier_lab",
+     "open_postings": 297,
+     "usd_annual_eligible": 81,
+     "share_of_market_eligible_pct": 2,
+     "posted_low_p50": 180000,
+     "posted_high_p50": 280000,
+     "posted_midpoint_p50": 250000,
+     "top_role_families": [
+      "business_operations",
+      "software_engineer",
+      "hardware_silicon_engineer"
+     ]
+    },
+    {
+     "company_id": "ashby:1x",
+     "company": "1X",
+     "cohort": "physical_ai_robotics",
+     "open_postings": 100,
+     "usd_annual_eligible": 79,
+     "share_of_market_eligible_pct": 2,
+     "posted_low_p50": 175000,
+     "posted_high_p50": 225000,
+     "posted_midpoint_p50": 195000,
+     "top_role_families": [
+      "hardware_silicon_engineer",
+      "software_engineer",
+      "skilled_trades_facilities"
+     ]
+    },
+    {
+     "company_id": "greenhouse:agilityrobotics",
+     "company": "Agility Robotics",
+     "cohort": "physical_ai_robotics",
+     "open_postings": 78,
+     "usd_annual_eligible": 75,
+     "share_of_market_eligible_pct": 1,
+     "posted_low_p50": 150000,
+     "posted_high_p50": 219000,
+     "posted_midpoint_p50": 186000,
+     "top_role_families": [
+      "hardware_silicon_engineer",
+      "business_operations",
+      "software_engineer"
+     ]
+    },
+    {
+     "company_id": "ashby:fireworks",
+     "company": "Fireworks AI",
+     "cohort": "ai_infrastructure_compute",
+     "open_postings": 90,
+     "usd_annual_eligible": 74,
+     "share_of_market_eligible_pct": 1,
+     "posted_low_p50": 200000,
+     "posted_high_p50": 240000,
+     "posted_midpoint_p50": 220000,
+     "top_role_families": [
+      "gtm_sales",
+      "software_engineer",
+      "legal_finance"
+     ]
+    },
+    {
+     "company_id": "ashby:wayve",
+     "company": "Wayve",
+     "cohort": "physical_ai_robotics",
+     "open_postings": 172,
+     "usd_annual_eligible": 72,
+     "share_of_market_eligible_pct": 1,
+     "posted_low_p50": 275550,
+     "posted_high_p50": 300000,
+     "posted_midpoint_p50": 284925,
+     "top_role_families": [
+      "software_engineer",
+      "business_operations",
+      "applied_ai_engineer"
+     ]
+    },
+    {
+     "company_id": "ashby:commure",
+     "company": "Commure",
+     "cohort": "applied_ai",
+     "open_postings": 84,
+     "usd_annual_eligible": 70,
+     "share_of_market_eligible_pct": 1,
+     "posted_low_p50": 170000,
+     "posted_high_p50": 200000,
+     "posted_midpoint_p50": 182000,
+     "top_role_families": [
+      "software_engineer",
+      "legal_finance",
+      "gtm_sales"
+     ]
+    },
+    {
+     "company_id": "greenhouse:tenstorrent",
+     "company": "Tenstorrent",
+     "cohort": "ai_hardware_silicon",
+     "open_postings": 127,
+     "usd_annual_eligible": 68,
+     "share_of_market_eligible_pct": 1,
+     "posted_low_p50": 100000,
+     "posted_high_p50": 500000,
+     "posted_midpoint_p50": 300000,
+     "top_role_families": [
+      "hardware_silicon_engineer",
+      "software_engineer",
+      "business_operations"
+     ]
+    },
+    {
+     "company_id": "ashby:suno",
+     "company": "Suno",
+     "cohort": "ai_model_developer",
+     "open_postings": 71,
+     "usd_annual_eligible": 65,
+     "share_of_market_eligible_pct": 1,
+     "posted_low_p50": 220000,
+     "posted_high_p50": 320000,
+     "posted_midpoint_p50": 270000,
+     "top_role_families": [
+      "marketing",
+      "software_engineer",
+      "security_engineer"
+     ]
+    },
+    {
+     "company_id": "ashby:rogo",
+     "company": "Rogo",
+     "cohort": "applied_ai",
+     "open_postings": 102,
+     "usd_annual_eligible": 61,
+     "share_of_market_eligible_pct": 1,
+     "posted_low_p50": 150000,
+     "posted_high_p50": 200000,
+     "posted_midpoint_p50": 175000,
+     "top_role_families": [
+      "gtm_sales",
+      "business_operations",
+      "people_recruiting"
+     ]
+    },
+    {
+     "company_id": "ashby:serval",
+     "company": "Serval",
+     "cohort": "applied_ai",
+     "open_postings": 64,
+     "usd_annual_eligible": 60,
+     "share_of_market_eligible_pct": 1,
+     "posted_low_p50": 200000,
+     "posted_high_p50": 272500,
+     "posted_midpoint_p50": 250000,
+     "top_role_families": [
+      "gtm_sales",
+      "software_engineer",
+      "solutions_engineer"
+     ]
+    },
+    {
+     "company_id": "ashby:deepgram",
+     "company": "Deepgram",
+     "cohort": "ai_model_developer",
+     "open_postings": 77,
+     "usd_annual_eligible": 54,
+     "share_of_market_eligible_pct": 1,
+     "posted_low_p50": 165000,
+     "posted_high_p50": 240000,
+     "posted_midpoint_p50": 200000,
+     "top_role_families": [
+      "gtm_sales",
+      "solutions_engineer",
+      "applied_ai_engineer"
+     ]
+    },
+    {
+     "company_id": "ashby:etched",
+     "company": "Etched",
+     "cohort": "ai_hardware_silicon",
+     "open_postings": 120,
+     "usd_annual_eligible": 54,
+     "share_of_market_eligible_pct": 1,
+     "posted_low_p50": 150000,
+     "posted_high_p50": 350000,
+     "posted_midpoint_p50": 250000,
+     "top_role_families": [
+      "hardware_silicon_engineer",
+      "business_operations",
+      "software_engineer"
+     ]
+    },
+    {
+     "company_id": "greenhouse:sambanovasystems",
+     "company": "SambaNova",
+     "cohort": "ai_hardware_silicon",
+     "open_postings": 71,
+     "usd_annual_eligible": 52,
+     "share_of_market_eligible_pct": 1,
+     "posted_low_p50": 180000,
+     "posted_high_p50": 240000,
+     "posted_midpoint_p50": 217500,
+     "top_role_families": [
+      "software_engineer",
+      "hardware_silicon_engineer",
+      "marketing"
+     ]
+    },
+    {
+     "company_id": "greenhouse:figureai",
+     "company": "Figure AI",
+     "cohort": "physical_ai_robotics",
+     "open_postings": 101,
+     "usd_annual_eligible": 51,
+     "share_of_market_eligible_pct": 1,
+     "posted_low_p50": 150000,
+     "posted_high_p50": 250000,
+     "posted_midpoint_p50": 200000,
+     "top_role_families": [
+      "hardware_silicon_engineer",
+      "business_operations",
+      "skilled_trades_facilities"
+     ]
+    },
+    {
+     "company_id": "ashby:exa",
+     "company": "Exa",
+     "cohort": "ai_infrastructure_compute",
+     "open_postings": 61,
+     "usd_annual_eligible": 47,
+     "share_of_market_eligible_pct": 1,
+     "posted_low_p50": 165000,
+     "posted_high_p50": 275000,
+     "posted_midpoint_p50": 215000,
+     "top_role_families": [
+      "marketing",
+      "software_engineer",
+      "gtm_sales"
+     ]
+    },
+    {
+     "company_id": "ashby:profound",
+     "company": "Profound",
+     "cohort": "applied_ai",
+     "open_postings": 82,
+     "usd_annual_eligible": 45,
+     "share_of_market_eligible_pct": 1,
+     "posted_low_p50": 135000,
+     "posted_high_p50": 200000,
+     "posted_midpoint_p50": 172500,
+     "top_role_families": [
+      "gtm_sales",
+      "people_recruiting",
+      "software_engineer"
+     ]
+    },
+    {
+     "company_id": "greenhouse:snorkelai",
+     "company": "Snorkel",
+     "cohort": "ai_infrastructure_compute",
+     "open_postings": 43,
+     "usd_annual_eligible": 40,
+     "share_of_market_eligible_pct": 1,
+     "posted_low_p50": 200000,
+     "posted_high_p50": 300000,
+     "posted_midpoint_p50": 255000,
+     "top_role_families": [
+      "forward_deployed_engineer",
+      "legal_finance",
+      "software_engineer"
+     ]
+    },
+    {
+     "company_id": "greenhouse:togetherai",
+     "company": "Together AI",
+     "cohort": "ai_infrastructure_compute",
+     "open_postings": 86,
+     "usd_annual_eligible": 40,
+     "share_of_market_eligible_pct": 1,
+     "posted_low_p50": 190000,
+     "posted_high_p50": 270000,
+     "posted_midpoint_p50": 220000,
+     "top_role_families": [
+      "ai_infrastructure_engineer",
+      "software_engineer",
+      "marketing"
+     ]
+    },
+    {
+     "company_id": "ashby:modal",
+     "company": "Modal",
+     "cohort": "ai_infrastructure_compute",
+     "open_postings": 42,
+     "usd_annual_eligible": 39,
+     "share_of_market_eligible_pct": 1,
+     "posted_low_p50": 180000,
+     "posted_high_p50": 275000,
+     "posted_midpoint_p50": 225000,
+     "top_role_families": [
+      "software_engineer",
+      "gtm_sales",
+      "people_recruiting"
+     ]
+    },
+    {
+     "company_id": "ashby:abridge",
+     "company": "Abridge",
+     "cohort": "applied_ai",
+     "open_postings": 37,
+     "usd_annual_eligible": 37,
+     "share_of_market_eligible_pct": 1,
+     "posted_low_p50": 180000,
+     "posted_high_p50": 240000,
+     "posted_midpoint_p50": 210000,
+     "top_role_families": [
+      "other",
+      "legal_finance",
+      "business_operations"
+     ]
+    },
+    {
+     "company_id": "greenhouse:cresta",
+     "company": "Cresta",
+     "cohort": "applied_ai",
+     "open_postings": 89,
+     "usd_annual_eligible": 36,
+     "share_of_market_eligible_pct": 1,
+     "posted_low_p50": 175000,
+     "posted_high_p50": 247500,
+     "posted_midpoint_p50": 221250,
+     "top_role_families": [
+      "software_engineer",
+      "gtm_sales",
+      "solutions_engineer"
+     ]
+    },
+    {
+     "company_id": "ashby:assorthealth",
+     "company": "Assort Health",
+     "cohort": "applied_ai",
+     "open_postings": 36,
+     "usd_annual_eligible": 35,
+     "share_of_market_eligible_pct": 1,
+     "posted_low_p50": 190000,
+     "posted_high_p50": 230000,
+     "posted_midpoint_p50": 212500,
+     "top_role_families": [
+      "gtm_sales",
+      "business_operations",
+      "software_engineer"
+     ]
+    },
+    {
+     "company_id": "ashby:campfire",
+     "company": "Campfire",
+     "cohort": "applied_ai",
+     "open_postings": 51,
+     "usd_annual_eligible": 35,
+     "share_of_market_eligible_pct": 1,
+     "posted_low_p50": 180000,
+     "posted_high_p50": 230000,
+     "posted_midpoint_p50": 200000,
+     "top_role_families": [
+      "gtm_sales",
+      "solutions_engineer",
+      "marketing"
+     ]
+    },
+    {
+     "company_id": "ashby:afterquery",
+     "company": "AfterQuery",
+     "cohort": "ai_infrastructure_compute",
+     "open_postings": 39,
+     "usd_annual_eligible": 34,
+     "share_of_market_eligible_pct": 1,
+     "posted_low_p50": 160000,
+     "posted_high_p50": 230000,
+     "posted_midpoint_p50": 192500,
+     "top_role_families": [
+      "business_operations",
+      "research_scientist",
+      "gtm_sales"
+     ]
+    },
+    {
+     "company_id": "ashby:writer",
+     "company": "Writer",
+     "cohort": "applied_ai",
+     "open_postings": 45,
+     "usd_annual_eligible": 33,
+     "share_of_market_eligible_pct": 1,
+     "posted_low_p50": 167000,
+     "posted_high_p50": 240000,
+     "posted_midpoint_p50": 197050,
+     "top_role_families": [
+      "other",
+      "gtm_sales",
+      "solutions_engineer"
+     ]
+    },
+    {
+     "company_id": "ashby:cohere",
+     "company": "Cohere",
+     "cohort": "frontier_lab",
+     "open_postings": 119,
+     "usd_annual_eligible": 32,
+     "share_of_market_eligible_pct": 1,
+     "posted_low_p50": 175000,
+     "posted_high_p50": 282500,
+     "posted_midpoint_p50": 230000,
+     "top_role_families": [
+      "gtm_sales",
+      "business_operations",
+      "forward_deployed_engineer"
+     ]
+    },
+    {
+     "company_id": "ashby:replit",
+     "company": "Replit",
+     "cohort": "applied_ai",
+     "open_postings": 34,
+     "usd_annual_eligible": 29,
+     "share_of_market_eligible_pct": 1,
+     "posted_low_p50": 200000,
+     "posted_high_p50": 290000,
+     "posted_midpoint_p50": 240000,
+     "top_role_families": [
+      "software_engineer",
+      "solutions_engineer",
+      "legal_finance"
+     ]
+    },
+    {
+     "company_id": "ashby:normalcomputing",
+     "company": "Normal Computing",
+     "cohort": "ai_hardware_silicon",
+     "open_postings": 37,
+     "usd_annual_eligible": 28,
+     "share_of_market_eligible_pct": 1,
+     "posted_low_p50": 200000,
+     "posted_high_p50": 302223,
+     "posted_midpoint_p50": 277112,
+     "top_role_families": [
+      "hardware_silicon_engineer",
+      "software_engineer",
+      "people_recruiting"
+     ]
+    },
+    {
+     "company_id": "ashby:parallel",
+     "company": "Parallel",
+     "cohort": "ai_infrastructure_compute",
+     "open_postings": 30,
+     "usd_annual_eligible": 28,
+     "share_of_market_eligible_pct": 1,
+     "posted_low_p50": 150000,
+     "posted_high_p50": 300000,
+     "posted_midpoint_p50": 225000,
+     "top_role_families": [
+      "legal_finance",
+      "gtm_sales",
+      "software_engineer"
+     ]
+    },
+    {
+     "company_id": "ashby:higgsfieldai",
+     "company": "Higgsfield AI",
+     "cohort": "ai_model_developer",
+     "open_postings": 95,
+     "usd_annual_eligible": 26,
+     "share_of_market_eligible_pct": 1,
+     "posted_low_p50": 177500,
+     "posted_high_p50": 225000,
+     "posted_midpoint_p50": 197500,
+     "top_role_families": [
+      "gtm_sales",
+      "legal_finance",
+      "marketing"
+     ]
+    },
+    {
+     "company_id": "ashby:openrouter",
+     "company": "OpenRouter",
+     "cohort": "ai_infrastructure_compute",
+     "open_postings": 30,
+     "usd_annual_eligible": 25,
+     "share_of_market_eligible_pct": 0,
+     "posted_low_p50": 215000,
+     "posted_high_p50": 280000,
+     "posted_midpoint_p50": 250000,
+     "top_role_families": [
+      "solutions_engineer",
+      "gtm_sales",
+      "software_engineer"
+     ]
+    },
+    {
+     "company_id": "ashby:crosby",
+     "company": "Crosby",
+     "cohort": "applied_ai",
+     "open_postings": 25,
+     "usd_annual_eligible": 24,
+     "share_of_market_eligible_pct": 0,
+     "posted_low_p50": 185000,
+     "posted_high_p50": 247500,
+     "posted_midpoint_p50": 221250,
+     "top_role_families": [
+      "business_operations",
+      "legal_finance",
+      "gtm_sales"
+     ]
+    },
+    {
+     "company_id": "greenhouse:arizeai",
+     "company": "Arize",
+     "cohort": "ai_infrastructure_compute",
+     "open_postings": 28,
+     "usd_annual_eligible": 23,
+     "share_of_market_eligible_pct": 0,
+     "posted_low_p50": 165000,
+     "posted_high_p50": 225000,
+     "posted_midpoint_p50": 190000,
+     "top_role_families": [
+      "gtm_sales",
+      "software_engineer",
+      "applied_ai_engineer"
+     ]
+    },
+    {
+     "company_id": "ashby:livekit",
+     "company": "LiveKit",
+     "cohort": "ai_infrastructure_compute",
+     "open_postings": 29,
+     "usd_annual_eligible": 22,
+     "share_of_market_eligible_pct": 0,
+     "posted_low_p50": 167500,
+     "posted_high_p50": 261500,
+     "posted_midpoint_p50": 217500,
+     "top_role_families": [
+      "forward_deployed_engineer",
+      "marketing",
+      "software_engineer"
+     ]
+    },
+    {
+     "company_id": "ashby:cartesia",
+     "company": "Cartesia",
+     "cohort": "ai_model_developer",
+     "open_postings": 24,
+     "usd_annual_eligible": 21,
+     "share_of_market_eligible_pct": 0,
+     "posted_low_p50": 180000,
+     "posted_high_p50": 270000,
+     "posted_midpoint_p50": 245000,
+     "top_role_families": [
+      "gtm_sales",
+      "research_scientist",
+      "software_engineer"
+     ]
+    },
+    {
+     "company_id": "ashby:ambiencehealthcare",
+     "company": "Ambience",
+     "cohort": "applied_ai",
+     "open_postings": 20,
+     "usd_annual_eligible": 20,
+     "share_of_market_eligible_pct": 0,
+     "posted_low_p50": 195500,
+     "posted_high_p50": 255000,
+     "posted_midpoint_p50": 229750,
+     "top_role_families": [
+      "gtm_sales",
+      "software_engineer",
+      "business_operations"
+     ]
+    },
+    {
+     "company_id": "ashby:anyscale",
+     "company": "Anyscale",
+     "cohort": "ai_infrastructure_compute",
+     "open_postings": 22,
+     "usd_annual_eligible": 19,
+     "share_of_market_eligible_pct": 0,
+     "posted_low_p50": 215000,
+     "posted_high_p50": 245000,
+     "posted_midpoint_p50": 225000,
+     "top_role_families": [
+      "software_engineer",
+      "security_engineer",
+      "solutions_engineer"
+     ]
+    },
+    {
+     "company_id": "ashby:doctronic",
+     "company": "Doctronic",
+     "cohort": "applied_ai",
+     "open_postings": 18,
+     "usd_annual_eligible": 17,
+     "share_of_market_eligible_pct": 0,
+     "posted_low_p50": 200000,
+     "posted_high_p50": 275000,
+     "posted_midpoint_p50": 237500,
+     "top_role_families": [
+      "software_engineer",
+      "gtm_sales",
+      "product_manager"
+     ]
+    },
+    {
+     "company_id": "greenhouse:goodfire",
+     "company": "Goodfire",
+     "cohort": "ai_model_developer",
+     "open_postings": 29,
+     "usd_annual_eligible": 17,
+     "share_of_market_eligible_pct": 0,
+     "posted_low_p50": 200000,
+     "posted_high_p50": 375000,
+     "posted_midpoint_p50": 287500,
+     "top_role_families": [
+      "research_scientist",
+      "business_operations",
+      "marketing"
+     ]
+    },
+    {
+     "company_id": "ashby:warp",
+     "company": "Warp",
+     "cohort": "applied_ai",
+     "open_postings": 18,
+     "usd_annual_eligible": 17,
+     "share_of_market_eligible_pct": 0,
+     "posted_low_p50": 140000,
+     "posted_high_p50": 200000,
+     "posted_midpoint_p50": 180000,
+     "top_role_families": [
+      "gtm_sales",
+      "marketing",
+      "legal_finance"
+     ]
+    },
+    {
+     "company_id": "ashby:gimlet",
+     "company": "Gimlet Labs",
+     "cohort": "ai_infrastructure_compute",
+     "open_postings": 17,
+     "usd_annual_eligible": 16,
+     "share_of_market_eligible_pct": 0,
+     "posted_low_p50": 150000,
+     "posted_high_p50": 337500,
+     "posted_midpoint_p50": 270000,
+     "top_role_families": [
+      "legal_finance",
+      "ai_infrastructure_engineer",
+      "business_operations"
+     ]
+    },
+    {
+     "company_id": "ashby:luminai",
+     "company": "LuminAI",
+     "cohort": "applied_ai",
+     "open_postings": 16,
+     "usd_annual_eligible": 16,
+     "share_of_market_eligible_pct": 0,
+     "posted_low_p50": 170000,
+     "posted_high_p50": 225000,
+     "posted_midpoint_p50": 195000,
+     "top_role_families": [
+      "software_engineer",
+      "solutions_engineer",
+      "forward_deployed_engineer"
+     ]
+    },
+    {
+     "company_id": "ashby:town",
+     "company": "Town",
+     "cohort": "applied_ai",
+     "open_postings": 16,
+     "usd_annual_eligible": 16,
+     "share_of_market_eligible_pct": 0,
+     "posted_low_p50": 225000,
+     "posted_high_p50": 275000,
+     "posted_midpoint_p50": 250000,
+     "top_role_families": [
+      "software_engineer",
+      "people_recruiting",
+      "applied_ai_engineer"
+     ]
+    },
+    {
+     "company_id": "ashby:doss",
+     "company": "DOSS",
+     "cohort": "applied_ai",
+     "open_postings": 20,
+     "usd_annual_eligible": 15,
+     "share_of_market_eligible_pct": 0,
+     "posted_low_p50": 210000,
+     "posted_high_p50": 230000,
+     "posted_midpoint_p50": 220000,
+     "top_role_families": [
+      "software_engineer",
+      "gtm_sales",
+      "solutions_engineer"
+     ]
+    },
+    {
+     "company_id": "ashby:phonely",
+     "company": "Phonely",
+     "cohort": "applied_ai",
+     "open_postings": 18,
+     "usd_annual_eligible": 15,
+     "share_of_market_eligible_pct": 0,
+     "posted_low_p50": 120000,
+     "posted_high_p50": 170000,
+     "posted_midpoint_p50": 145000,
+     "top_role_families": [
+      "gtm_sales",
+      "software_engineer",
+      "business_operations"
+     ]
+    },
+    {
+     "company_id": "greenhouse:assemblyai",
+     "company": "AssemblyAI",
+     "cohort": "ai_model_developer",
+     "open_postings": 18,
+     "usd_annual_eligible": 14,
+     "share_of_market_eligible_pct": 0,
+     "posted_low_p50": 175000,
+     "posted_high_p50": 222500,
+     "posted_midpoint_p50": 200000,
+     "top_role_families": [
+      "gtm_sales",
+      "forward_deployed_engineer",
+      "people_recruiting"
+     ]
+    },
+    {
+     "company_id": "ashby:avoca",
+     "company": "Avoca",
+     "cohort": "applied_ai",
+     "open_postings": 19,
+     "usd_annual_eligible": 14,
+     "share_of_market_eligible_pct": 0,
+     "posted_low_p50": 160000,
+     "posted_high_p50": 220000,
+     "posted_midpoint_p50": 190000,
+     "top_role_families": [
+      "gtm_sales",
+      "forward_deployed_engineer",
+      "solutions_engineer"
+     ]
+    },
+    {
+     "company_id": "ashby:inferact",
+     "company": "Inferact",
+     "cohort": "ai_infrastructure_compute",
+     "open_postings": 32,
+     "usd_annual_eligible": 14,
+     "share_of_market_eligible_pct": 0,
+     "posted_low_p50": 200000,
+     "posted_high_p50": 400000,
+     "posted_midpoint_p50": 300000,
+     "top_role_families": [
+      "ai_infrastructure_engineer",
+      "software_engineer",
+      "marketing"
+     ]
+    },
+    {
+     "company_id": "ashby:salient",
+     "company": "Salient",
+     "cohort": "applied_ai",
+     "open_postings": 14,
+     "usd_annual_eligible": 14,
+     "share_of_market_eligible_pct": 0,
+     "posted_low_p50": 200000,
+     "posted_high_p50": 270000,
+     "posted_midpoint_p50": 230000,
+     "top_role_families": [
+      "software_engineer",
+      "people_recruiting",
+      "product_manager"
+     ]
+    },
+    {
+     "company_id": "ashby:bland",
+     "company": "Bland",
+     "cohort": "applied_ai",
+     "open_postings": 17,
+     "usd_annual_eligible": 13,
+     "share_of_market_eligible_pct": 0,
+     "posted_low_p50": 135000,
+     "posted_high_p50": 200000,
+     "posted_midpoint_p50": 160000,
+     "top_role_families": [
+      "gtm_sales",
+      "solutions_engineer",
+      "legal_finance"
+     ]
+    },
+    {
+     "company_id": "ashby:gumloop",
+     "company": "Gumloop",
+     "cohort": "applied_ai",
+     "open_postings": 14,
+     "usd_annual_eligible": 13,
+     "share_of_market_eligible_pct": 0,
+     "posted_low_p50": 180000,
+     "posted_high_p50": 250000,
+     "posted_midpoint_p50": 217500,
+     "top_role_families": [
+      "marketing",
+      "gtm_sales",
+      "solutions_engineer"
+     ]
+    },
+    {
+     "company_id": "ashby:lovable",
+     "company": "Lovable",
+     "cohort": "applied_ai",
+     "open_postings": 79,
+     "usd_annual_eligible": 13,
+     "share_of_market_eligible_pct": 0,
+     "posted_low_p50": 199000,
+     "posted_high_p50": 272000,
+     "posted_midpoint_p50": 257000,
+     "top_role_families": [
+      "gtm_sales",
+      "software_engineer",
+      "marketing"
+     ]
+    },
+    {
+     "company_id": "ashby:sandbar",
+     "company": "Sandbar",
+     "cohort": "applied_ai",
+     "open_postings": 12,
+     "usd_annual_eligible": 12,
+     "share_of_market_eligible_pct": 0,
+     "posted_low_p50": 162500,
+     "posted_high_p50": 225000,
+     "posted_midpoint_p50": 193750,
+     "top_role_families": [
+      "software_engineer",
+      "applied_ai_engineer",
+      "hardware_silicon_engineer"
+     ]
+    },
+    {
+     "company_id": "greenhouse:heygen",
+     "company": "HeyGen",
+     "cohort": "ai_model_developer",
+     "open_postings": 19,
+     "usd_annual_eligible": 11,
+     "share_of_market_eligible_pct": 0,
+     "posted_low_p50": 180000,
+     "posted_high_p50": 235000,
+     "posted_midpoint_p50": 207500,
+     "top_role_families": [
+      "software_engineer",
+      "gtm_sales",
+      "marketing"
+     ]
+    },
+    {
+     "company_id": "greenhouse:pallet",
+     "company": "Pallet",
+     "cohort": "applied_ai",
+     "open_postings": 22,
+     "usd_annual_eligible": 11,
+     "share_of_market_eligible_pct": 0,
+     "posted_low_p50": 140000,
+     "posted_high_p50": 210000,
+     "posted_midpoint_p50": 175000,
+     "top_role_families": [
+      "gtm_sales",
+      "solutions_engineer",
+      "people_recruiting"
+     ]
+    },
+    {
+     "company_id": "ashby:peec",
+     "company": "Peec AI",
+     "cohort": "applied_ai",
+     "open_postings": 30,
+     "usd_annual_eligible": 10,
+     "share_of_market_eligible_pct": 0,
+     "posted_low_p50": 100000,
+     "posted_high_p50": 150000,
+     "posted_midpoint_p50": 125000,
+     "top_role_families": [
+      "gtm_sales",
+      "software_engineer",
+      "other"
+     ]
+    },
+    {
+     "company_id": "ashby:sphere",
+     "company": "Sphere",
+     "cohort": "applied_ai",
+     "open_postings": 17,
+     "usd_annual_eligible": 10,
+     "share_of_market_eligible_pct": 0,
+     "posted_low_p50": 220000,
+     "posted_high_p50": 270000,
+     "posted_midpoint_p50": 245000,
+     "top_role_families": [
+      "software_engineer",
+      "gtm_sales",
+      "other"
+     ]
+    },
+    {
+     "company_id": "ashby:cognition",
+     "company": "Cognition",
+     "cohort": "applied_ai",
+     "open_postings": 107,
+     "usd_annual_eligible": 9,
+     "share_of_market_eligible_pct": 0,
+     "posted_low_p50": 180000,
+     "posted_high_p50": 220000,
+     "posted_midpoint_p50": 200000,
+     "top_role_families": [
+      "gtm_sales",
+      "forward_deployed_engineer",
+      "marketing"
+     ]
+    },
+    {
+     "company_id": "greenhouse:descript",
+     "company": "Descript",
+     "cohort": "applied_ai",
+     "open_postings": 9,
+     "usd_annual_eligible": 9,
+     "share_of_market_eligible_pct": 0,
+     "posted_low_p50": 197000,
+     "posted_high_p50": 250000,
+     "posted_midpoint_p50": 225000,
+     "top_role_families": [
+      "marketing",
+      "software_engineer",
+      "gtm_sales"
+     ]
+    },
+    {
+     "company_id": "ashby:dust",
+     "company": "Dust",
+     "cohort": "applied_ai",
+     "open_postings": 31,
+     "usd_annual_eligible": 9,
+     "share_of_market_eligible_pct": 0,
+     "posted_low_p50": 250000,
+     "posted_high_p50": 300000,
+     "posted_midpoint_p50": 275000,
+     "top_role_families": [
+      "gtm_sales",
+      "solutions_engineer",
+      "marketing"
+     ]
+    },
+    {
+     "company_id": "greenhouse:youcom",
+     "company": "You.com",
+     "cohort": "applied_ai",
+     "open_postings": 9,
+     "usd_annual_eligible": 9,
+     "share_of_market_eligible_pct": 0,
+     "posted_low_p50": 190000,
+     "posted_high_p50": 240000,
+     "posted_midpoint_p50": 220000,
+     "top_role_families": [
+      "developer_relations",
+      "gtm_sales",
+      "data_engineer"
+     ]
+    },
+    {
+     "company_id": "ashby:amperos",
+     "company": "Amperos Health",
+     "cohort": "applied_ai",
+     "open_postings": 17,
+     "usd_annual_eligible": 8,
+     "share_of_market_eligible_pct": 0,
+     "posted_low_p50": 185000,
+     "posted_high_p50": 285000,
+     "posted_midpoint_p50": 227500,
+     "top_role_families": [
+      "legal_finance",
+      "software_engineer",
+      "gtm_sales"
+     ]
+    },
+    {
+     "company_id": "ashby:koahlabs",
+     "company": "Koah",
+     "cohort": "applied_ai",
+     "open_postings": 9,
+     "usd_annual_eligible": 8,
+     "share_of_market_eligible_pct": 0,
+     "posted_low_p50": 180000,
+     "posted_high_p50": 250000,
+     "posted_midpoint_p50": 215000,
+     "top_role_families": [
+      "software_engineer",
+      "research_scientist",
+      "gtm_sales"
+     ]
+    },
+    {
+     "company_id": "ashby:lumaai",
+     "company": "Luma AI",
+     "cohort": "ai_model_developer",
+     "open_postings": 28,
+     "usd_annual_eligible": 8,
+     "share_of_market_eligible_pct": 0,
+     "posted_low_p50": 182500,
+     "posted_high_p50": 352500,
+     "posted_midpoint_p50": 267500,
+     "top_role_families": [
+      "research_scientist",
+      "ai_infrastructure_engineer",
+      "gtm_sales"
+     ]
+    },
+    {
+     "company_id": "ashby:worldlabs",
+     "company": "World Labs",
+     "cohort": "ai_model_developer",
+     "open_postings": 8,
+     "usd_annual_eligible": 8,
+     "share_of_market_eligible_pct": 0,
+     "posted_low_p50": 250000,
+     "posted_high_p50": 325000,
+     "posted_midpoint_p50": 287500,
+     "top_role_families": [
+      "research_scientist",
+      "software_engineer",
+      "general_management"
+     ]
+    },
+    {
+     "company_id": "ashby:nabla",
+     "company": "Nabla",
+     "cohort": "applied_ai",
+     "open_postings": 9,
+     "usd_annual_eligible": 7,
+     "share_of_market_eligible_pct": 0,
+     "posted_low_p50": 140000,
+     "posted_high_p50": 180000,
+     "posted_midpoint_p50": 160000,
+     "top_role_families": [
+      "marketing",
+      "gtm_sales",
+      "security_engineer"
+     ]
+    },
+    {
+     "company_id": "ashby:granola",
+     "company": "Granola",
+     "cohort": "applied_ai",
+     "open_postings": 22,
+     "usd_annual_eligible": 6,
+     "share_of_market_eligible_pct": 0,
+     "posted_low_p50": 165000,
+     "posted_high_p50": 215000,
+     "posted_midpoint_p50": 190000,
+     "top_role_families": [
+      "gtm_sales",
+      "software_engineer",
+      "marketing"
+     ]
+    },
+    {
+     "company_id": "ashby:pinecone",
+     "company": "Pinecone",
+     "cohort": "ai_infrastructure_compute",
+     "open_postings": 6,
+     "usd_annual_eligible": 6,
+     "share_of_market_eligible_pct": 0,
+     "posted_low_p50": 155000,
+     "posted_high_p50": 225000,
+     "posted_midpoint_p50": 183750,
+     "top_role_families": [
+      "software_engineer",
+      "applied_ai_engineer",
+      "solutions_engineer"
+     ]
+    },
+    {
+     "company_id": "greenhouse:humeai",
+     "company": "Hume",
+     "cohort": "ai_model_developer",
+     "open_postings": 5,
+     "usd_annual_eligible": 5,
+     "share_of_market_eligible_pct": 0,
+     "posted_low_p50": 180000,
+     "posted_high_p50": 250000,
+     "posted_midpoint_p50": 215000,
+     "top_role_families": [
+      "research_scientist",
+      "other",
+      "software_engineer"
+     ]
+    },
+    {
+     "company_id": "ashby:momentic",
+     "company": "Momentic",
+     "cohort": "applied_ai",
+     "open_postings": 5,
+     "usd_annual_eligible": 5,
+     "share_of_market_eligible_pct": 0,
+     "posted_low_p50": 185000,
+     "posted_high_p50": 250000,
+     "posted_midpoint_p50": 212500,
+     "top_role_families": [
+      "gtm_sales",
+      "solutions_engineer",
+      "applied_ai_engineer"
+     ]
+    },
+    {
+     "company_id": "ashby:patlytics",
+     "company": "Patlytics",
+     "cohort": "applied_ai",
+     "open_postings": 13,
+     "usd_annual_eligible": 5,
+     "share_of_market_eligible_pct": 0,
+     "posted_low_p50": 150000,
+     "posted_high_p50": 225000,
+     "posted_midpoint_p50": 187500,
+     "top_role_families": [
+      "gtm_sales",
+      "solutions_engineer",
+      "applied_ai_engineer"
+     ]
+    },
+    {
+     "company_id": "ashby:pika",
+     "company": "Pika",
+     "cohort": "ai_model_developer",
+     "open_postings": 16,
+     "usd_annual_eligible": 5,
+     "share_of_market_eligible_pct": 0,
+     "posted_low_p50": 185000,
+     "posted_high_p50": 350000,
+     "posted_midpoint_p50": 275000,
+     "top_role_families": [
+      "software_engineer",
+      "gtm_sales",
+      "research_scientist"
+     ]
+    },
+    {
+     "company_id": "ashby:solidroad",
+     "company": "Solidroad",
+     "cohort": "applied_ai",
+     "open_postings": 9,
+     "usd_annual_eligible": 5,
+     "share_of_market_eligible_pct": 0,
+     "posted_low_p50": 210000,
+     "posted_high_p50": 250000,
+     "posted_midpoint_p50": 235000,
+     "top_role_families": [
+      "software_engineer",
+      "gtm_sales",
+      "design"
+     ]
+    },
+    {
+     "company_id": "greenhouse:udio",
+     "company": "Udio",
+     "cohort": "ai_model_developer",
+     "open_postings": 5,
+     "usd_annual_eligible": 5,
+     "share_of_market_eligible_pct": 0,
+     "posted_low_p50": 180000,
+     "posted_high_p50": 225000,
+     "posted_midpoint_p50": 200000,
+     "top_role_families": [
+      "gtm_sales",
+      "data_scientist",
+      "research_engineer"
+     ]
+    },
+    {
+     "company_id": "greenhouse:guidde",
+     "company": "Guidde",
+     "cohort": "applied_ai",
+     "open_postings": 9,
+     "usd_annual_eligible": 4,
+     "share_of_market_eligible_pct": 0,
+     "posted_low_p50": 100000,
+     "posted_high_p50": 260000,
+     "posted_midpoint_p50": 200000,
+     "top_role_families": [
+      "gtm_sales",
+      "product_manager",
+      "business_operations"
+     ]
+    },
+    {
+     "company_id": "ashby:recall",
+     "company": "Recall.ai",
+     "cohort": "ai_infrastructure_compute",
+     "open_postings": 5,
+     "usd_annual_eligible": 4,
+     "share_of_market_eligible_pct": 0,
+     "posted_low_p50": 217500,
+     "posted_high_p50": 225000,
+     "posted_midpoint_p50": 221250,
+     "top_role_families": [
+      "software_engineer",
+      "legal_finance",
+      "solutions_engineer"
+     ]
+    },
+    {
+     "company_id": "ashby:sfcompute",
+     "company": "SF Compute",
+     "cohort": "ai_infrastructure_compute",
+     "open_postings": 5,
+     "usd_annual_eligible": 4,
+     "share_of_market_eligible_pct": 0,
+     "posted_low_p50": 185000,
+     "posted_high_p50": 250000,
+     "posted_midpoint_p50": 217500,
+     "top_role_families": [
+      "solutions_engineer",
+      "gtm_sales",
+      "ai_infrastructure_engineer"
+     ]
+    },
+    {
+     "company_id": "ashby:terac",
+     "company": "Terac",
+     "cohort": "ai_infrastructure_compute",
+     "open_postings": 70,
+     "usd_annual_eligible": 4,
+     "share_of_market_eligible_pct": 0,
+     "posted_low_p50": 120000,
+     "posted_high_p50": 160000,
+     "posted_midpoint_p50": 140000,
+     "top_role_families": [
+      "people_recruiting",
+      "business_operations",
+      "research_engineer"
+     ]
+    },
+    {
+     "company_id": "ashby:vapi",
+     "company": "Vapi",
+     "cohort": "ai_infrastructure_compute",
+     "open_postings": 5,
+     "usd_annual_eligible": 4,
+     "share_of_market_eligible_pct": 0,
+     "posted_low_p50": 150000,
+     "posted_high_p50": 222500,
+     "posted_midpoint_p50": 193750,
+     "top_role_families": [
+      "gtm_sales",
+      "solutions_engineer",
+      "product_manager"
+     ]
+    },
+    {
+     "company_id": "ashby:agentmail",
+     "company": "AgentMail",
+     "cohort": "ai_infrastructure_compute",
+     "open_postings": 9,
+     "usd_annual_eligible": 3,
+     "share_of_market_eligible_pct": 0,
+     "posted_low_p50": 175000,
+     "posted_high_p50": 250000,
+     "posted_midpoint_p50": 212500,
+     "top_role_families": [
+      "software_engineer",
+      "gtm_sales",
+      "business_operations"
+     ]
+    },
+    {
+     "company_id": "ashby:hedra",
+     "company": "Hedra",
+     "cohort": "ai_model_developer",
+     "open_postings": 9,
+     "usd_annual_eligible": 3,
+     "share_of_market_eligible_pct": 0,
+     "posted_low_p50": 175000,
+     "posted_high_p50": 275000,
+     "posted_midpoint_p50": 225000,
+     "top_role_families": [
+      "marketing",
+      "ai_infrastructure_engineer",
+      "gtm_sales"
+     ]
+    },
+    {
+     "company_id": "ashby:linkup",
+     "company": "Linkup",
+     "cohort": "ai_infrastructure_compute",
+     "open_postings": 14,
+     "usd_annual_eligible": 3,
+     "share_of_market_eligible_pct": 0,
+     "posted_low_p50": 150000,
+     "posted_high_p50": 400000,
+     "posted_midpoint_p50": 275000,
+     "top_role_families": [
+      "software_engineer",
+      "gtm_sales",
+      "forward_deployed_engineer"
+     ]
+    },
+    {
+     "company_id": "ashby:listenlabs",
+     "company": "Listen Labs",
+     "cohort": "applied_ai",
+     "open_postings": 32,
+     "usd_annual_eligible": 3,
+     "share_of_market_eligible_pct": 0,
+     "posted_low_p50": 120000,
+     "posted_high_p50": 140000,
+     "posted_midpoint_p50": 130000,
+     "top_role_families": [
+      "gtm_sales",
+      "business_operations",
+      "marketing"
+     ]
+    },
+    {
+     "company_id": "greenhouse:observeai",
+     "company": "Observe.AI",
+     "cohort": "applied_ai",
+     "open_postings": 10,
+     "usd_annual_eligible": 3,
+     "share_of_market_eligible_pct": 0,
+     "posted_low_p50": 270000,
+     "posted_high_p50": 300000,
+     "posted_midpoint_p50": 285000,
+     "top_role_families": [
+      "applied_ai_engineer",
+      "design",
+      "gtm_sales"
+     ]
+    },
+    {
+     "company_id": "greenhouse:suki",
+     "company": "Suki",
+     "cohort": "applied_ai",
+     "open_postings": 6,
+     "usd_annual_eligible": 3,
+     "share_of_market_eligible_pct": 0,
+     "posted_low_p50": 300000,
+     "posted_high_p50": 350000,
+     "posted_midpoint_p50": 325000,
+     "top_role_families": [
+      "software_engineer",
+      "marketing",
+      "business_operations"
+     ]
+    },
+    {
+     "company_id": "ashby:antioch",
+     "company": "Antioch Robotics",
+     "cohort": "physical_ai_robotics",
+     "open_postings": 10,
+     "usd_annual_eligible": 2,
+     "share_of_market_eligible_pct": 0,
+     "posted_low_p50": 180000,
+     "posted_high_p50": 230000,
+     "posted_midpoint_p50": 205000,
+     "top_role_families": [
+      "software_engineer",
+      "gtm_sales",
+      "solutions_engineer"
+     ]
+    },
+    {
+     "company_id": "ashby:ctgt",
+     "company": "CTGT",
+     "cohort": "applied_ai",
+     "open_postings": 3,
+     "usd_annual_eligible": 2,
+     "share_of_market_eligible_pct": 0,
+     "posted_low_p50": 175000,
+     "posted_high_p50": 250000,
+     "posted_midpoint_p50": 212500,
+     "top_role_families": [
+      "software_engineer",
+      "research_engineer"
+     ]
+    },
+    {
+     "company_id": "ashby:featherlessai",
+     "company": "Featherless AI",
+     "cohort": "ai_infrastructure_compute",
+     "open_postings": 17,
+     "usd_annual_eligible": 2,
+     "share_of_market_eligible_pct": 0,
+     "posted_low_p50": 165000,
+     "posted_high_p50": 215000,
+     "posted_midpoint_p50": 190000,
+     "top_role_families": [
+      "research_scientist",
+      "gtm_sales",
+      "applied_ai_engineer"
+     ]
+    },
+    {
+     "company_id": "ashby:genspark",
+     "company": "Genspark",
+     "cohort": "applied_ai",
+     "open_postings": 7,
+     "usd_annual_eligible": 2,
+     "share_of_market_eligible_pct": 0,
+     "posted_low_p50": 150000,
+     "posted_high_p50": 200000,
+     "posted_midpoint_p50": 175000,
+     "top_role_families": [
+      "gtm_sales",
+      "solutions_engineer"
+     ]
+    },
+    {
+     "company_id": "ashby:tenexlabs",
+     "company": "Tenex Labs",
+     "cohort": "applied_ai",
+     "open_postings": 22,
+     "usd_annual_eligible": 2,
+     "share_of_market_eligible_pct": 0,
+     "posted_low_p50": 177000,
+     "posted_high_p50": 287000,
+     "posted_midpoint_p50": 232000,
+     "top_role_families": [
+      "solutions_engineer",
+      "developer_relations",
+      "forward_deployed_engineer"
+     ]
+    },
+    {
+     "company_id": "ashby:attention",
+     "company": "Attention",
+     "cohort": "applied_ai",
+     "open_postings": 2,
+     "usd_annual_eligible": 1,
+     "share_of_market_eligible_pct": 0,
+     "posted_low_p50": 180000,
+     "posted_high_p50": 180000,
+     "posted_midpoint_p50": 180000,
+     "top_role_families": [
+      "other",
+      "software_engineer"
+     ]
+    },
+    {
+     "company_id": "ashby:elevenlabs",
+     "company": "ElevenLabs",
+     "cohort": "ai_model_developer",
+     "open_postings": 147,
+     "usd_annual_eligible": 1,
+     "share_of_market_eligible_pct": 0,
+     "posted_low_p50": 80000,
+     "posted_high_p50": 130000,
+     "posted_midpoint_p50": 105000,
+     "top_role_families": [
+      "gtm_sales",
+      "software_engineer",
+      "solutions_engineer"
+     ]
+    },
+    {
+     "company_id": "ashby:liquid",
+     "company": "Liquid AI",
+     "cohort": "ai_model_developer",
+     "open_postings": 2,
+     "usd_annual_eligible": 1,
+     "share_of_market_eligible_pct": 0,
+     "posted_low_p50": 160000,
+     "posted_high_p50": 320000,
+     "posted_midpoint_p50": 240000,
+     "top_role_families": [
+      "gtm_sales",
+      "other"
+     ]
+    },
+    {
+     "company_id": "ashby:parasail",
+     "company": "Parasail",
+     "cohort": "ai_infrastructure_compute",
+     "open_postings": 8,
+     "usd_annual_eligible": 1,
+     "share_of_market_eligible_pct": 0,
+     "posted_low_p50": 200000,
+     "posted_high_p50": 220000,
+     "posted_midpoint_p50": 210000,
+     "top_role_families": [
+      "software_engineer",
+      "ai_infrastructure_engineer",
+      "marketing"
+     ]
+    },
+    {
+     "company_id": "ashby:slingshotai",
+     "company": "Slingshot AI",
+     "cohort": "applied_ai",
+     "open_postings": 5,
+     "usd_annual_eligible": 1,
+     "share_of_market_eligible_pct": 0,
+     "posted_low_p50": 140000,
+     "posted_high_p50": 180000,
+     "posted_midpoint_p50": 160000,
+     "top_role_families": [
+      "marketing",
+      "product_manager",
+      "business_operations"
+     ]
+    },
+    {
+     "company_id": "ashby:synthesia",
+     "company": "Synthesia",
+     "cohort": "ai_model_developer",
+     "open_postings": 30,
+     "usd_annual_eligible": 1,
+     "share_of_market_eligible_pct": 0,
+     "posted_low_p50": 150000,
+     "posted_high_p50": 200000,
+     "posted_midpoint_p50": 175000,
+     "top_role_families": [
+      "solutions_engineer",
+      "marketing",
+      "gtm_sales"
+     ]
+    },
+    {
+     "company_id": "ashby:thinkingmachines",
+     "company": "Thinking Machines",
+     "cohort": "frontier_lab",
+     "open_postings": 53,
+     "usd_annual_eligible": 1,
+     "share_of_market_eligible_pct": 0,
+     "posted_low_p50": 400000,
+     "posted_high_p50": 500000,
+     "posted_midpoint_p50": 450000,
+     "top_role_families": [
+      "research_engineer",
+      "software_engineer",
+      "business_operations"
+     ]
+    },
+    {
+     "company_id": "ashby:adaption",
+     "company": "Adaption Labs",
+     "cohort": "ai_model_developer",
+     "open_postings": 8,
+     "usd_annual_eligible": 0,
+     "share_of_market_eligible_pct": 0,
+     "posted_low_p50": null,
+     "posted_high_p50": null,
+     "posted_midpoint_p50": null,
+     "top_role_families": [
+      "research_scientist",
+      "applied_ai_engineer",
+      "marketing"
+     ]
+    },
+    {
+     "company_id": "ashby:cursor",
+     "company": "Anysphere (Cursor)",
+     "cohort": "applied_ai",
+     "open_postings": 118,
+     "usd_annual_eligible": 0,
+     "share_of_market_eligible_pct": 0,
+     "posted_low_p50": null,
+     "posted_high_p50": null,
+     "posted_midpoint_p50": null,
+     "top_role_families": [
+      "gtm_sales",
+      "solutions_engineer",
+      "software_engineer"
+     ]
+    },
+    {
+     "company_id": "ashby:augmodo",
+     "company": "Augmodo",
+     "cohort": "applied_ai",
+     "open_postings": 2,
+     "usd_annual_eligible": 0,
+     "share_of_market_eligible_pct": 0,
+     "posted_low_p50": null,
+     "posted_high_p50": null,
+     "posted_midpoint_p50": null,
+     "top_role_families": [
+      "software_engineer"
+     ]
+    },
+    {
+     "company_id": "ashby:autoscience",
+     "company": "Autoscience",
+     "cohort": "ai_model_developer",
+     "open_postings": 5,
+     "usd_annual_eligible": 0,
+     "share_of_market_eligible_pct": 0,
+     "posted_low_p50": null,
+     "posted_high_p50": null,
+     "posted_midpoint_p50": null,
+     "top_role_families": [
+      "software_engineer",
+      "forward_deployed_engineer",
+      "research_scientist"
+     ]
+    },
+    {
+     "company_id": "ashby:black-forest-labs",
+     "company": "Black Forest Labs",
+     "cohort": "ai_model_developer",
+     "open_postings": 15,
+     "usd_annual_eligible": 0,
+     "share_of_market_eligible_pct": 0,
+     "posted_low_p50": null,
+     "posted_high_p50": null,
+     "posted_midpoint_p50": null,
+     "top_role_families": [
+      "research_engineer",
+      "research_scientist",
+      "marketing"
+     ]
+    },
+    {
+     "company_id": "greenhouse:bluefishai",
+     "company": "Bluefish AI",
+     "cohort": "applied_ai",
+     "open_postings": 23,
+     "usd_annual_eligible": 0,
+     "share_of_market_eligible_pct": 0,
+     "posted_low_p50": null,
+     "posted_high_p50": null,
+     "posted_midpoint_p50": null,
+     "top_role_families": [
+      "gtm_sales",
+      "applied_ai_engineer",
+      "data_scientist"
+     ]
+    },
+    {
+     "company_id": "ashby:braintrust",
+     "company": "Braintrust Data",
+     "cohort": "ai_infrastructure_compute",
+     "open_postings": 30,
+     "usd_annual_eligible": 0,
+     "share_of_market_eligible_pct": 0,
+     "posted_low_p50": null,
+     "posted_high_p50": null,
+     "posted_midpoint_p50": null,
+     "top_role_families": [
+      "gtm_sales",
+      "solutions_engineer",
+      "software_engineer"
+     ]
+    },
+    {
+     "company_id": "ashby:cerebras",
+     "company": "Cerebras",
+     "cohort": "ai_hardware_silicon",
+     "open_postings": 115,
+     "usd_annual_eligible": 0,
+     "share_of_market_eligible_pct": 0,
+     "posted_low_p50": null,
+     "posted_high_p50": null,
+     "posted_midpoint_p50": null,
+     "top_role_families": [
+      "ai_infrastructure_engineer",
+      "software_engineer",
+      "hardware_silicon_engineer"
+     ]
+    },
+    {
+     "company_id": "ashby:chaidiscovery",
+     "company": "Chai Discovery",
+     "cohort": "ai_model_developer",
+     "open_postings": 21,
+     "usd_annual_eligible": 0,
+     "share_of_market_eligible_pct": 0,
+     "posted_low_p50": null,
+     "posted_high_p50": null,
+     "posted_midpoint_p50": null,
+     "top_role_families": [
+      "software_engineer",
+      "business_operations",
+      "other"
+     ]
+    },
+    {
+     "company_id": "ashby:composio",
+     "company": "Composio",
+     "cohort": "ai_infrastructure_compute",
+     "open_postings": 31,
+     "usd_annual_eligible": 0,
+     "share_of_market_eligible_pct": 0,
+     "posted_low_p50": null,
+     "posted_high_p50": null,
+     "posted_midpoint_p50": null,
+     "top_role_families": [
+      "software_engineer",
+      "business_operations",
+      "gtm_sales"
+     ]
+    },
+    {
+     "company_id": "ashby:contoro",
+     "company": "Contoro Robotics",
+     "cohort": "physical_ai_robotics",
+     "open_postings": 12,
+     "usd_annual_eligible": 0,
+     "share_of_market_eligible_pct": 0,
+     "posted_low_p50": null,
+     "posted_high_p50": null,
+     "posted_midpoint_p50": null,
+     "top_role_families": [
+      "skilled_trades_facilities",
+      "software_engineer",
+      "hardware_silicon_engineer"
+     ]
+    },
+    {
+     "company_id": "ashby:cradlebio",
+     "company": "Cradle",
+     "cohort": "ai_model_developer",
+     "open_postings": 8,
+     "usd_annual_eligible": 0,
+     "share_of_market_eligible_pct": 0,
+     "posted_low_p50": null,
+     "posted_high_p50": null,
+     "posted_midpoint_p50": null,
+     "top_role_families": [
+      "gtm_sales",
+      "business_operations",
+      "legal_finance"
+     ]
+    },
+    {
+     "company_id": "ashby:crusoe",
+     "company": "Crusoe",
+     "cohort": "ai_infrastructure_compute",
+     "open_postings": 328,
+     "usd_annual_eligible": 0,
+     "share_of_market_eligible_pct": 0,
+     "posted_low_p50": null,
+     "posted_high_p50": null,
+     "posted_midpoint_p50": null,
+     "top_role_families": [
+      "business_operations",
+      "software_engineer",
+      "legal_finance"
+     ]
+    },
+    {
+     "company_id": "ashby:depthfirst",
+     "company": "DepthFirst",
+     "cohort": "applied_ai",
+     "open_postings": 19,
+     "usd_annual_eligible": 0,
+     "share_of_market_eligible_pct": 0,
+     "posted_low_p50": null,
+     "posted_high_p50": null,
+     "posted_midpoint_p50": null,
+     "top_role_families": [
+      "security_engineer",
+      "gtm_sales",
+      "software_engineer"
+     ]
+    },
+    {
+     "company_id": "ashby:distyl",
+     "company": "Distyl",
+     "cohort": "applied_ai",
+     "open_postings": 25,
+     "usd_annual_eligible": 0,
+     "share_of_market_eligible_pct": 0,
+     "posted_low_p50": null,
+     "posted_high_p50": null,
+     "posted_midpoint_p50": null,
+     "top_role_families": [
+      "research_scientist",
+      "applied_ai_engineer",
+      "solutions_engineer"
+     ]
+    },
+    {
+     "company_id": "ashby:eliseai",
+     "company": "EliseAI",
+     "cohort": "applied_ai",
+     "open_postings": 115,
+     "usd_annual_eligible": 0,
+     "share_of_market_eligible_pct": 0,
+     "posted_low_p50": null,
+     "posted_high_p50": null,
+     "posted_midpoint_p50": null,
+     "top_role_families": [
+      "gtm_sales",
+      "solutions_engineer",
+      "business_operations"
+     ]
+    },
+    {
+     "company_id": "ashby:factory",
+     "company": "Factory",
+     "cohort": "applied_ai",
+     "open_postings": 69,
+     "usd_annual_eligible": 0,
+     "share_of_market_eligible_pct": 0,
+     "posted_low_p50": null,
+     "posted_high_p50": null,
+     "posted_midpoint_p50": null,
+     "top_role_families": [
+      "gtm_sales",
+      "solutions_engineer",
+      "marketing"
+     ]
+    },
+    {
+     "company_id": "google_careers:DeepMind",
+     "company": "Google DeepMind",
+     "cohort": "frontier_lab",
+     "open_postings": 137,
+     "usd_annual_eligible": 0,
+     "share_of_market_eligible_pct": 0,
+     "posted_low_p50": null,
+     "posted_high_p50": null,
+     "posted_midpoint_p50": null,
+     "top_role_families": [
+      "research_scientist",
+      "business_operations",
+      "research_engineer"
+     ]
+    },
+    {
+     "company_id": "ashby:hcompany",
+     "company": "H Company",
+     "cohort": "ai_model_developer",
+     "open_postings": 34,
+     "usd_annual_eligible": 0,
+     "share_of_market_eligible_pct": 0,
+     "posted_low_p50": null,
+     "posted_high_p50": null,
+     "posted_midpoint_p50": null,
+     "top_role_families": [
+      "software_engineer",
+      "gtm_sales",
+      "marketing"
+     ]
+    },
+    {
+     "company_id": "greenhouse:isomorphiclabs",
+     "company": "Isomorphic Labs",
+     "cohort": "ai_model_developer",
+     "open_postings": 33,
+     "usd_annual_eligible": 0,
+     "share_of_market_eligible_pct": 0,
+     "posted_low_p50": null,
+     "posted_high_p50": null,
+     "posted_midpoint_p50": null,
+     "top_role_families": [
+      "research_scientist",
+      "business_operations",
+      "clinical"
+     ]
+    },
+    {
+     "company_id": "ashby:judgmentlabs",
+     "company": "Judgment Labs",
+     "cohort": "ai_infrastructure_compute",
+     "open_postings": 4,
+     "usd_annual_eligible": 0,
+     "share_of_market_eligible_pct": 0,
+     "posted_low_p50": null,
+     "posted_high_p50": null,
+     "posted_midpoint_p50": null,
+     "top_role_families": [
+      "software_engineer",
+      "forward_deployed_engineer"
+     ]
+    },
+    {
+     "company_id": "ashby:langchain",
+     "company": "LangChain",
+     "cohort": "ai_infrastructure_compute",
+     "open_postings": 103,
+     "usd_annual_eligible": 0,
+     "share_of_market_eligible_pct": 0,
+     "posted_low_p50": null,
+     "posted_high_p50": null,
+     "posted_midpoint_p50": null,
+     "top_role_families": [
+      "gtm_sales",
+      "solutions_engineer",
+      "forward_deployed_engineer"
+     ]
+    },
+    {
+     "company_id": "ashby:mastra",
+     "company": "Mastra",
+     "cohort": "ai_infrastructure_compute",
+     "open_postings": 3,
+     "usd_annual_eligible": 0,
+     "share_of_market_eligible_pct": 0,
+     "posted_low_p50": null,
+     "posted_high_p50": null,
+     "posted_midpoint_p50": null,
+     "top_role_families": [
+      "applied_ai_engineer",
+      "solutions_engineer",
+      "gtm_sales"
+     ]
+    },
+    {
+     "company_id": "ashby:matx",
+     "company": "MatX",
+     "cohort": "ai_hardware_silicon",
+     "open_postings": 43,
+     "usd_annual_eligible": 0,
+     "share_of_market_eligible_pct": 0,
+     "posted_low_p50": null,
+     "posted_high_p50": null,
+     "posted_midpoint_p50": null,
+     "top_role_families": [
+      "hardware_silicon_engineer",
+      "business_operations",
+      "software_engineer"
+     ]
+    },
+    {
+     "company_id": "ashby:mistral.ai",
+     "company": "Mistral AI",
+     "cohort": "frontier_lab",
+     "open_postings": 231,
+     "usd_annual_eligible": 0,
+     "share_of_market_eligible_pct": 0,
+     "posted_low_p50": null,
+     "posted_high_p50": null,
+     "posted_midpoint_p50": null,
+     "top_role_families": [
+      "software_engineer",
+      "solutions_engineer",
+      "gtm_sales"
+     ]
+    },
+    {
+     "company_id": "ashby:openevidence",
+     "company": "OpenEvidence",
+     "cohort": "applied_ai",
+     "open_postings": 8,
+     "usd_annual_eligible": 0,
+     "share_of_market_eligible_pct": 0,
+     "posted_low_p50": null,
+     "posted_high_p50": null,
+     "posted_midpoint_p50": null,
+     "top_role_families": [
+      "software_engineer",
+      "other",
+      "gtm_sales"
+     ]
+    },
+    {
+     "company_id": "ashby:photoroom",
+     "company": "Photoroom",
+     "cohort": "applied_ai",
+     "open_postings": 9,
+     "usd_annual_eligible": 0,
+     "share_of_market_eligible_pct": 0,
+     "posted_low_p50": null,
+     "posted_high_p50": null,
+     "posted_midpoint_p50": null,
+     "top_role_families": [
+      "applied_ai_engineer",
+      "product_manager",
+      "gtm_sales"
+     ]
+    },
+    {
+     "company_id": "ashby:physicalintelligence",
+     "company": "Physical Intelligence",
+     "cohort": "physical_ai_robotics",
+     "open_postings": 44,
+     "usd_annual_eligible": 0,
+     "share_of_market_eligible_pct": 0,
+     "posted_low_p50": null,
+     "posted_high_p50": null,
+     "posted_midpoint_p50": null,
+     "top_role_families": [
+      "business_operations",
+      "software_engineer",
+      "hardware_silicon_engineer"
+     ]
+    },
+    {
+     "company_id": "ashby:poolside",
+     "company": "Poolside",
+     "cohort": "ai_model_developer",
+     "open_postings": 3,
+     "usd_annual_eligible": 0,
+     "share_of_market_eligible_pct": 0,
+     "posted_low_p50": null,
+     "posted_high_p50": null,
+     "posted_midpoint_p50": null,
+     "top_role_families": [
+      "ai_infrastructure_engineer",
+      "software_engineer",
+      "business_operations"
+     ]
+    },
+    {
+     "company_id": "ashby:protege",
+     "company": "Protege AI",
+     "cohort": "ai_infrastructure_compute",
+     "open_postings": 17,
+     "usd_annual_eligible": 0,
+     "share_of_market_eligible_pct": 0,
+     "posted_low_p50": null,
+     "posted_high_p50": null,
+     "posted_midpoint_p50": null,
+     "top_role_families": [
+      "gtm_sales",
+      "research_scientist",
+      "business_operations"
+     ]
+    },
+    {
+     "company_id": "ashby:redpine",
+     "company": "Redpine AI",
+     "cohort": "applied_ai",
+     "open_postings": 5,
+     "usd_annual_eligible": 0,
+     "share_of_market_eligible_pct": 0,
+     "posted_low_p50": null,
+     "posted_high_p50": null,
+     "posted_midpoint_p50": null,
+     "top_role_families": [
+      "applied_ai_engineer",
+      "gtm_sales",
+      "software_engineer"
+     ]
+    },
+    {
+     "company_id": "ashby:reka",
+     "company": "Reka AI",
+     "cohort": "ai_model_developer",
+     "open_postings": 9,
+     "usd_annual_eligible": 0,
+     "share_of_market_eligible_pct": 0,
+     "posted_low_p50": null,
+     "posted_high_p50": null,
+     "posted_midpoint_p50": null,
+     "top_role_families": [
+      "applied_ai_engineer",
+      "software_engineer",
+      "other"
+     ]
+    },
+    {
+     "company_id": "ashby:rime",
+     "company": "Rime",
+     "cohort": "ai_model_developer",
+     "open_postings": 3,
+     "usd_annual_eligible": 0,
+     "share_of_market_eligible_pct": 0,
+     "posted_low_p50": null,
+     "posted_high_p50": null,
+     "posted_midpoint_p50": null,
+     "top_role_families": [
+      "marketing",
+      "gtm_sales",
+      "research_scientist"
+     ]
+    },
+    {
+     "company_id": "ashby:runpod",
+     "company": "RunPod",
+     "cohort": "ai_infrastructure_compute",
+     "open_postings": 24,
+     "usd_annual_eligible": 0,
+     "share_of_market_eligible_pct": 0,
+     "posted_low_p50": null,
+     "posted_high_p50": null,
+     "posted_midpoint_p50": null,
+     "top_role_families": [
+      "software_engineer",
+      "solutions_engineer",
+      "gtm_sales"
+     ]
+    },
+    {
+     "company_id": "ashby:runlayer",
+     "company": "Runlayer",
+     "cohort": "ai_infrastructure_compute",
+     "open_postings": 17,
+     "usd_annual_eligible": 0,
+     "share_of_market_eligible_pct": 0,
+     "posted_low_p50": null,
+     "posted_high_p50": null,
+     "posted_midpoint_p50": null,
+     "top_role_families": [
+      "gtm_sales",
+      "marketing",
+      "solutions_engineer"
+     ]
+    },
+    {
+     "company_id": "ashby:sapiom",
+     "company": "Sapiom",
+     "cohort": "ai_infrastructure_compute",
+     "open_postings": 4,
+     "usd_annual_eligible": 0,
+     "share_of_market_eligible_pct": 0,
+     "posted_low_p50": null,
+     "posted_high_p50": null,
+     "posted_midpoint_p50": null,
+     "top_role_families": [
+      "developer_relations",
+      "marketing",
+      "software_engineer"
+     ]
+    },
+    {
+     "company_id": "ashby:sekai",
+     "company": "Sekai",
+     "cohort": "applied_ai",
+     "open_postings": 7,
+     "usd_annual_eligible": 0,
+     "share_of_market_eligible_pct": 0,
+     "posted_low_p50": null,
+     "posted_high_p50": null,
+     "posted_midpoint_p50": null,
+     "top_role_families": [
+      "applied_ai_engineer",
+      "software_engineer",
+      "product_manager"
+     ]
+    },
+    {
+     "company_id": "ashby:stacks",
+     "company": "Stacks AI",
+     "cohort": "applied_ai",
+     "open_postings": 6,
+     "usd_annual_eligible": 0,
+     "share_of_market_eligible_pct": 0,
+     "posted_low_p50": null,
+     "posted_high_p50": null,
+     "posted_midpoint_p50": null,
+     "top_role_families": [
+      "gtm_sales",
+      "solutions_engineer",
+      "business_operations"
+     ]
+    },
+    {
+     "company_id": "lever:waabi",
+     "company": "Waabi",
+     "cohort": "physical_ai_robotics",
+     "open_postings": 92,
+     "usd_annual_eligible": 0,
+     "share_of_market_eligible_pct": 0,
+     "posted_low_p50": null,
+     "posted_high_p50": null,
+     "posted_midpoint_p50": null,
+     "top_role_families": [
+      "business_operations",
+      "software_engineer",
+      "hardware_silicon_engineer"
+     ]
+    },
+    {
+     "company_id": "ashby:wonderful",
+     "company": "Wonderful",
+     "cohort": "applied_ai",
+     "open_postings": 120,
+     "usd_annual_eligible": 0,
+     "share_of_market_eligible_pct": 0,
+     "posted_low_p50": null,
+     "posted_high_p50": null,
+     "posted_midpoint_p50": null,
+     "top_role_families": [
+      "forward_deployed_engineer",
+      "gtm_sales",
+      "solutions_engineer"
+     ]
+    },
+    {
+     "company_id": "ashby:turbopuffer",
+     "company": "turbopuffer",
+     "cohort": "ai_infrastructure_compute",
+     "open_postings": 7,
+     "usd_annual_eligible": 0,
+     "share_of_market_eligible_pct": 0,
+     "posted_low_p50": null,
+     "posted_high_p50": null,
+     "posted_midpoint_p50": null,
+     "top_role_families": [
+      "gtm_sales",
+      "solutions_engineer",
+      "data_engineer"
+     ]
+    }
+   ]
+  },
+  "crypto": {
+   "label": "Crypto",
+   "definition": "Crypto-native companies. Employer-posted ranges are thin here; Up Top's crypto model bands carry most of this market.",
+   "overall": {
+    "postings": 92,
+    "employers": 8,
+    "with_posted_range": 52,
+    "disclosure_coverage_pct": 57,
+    "usd_annual_eligible": 52,
+    "eligible_employers": 3,
+    "posted_low": {
+     "n": 52,
+     "min": 77000,
+     "p25": 150000,
+     "p50": 200000,
+     "p75": 250000,
+     "max": 500000
+    },
+    "posted_high": {
+     "n": 52,
+     "min": 110000,
+     "p25": 200000,
+     "p50": 275000,
+     "p75": 400000,
+     "max": 600000
+    },
+    "posted_midpoint": {
+     "n": 52,
+     "min": 93500,
+     "p25": 179375,
+     "p50": 231250,
+     "p75": 325000,
+     "max": 550000
+    },
+    "company_balanced_midpoint_p50": 200000,
+    "top_employer": {
+     "company_id": "ashby:polymarket",
+     "postings": 37,
+     "share_pct": 71
+    },
+    "employer_hhi": 5525,
+    "meets_display_rule": false,
+    "posted_window": {
+     "min": "2024-01-26",
+     "max": "2026-11-03"
+    }
+   },
+   "by_role_family": {
+    "business_operations": {
+     "postings": 10,
+     "employers": 5,
+     "with_posted_range": 5,
+     "disclosure_coverage_pct": 50,
+     "usd_annual_eligible": 5,
+     "eligible_employers": 1,
+     "posted_low": {
+      "n": 5,
+      "min": 165000,
+      "p25": 200000,
+      "p50": 210000,
+      "p75": 250000,
+      "max": 350000
+     },
+     "posted_high": {
+      "n": 5,
+      "min": 190000,
+      "p25": 240000,
+      "p50": 300000,
+      "p75": 340000,
+      "max": 450000
+     },
+     "posted_midpoint": {
+      "n": 5,
+      "min": 177500,
+      "p25": 225000,
+      "p50": 250000,
+      "p75": 295000,
+      "max": 400000
+     },
+     "company_balanced_midpoint_p50": 250000,
+     "top_employer": {
+      "company_id": "ashby:polymarket",
+      "postings": 5,
+      "share_pct": 100
+     },
+     "employer_hhi": 10000,
+     "meets_display_rule": false,
+     "posted_window": {
+      "min": "2025-06-28",
+      "max": "2026-10-28"
+     }
+    },
+    "data_engineer": {
+     "postings": 1,
+     "employers": 1,
+     "with_posted_range": 0,
+     "disclosure_coverage_pct": 0,
+     "usd_annual_eligible": 0,
+     "eligible_employers": 0,
+     "posted_low": null,
+     "posted_high": null,
+     "posted_midpoint": null,
+     "company_balanced_midpoint_p50": null,
+     "top_employer": null,
+     "employer_hhi": null,
+     "meets_display_rule": false,
+     "posted_window": {
+      "min": "2026-10-27",
+      "max": "2026-10-27"
+     }
+    },
+    "data_scientist": {
+     "postings": 7,
+     "employers": 2,
+     "with_posted_range": 4,
+     "disclosure_coverage_pct": 57,
+     "usd_annual_eligible": 4,
+     "eligible_employers": 1,
+     "posted_low": {
+      "n": 4,
+      "min": 125000,
+      "p25": 181250,
+      "p50": 300000,
+      "p75": 400000,
+      "max": 400000
+     },
+     "posted_high": {
+      "n": 4,
+      "min": 200000,
+      "p25": 275000,
+      "p50": 375000,
+      "p75": 462500,
+      "max": 500000
+     },
+     "posted_midpoint": {
+      "n": 4,
+      "min": 162500,
+      "p25": 228125,
+      "p50": 337500,
+      "p75": 431250,
+      "max": 450000
+     },
+     "company_balanced_midpoint_p50": 337500,
+     "top_employer": {
+      "company_id": "ashby:polymarket",
+      "postings": 4,
+      "share_pct": 100
+     },
+     "employer_hhi": 10000,
+     "meets_display_rule": false,
+     "posted_window": {
+      "min": "2026-08-12",
+      "max": "2026-11-03"
+     }
+    },
+    "design": {
+     "postings": 1,
+     "employers": 1,
+     "with_posted_range": 0,
+     "disclosure_coverage_pct": 0,
+     "usd_annual_eligible": 0,
+     "eligible_employers": 0,
+     "posted_low": null,
+     "posted_high": null,
+     "posted_midpoint": null,
+     "company_balanced_midpoint_p50": null,
+     "top_employer": null,
+     "employer_hhi": null,
+     "meets_display_rule": false,
+     "posted_window": {
+      "min": "2025-06-27",
+      "max": "2025-06-27"
+     }
+    },
+    "developer_relations": {
+     "postings": 1,
+     "employers": 1,
+     "with_posted_range": 0,
+     "disclosure_coverage_pct": 0,
+     "usd_annual_eligible": 0,
+     "eligible_employers": 0,
+     "posted_low": null,
+     "posted_high": null,
+     "posted_midpoint": null,
+     "company_balanced_midpoint_p50": null,
+     "top_employer": null,
+     "employer_hhi": null,
+     "meets_display_rule": false,
+     "posted_window": {
+      "min": "2024-06-03",
+      "max": "2024-06-03"
+     }
+    },
+    "forward_deployed_engineer": {
+     "postings": 1,
+     "employers": 1,
+     "with_posted_range": 0,
+     "disclosure_coverage_pct": 0,
+     "usd_annual_eligible": 0,
+     "eligible_employers": 0,
+     "posted_low": null,
+     "posted_high": null,
+     "posted_midpoint": null,
+     "company_balanced_midpoint_p50": null,
+     "top_employer": null,
+     "employer_hhi": null,
+     "meets_display_rule": false,
+     "posted_window": {
+      "min": "2026-06-11",
+      "max": "2026-06-11"
+     }
+    },
+    "gtm_sales": {
+     "postings": 11,
+     "employers": 5,
+     "with_posted_range": 7,
+     "disclosure_coverage_pct": 64,
+     "usd_annual_eligible": 7,
+     "eligible_employers": 3,
+     "posted_low": {
+      "n": 7,
+      "min": 77000,
+      "p25": 100000,
+      "p50": 125000,
+      "p75": 180000,
+      "max": 200000
+     },
+     "posted_high": {
+      "n": 7,
+      "min": 110000,
+      "p25": 135000,
+      "p50": 200000,
+      "p75": 220000,
+      "max": 300000
+     },
+     "posted_midpoint": {
+      "n": 7,
+      "min": 93500,
+      "p25": 117500,
+      "p50": 162500,
+      "p75": 200000,
+      "max": 250000
+     },
+     "company_balanced_midpoint_p50": 148750,
+     "top_employer": {
+      "company_id": "ashby:turnkey",
+      "postings": 4,
+      "share_pct": 57
+     },
+     "employer_hhi": 4286,
+     "meets_display_rule": false,
+     "posted_window": {
+      "min": "2025-02-12",
+      "max": "2026-09-09"
+     }
+    },
+    "legal_finance": {
+     "postings": 11,
+     "employers": 5,
+     "with_posted_range": 6,
+     "disclosure_coverage_pct": 55,
+     "usd_annual_eligible": 6,
+     "eligible_employers": 1,
+     "posted_low": {
+      "n": 6,
+      "min": 125000,
+      "p25": 146250,
+      "p50": 215000,
+      "p75": 287500,
+      "max": 350000
+     },
+     "posted_high": {
+      "n": 6,
+      "min": 150000,
+      "p25": 212500,
+      "p50": 295000,
+      "p75": 460000,
+      "max": 500000
+     },
+     "posted_midpoint": {
+      "n": 6,
+      "min": 142500,
+      "p25": 175625,
+      "p50": 255000,
+      "p75": 373750,
+      "max": 425000
+     },
+     "company_balanced_midpoint_p50": 255000,
+     "top_employer": {
+      "company_id": "ashby:polymarket",
+      "postings": 6,
+      "share_pct": 100
+     },
+     "employer_hhi": 10000,
+     "meets_display_rule": false,
+     "posted_window": {
+      "min": "2026-01-22",
+      "max": "2026-11-03"
+     }
+    },
+    "marketing": {
+     "postings": 6,
+     "employers": 2,
+     "with_posted_range": 5,
+     "disclosure_coverage_pct": 83,
+     "usd_annual_eligible": 5,
+     "eligible_employers": 1,
+     "posted_low": {
+      "n": 5,
+      "min": 125000,
+      "p25": 240000,
+      "p50": 250000,
+      "p75": 250000,
+      "max": 300000
+     },
+     "posted_high": {
+      "n": 5,
+      "min": 200000,
+      "p25": 260000,
+      "p50": 280000,
+      "p75": 300000,
+      "max": 375000
+     },
+     "posted_midpoint": {
+      "n": 5,
+      "min": 162500,
+      "p25": 250000,
+      "p50": 265000,
+      "p75": 275000,
+      "max": 337500
+     },
+     "company_balanced_midpoint_p50": 265000,
+     "top_employer": {
+      "company_id": "ashby:polymarket",
+      "postings": 5,
+      "share_pct": 100
+     },
+     "employer_hhi": 10000,
+     "meets_display_rule": false,
+     "posted_window": {
+      "min": "2026-08-05",
+      "max": "2026-11-03"
+     }
+    },
+    "other": {
+     "postings": 5,
+     "employers": 2,
+     "with_posted_range": 3,
+     "disclosure_coverage_pct": 60,
+     "usd_annual_eligible": 3,
+     "eligible_employers": 1,
+     "posted_low": {
+      "n": 3,
+      "min": 125000,
+      "p25": 162500,
+      "p50": 200000,
+      "p75": 350000,
+      "max": 500000
+     },
+     "posted_high": {
+      "n": 3,
+      "min": 165000,
+      "p25": 207500,
+      "p50": 250000,
+      "p75": 425000,
+      "max": 600000
+     },
+     "posted_midpoint": {
+      "n": 3,
+      "min": 145000,
+      "p25": 185000,
+      "p50": 225000,
+      "p75": 387500,
+      "max": 550000
+     },
+     "company_balanced_midpoint_p50": 225000,
+     "top_employer": {
+      "company_id": "ashby:polymarket",
+      "postings": 3,
+      "share_pct": 100
+     },
+     "employer_hhi": 10000,
+     "meets_display_rule": false,
+     "posted_window": {
+      "min": "2024-04-25",
+      "max": "2026-11-02"
+     }
+    },
+    "people_recruiting": {
+     "postings": 4,
+     "employers": 2,
+     "with_posted_range": 4,
+     "disclosure_coverage_pct": 100,
+     "usd_annual_eligible": 4,
+     "eligible_employers": 2,
+     "posted_low": {
+      "n": 4,
+      "min": 100000,
+      "p25": 137500,
+      "p50": 150000,
+      "p75": 156250,
+      "max": 175000
+     },
+     "posted_high": {
+      "n": 4,
+      "min": 175000,
+      "p25": 193750,
+      "p50": 225000,
+      "p75": 256250,
+      "max": 275000
+     },
+     "posted_midpoint": {
+      "n": 4,
+      "min": 137500,
+      "p25": 165625,
+      "p50": 187500,
+      "p75": 206250,
+      "max": 225000
+     },
+     "company_balanced_midpoint_p50": 184375,
+     "top_employer": {
+      "company_id": "ashby:polymarket",
+      "postings": 2,
+      "share_pct": 50
+     },
+     "employer_hhi": 5000,
+     "meets_display_rule": false,
+     "posted_window": {
+      "min": "2025-11-03",
+      "max": "2026-09-23"
+     }
+    },
+    "product_manager": {
+     "postings": 6,
+     "employers": 3,
+     "with_posted_range": 4,
+     "disclosure_coverage_pct": 67,
+     "usd_annual_eligible": 4,
+     "eligible_employers": 2,
+     "posted_low": {
+      "n": 4,
+      "min": 150000,
+      "p25": 187500,
+      "p50": 225000,
+      "p75": 250000,
+      "max": 250000
+     },
+     "posted_high": {
+      "n": 4,
+      "min": 250000,
+      "p25": 250000,
+      "p50": 325000,
+      "p75": 412500,
+      "max": 450000
+     },
+     "posted_midpoint": {
+      "n": 4,
+      "min": 200000,
+      "p25": 218750,
+      "p50": 275000,
+      "p75": 331250,
+      "max": 350000
+     },
+     "company_balanced_midpoint_p50": 262500,
+     "top_employer": {
+      "company_id": "ashby:polymarket",
+      "postings": 3,
+      "share_pct": 75
+     },
+     "employer_hhi": 6250,
+     "meets_display_rule": false,
+     "posted_window": {
+      "min": "2025-04-01",
+      "max": "2026-10-01"
+     }
+    },
+    "security_engineer": {
+     "postings": 5,
+     "employers": 3,
+     "with_posted_range": 2,
+     "disclosure_coverage_pct": 40,
+     "usd_annual_eligible": 2,
+     "eligible_employers": 1,
+     "posted_low": {
+      "n": 2,
+      "min": 175000,
+      "p25": 175000,
+      "p50": 175000,
+      "p75": 175000,
+      "max": 175000
+     },
+     "posted_high": {
+      "n": 2,
+      "min": 220000,
+      "p25": 220000,
+      "p50": 220000,
+      "p75": 220000,
+      "max": 220000
+     },
+     "posted_midpoint": {
+      "n": 2,
+      "min": 197500,
+      "p25": 197500,
+      "p50": 197500,
+      "p75": 197500,
+      "max": 197500
+     },
+     "company_balanced_midpoint_p50": 197500,
+     "top_employer": {
+      "company_id": "ashby:squads",
+      "postings": 2,
+      "share_pct": 100
+     },
+     "employer_hhi": 10000,
+     "meets_display_rule": false,
+     "posted_window": {
+      "min": "2026-01-27",
+      "max": "2026-10-13"
+     }
+    },
+    "software_engineer": {
+     "postings": 22,
+     "employers": 8,
+     "with_posted_range": 11,
+     "disclosure_coverage_pct": 50,
+     "usd_annual_eligible": 11,
+     "eligible_employers": 3,
+     "posted_low": {
+      "n": 11,
+      "min": 150000,
+      "p25": 215000,
+      "p50": 250000,
+      "p75": 250000,
+      "max": 350000
+     },
+     "posted_high": {
+      "n": 11,
+      "min": 220000,
+      "p25": 302500,
+      "p50": 400000,
+      "p75": 500000,
+      "max": 500000
+     },
+     "posted_midpoint": {
+      "n": 11,
+      "min": 197500,
+      "p25": 258750,
+      "p50": 325000,
+      "p75": 375000,
+      "max": 425000
+     },
+     "company_balanced_midpoint_p50": 225000,
+     "top_employer": {
+      "company_id": "ashby:polymarket",
+      "postings": 8,
+      "share_pct": 73
+     },
+     "employer_hhi": 5702,
+     "meets_display_rule": false,
+     "posted_window": {
+      "min": "2024-01-26",
+      "max": "2026-10-26"
+     }
+    },
+    "solutions_engineer": {
+     "postings": 1,
+     "employers": 1,
+     "with_posted_range": 1,
+     "disclosure_coverage_pct": 100,
+     "usd_annual_eligible": 1,
+     "eligible_employers": 1,
+     "posted_low": {
+      "n": 1,
+      "min": 100000,
+      "p25": 100000,
+      "p50": 100000,
+      "p75": 100000,
+      "max": 100000
+     },
+     "posted_high": {
+      "n": 1,
+      "min": 150000,
+      "p25": 150000,
+      "p50": 150000,
+      "p75": 150000,
+      "max": 150000
+     },
+     "posted_midpoint": {
+      "n": 1,
+      "min": 125000,
+      "p25": 125000,
+      "p50": 125000,
+      "p75": 125000,
+      "max": 125000
+     },
+     "company_balanced_midpoint_p50": 125000,
+     "top_employer": {
+      "company_id": "ashby:turnkey",
+      "postings": 1,
+      "share_pct": 100
+     },
+     "employer_hhi": 10000,
+     "meets_display_rule": false,
+     "posted_window": {
+      "min": "2025-11-04",
+      "max": "2025-11-04"
+     }
+    }
+   },
+   "by_cohort": {
+    "crypto": {
+     "postings": 92,
+     "employers": 8,
+     "with_posted_range": 52,
+     "disclosure_coverage_pct": 57,
+     "usd_annual_eligible": 52,
+     "eligible_employers": 3,
+     "posted_low": {
+      "n": 52,
+      "min": 77000,
+      "p25": 150000,
+      "p50": 200000,
+      "p75": 250000,
+      "max": 500000
+     },
+     "posted_high": {
+      "n": 52,
+      "min": 110000,
+      "p25": 200000,
+      "p50": 275000,
+      "p75": 400000,
+      "max": 600000
+     },
+     "posted_midpoint": {
+      "n": 52,
+      "min": 93500,
+      "p25": 179375,
+      "p50": 231250,
+      "p75": 325000,
+      "max": 550000
+     },
+     "company_balanced_midpoint_p50": 200000,
+     "top_employer": {
+      "company_id": "ashby:polymarket",
+      "postings": 37,
+      "share_pct": 71
+     },
+     "employer_hhi": 5525,
+     "meets_display_rule": false,
+     "posted_window": {
+      "min": "2024-01-26",
+      "max": "2026-11-03"
+     }
+    }
+   },
+   "by_level": {
+    "director": {
+     "postings": 3,
+     "employers": 1,
+     "with_posted_range": 3,
+     "disclosure_coverage_pct": 100,
+     "usd_annual_eligible": 3,
+     "eligible_employers": 1,
+     "posted_low": {
+      "n": 3,
+      "min": 350000,
+      "p25": 350000,
+      "p50": 350000,
+      "p75": 375000,
+      "max": 400000
+     },
+     "posted_high": {
+      "n": 3,
+      "min": 450000,
+      "p25": 475000,
+      "p50": 500000,
+      "p75": 500000,
+      "max": 500000
+     },
+     "posted_midpoint": {
+      "n": 3,
+      "min": 400000,
+      "p25": 412500,
+      "p50": 425000,
+      "p75": 437500,
+      "max": 450000
+     },
+     "company_balanced_midpoint_p50": 425000,
+     "top_employer": {
+      "company_id": "ashby:polymarket",
+      "postings": 3,
+      "share_pct": 100
+     },
+     "employer_hhi": 10000,
+     "meets_display_rule": false,
+     "posted_window": {
+      "min": "2026-08-12",
+      "max": "2026-10-19"
+     }
+    },
+    "head_of": {
+     "postings": 13,
+     "employers": 5,
+     "with_posted_range": 8,
+     "disclosure_coverage_pct": 62,
+     "usd_annual_eligible": 8,
+     "eligible_employers": 2,
+     "posted_low": {
+      "n": 8,
+      "min": 175000,
+      "p25": 230000,
+      "p50": 250000,
+      "p75": 300000,
+      "max": 500000
+     },
+     "posted_high": {
+      "n": 8,
+      "min": 240000,
+      "p25": 271250,
+      "p50": 290000,
+      "p75": 406250,
+      "max": 600000
+     },
+     "posted_midpoint": {
+      "n": 8,
+      "min": 220000,
+      "p25": 243750,
+      "p50": 270000,
+      "p75": 353125,
+      "max": 550000
+     },
+     "company_balanced_midpoint_p50": 264375,
+     "top_employer": {
+      "company_id": "ashby:polymarket",
+      "postings": 6,
+      "share_pct": 75
+     },
+     "employer_hhi": 6250,
+     "meets_display_rule": false,
+     "posted_window": {
+      "min": "2025-06-27",
+      "max": "2026-11-03"
+     }
+    },
+    "intern": {
+     "postings": 4,
+     "employers": 1,
+     "with_posted_range": 0,
+     "disclosure_coverage_pct": 0,
+     "usd_annual_eligible": 0,
+     "eligible_employers": 0,
+     "posted_low": null,
+     "posted_high": null,
+     "posted_midpoint": null,
+     "company_balanced_midpoint_p50": null,
+     "top_employer": null,
+     "employer_hhi": null,
+     "meets_display_rule": false,
+     "posted_window": {
+      "min": "2026-11-03",
+      "max": "2026-11-03"
+     }
+    },
+    "lead": {
+     "postings": 4,
+     "employers": 2,
+     "with_posted_range": 3,
+     "disclosure_coverage_pct": 75,
+     "usd_annual_eligible": 3,
+     "eligible_employers": 1,
+     "posted_low": {
+      "n": 3,
+      "min": 200000,
+      "p25": 200000,
+      "p50": 200000,
+      "p75": 225000,
+      "max": 250000
+     },
+     "posted_high": {
+      "n": 3,
+      "min": 250000,
+      "p25": 275000,
+      "p50": 300000,
+      "p75": 320000,
+      "max": 340000
+     },
+     "posted_midpoint": {
+      "n": 3,
+      "min": 225000,
+      "p25": 237500,
+      "p50": 250000,
+      "p75": 272500,
+      "max": 295000
+     },
+     "company_balanced_midpoint_p50": 250000,
+     "top_employer": {
+      "company_id": "ashby:polymarket",
+      "postings": 3,
+      "share_pct": 100
+     },
+     "employer_hhi": 10000,
+     "meets_display_rule": false,
+     "posted_window": {
+      "min": "2026-08-20",
+      "max": "2026-10-29"
+     }
+    },
+    "manager": {
+     "postings": 16,
+     "employers": 5,
+     "with_posted_range": 9,
+     "disclosure_coverage_pct": 56,
+     "usd_annual_eligible": 9,
+     "eligible_employers": 2,
+     "posted_low": {
+      "n": 9,
+      "min": 120000,
+      "p25": 150000,
+      "p50": 200000,
+      "p75": 250000,
+      "max": 350000
+     },
+     "posted_high": {
+      "n": 9,
+      "min": 150000,
+      "p25": 200000,
+      "p50": 250000,
+      "p75": 400000,
+      "max": 500000
+     },
+     "posted_midpoint": {
+      "n": 9,
+      "min": 135000,
+      "p25": 177500,
+      "p50": 225000,
+      "p75": 325000,
+      "max": 425000
+     },
+     "company_balanced_midpoint_p50": 237500,
+     "top_employer": {
+      "company_id": "ashby:polymarket",
+      "postings": 6,
+      "share_pct": 67
+     },
+     "employer_hhi": 5556,
+     "meets_display_rule": false,
+     "posted_window": {
+      "min": "2025-04-01",
+      "max": "2026-10-23"
+     }
+    },
+    "senior": {
+     "postings": 19,
+     "employers": 7,
+     "with_posted_range": 10,
+     "disclosure_coverage_pct": 53,
+     "usd_annual_eligible": 10,
+     "eligible_employers": 2,
+     "posted_low": {
+      "n": 10,
+      "min": 125000,
+      "p25": 127500,
+      "p50": 187500,
+      "p75": 207500,
+      "max": 250000
+     },
+     "posted_high": {
+      "n": 10,
+      "min": 150000,
+      "p25": 200000,
+      "p50": 230000,
+      "p75": 300000,
+      "max": 400000
+     },
+     "posted_midpoint": {
+      "n": 10,
+      "min": 142500,
+      "p25": 162500,
+      "p50": 211250,
+      "p75": 250000,
+      "max": 325000
+     },
+     "company_balanced_midpoint_p50": 211250,
+     "top_employer": {
+      "company_id": "ashby:polymarket",
+      "postings": 9,
+      "share_pct": 90
+     },
+     "employer_hhi": 8200,
+     "meets_display_rule": false,
+     "posted_window": {
+      "min": "2025-07-07",
+      "max": "2026-11-02"
+     }
+    },
+    "staff": {
+     "postings": 10,
+     "employers": 3,
+     "with_posted_range": 5,
+     "disclosure_coverage_pct": 50,
+     "usd_annual_eligible": 5,
+     "eligible_employers": 1,
+     "posted_low": {
+      "n": 5,
+      "min": 250000,
+      "p25": 250000,
+      "p50": 250000,
+      "p75": 250000,
+      "max": 250000
+     },
+     "posted_high": {
+      "n": 5,
+      "min": 400000,
+      "p25": 400000,
+      "p50": 500000,
+      "p75": 500000,
+      "max": 500000
+     },
+     "posted_midpoint": {
+      "n": 5,
+      "min": 325000,
+      "p25": 325000,
+      "p50": 375000,
+      "p75": 375000,
+      "max": 375000
+     },
+     "company_balanced_midpoint_p50": 375000,
+     "top_employer": {
+      "company_id": "ashby:polymarket",
+      "postings": 5,
+      "share_pct": 100
+     },
+     "employer_hhi": 10000,
+     "meets_display_rule": false,
+     "posted_window": {
+      "min": "2024-01-26",
+      "max": "2026-10-16"
+     }
+    },
+    "unspecified": {
+     "postings": 23,
+     "employers": 7,
+     "with_posted_range": 14,
+     "disclosure_coverage_pct": 61,
+     "usd_annual_eligible": 14,
+     "eligible_employers": 3,
+     "posted_low": {
+      "n": 14,
+      "min": 77000,
+      "p25": 106250,
+      "p50": 150000,
+      "p75": 175000,
+      "max": 400000
+     },
+     "posted_high": {
+      "n": 14,
+      "min": 110000,
+      "p25": 181250,
+      "p50": 210000,
+      "p75": 250000,
+      "max": 450000
+     },
+     "posted_midpoint": {
+      "n": 14,
+      "min": 93500,
+      "p25": 143750,
+      "p50": 188750,
+      "p75": 209375,
+      "max": 425000
+     },
+     "company_balanced_midpoint_p50": 188750,
+     "top_employer": {
+      "company_id": "ashby:polymarket",
+      "postings": 5,
+      "share_pct": 36
+     },
+     "employer_hhi": 3367,
+     "meets_display_rule": false,
+     "posted_window": {
+      "min": "2024-04-25",
+      "max": "2026-11-02"
+     }
+    }
+   },
+   "companies": [
+    {
+     "company_id": "ashby:polymarket",
+     "company": "Polymarket",
+     "cohort": "crypto",
+     "open_postings": 37,
+     "usd_annual_eligible": 37,
+     "share_of_market_eligible_pct": 71,
+     "posted_low_p50": 250000,
+     "posted_high_p50": 330000,
+     "posted_midpoint_p50": 280000,
+     "top_role_families": [
+      "software_engineer",
+      "legal_finance",
+      "marketing"
+     ]
+    },
+    {
+     "company_id": "ashby:turnkey",
+     "company": "Turnkey",
+     "cohort": "crypto",
+     "open_postings": 13,
+     "usd_annual_eligible": 10,
+     "share_of_market_eligible_pct": 19,
+     "posted_low_p50": 150000,
+     "posted_high_p50": 245000,
+     "posted_midpoint_p50": 200000,
+     "top_role_families": [
+      "gtm_sales",
+      "software_engineer",
+      "people_recruiting"
+     ]
+    },
+    {
+     "company_id": "ashby:squads",
+     "company": "Squads",
+     "cohort": "crypto",
+     "open_postings": 6,
+     "usd_annual_eligible": 5,
+     "share_of_market_eligible_pct": 10,
+     "posted_low_p50": 175000,
+     "posted_high_p50": 220000,
+     "posted_midpoint_p50": 197500,
+     "top_role_families": [
+      "gtm_sales",
+      "software_engineer",
+      "security_engineer"
+     ]
+    },
+    {
+     "company_id": "greenhouse:burnt",
+     "company": "Burnt (XION)",
+     "cohort": "crypto",
+     "open_postings": 8,
+     "usd_annual_eligible": 0,
+     "share_of_market_eligible_pct": 0,
+     "posted_low_p50": null,
+     "posted_high_p50": null,
+     "posted_midpoint_p50": null,
+     "top_role_families": [
+      "other",
+      "software_engineer",
+      "developer_relations"
+     ]
+    },
+    {
+     "company_id": "ashby:catena",
+     "company": "Catena Labs",
+     "cohort": "crypto",
+     "open_postings": 4,
+     "usd_annual_eligible": 0,
+     "share_of_market_eligible_pct": 0,
+     "posted_low_p50": null,
+     "posted_high_p50": null,
+     "posted_midpoint_p50": null,
+     "top_role_families": [
+      "business_operations",
+      "legal_finance",
+      "forward_deployed_engineer"
+     ]
+    },
+    {
+     "company_id": "ashby:keyrock",
+     "company": "Keyrock",
+     "cohort": "crypto",
+     "open_postings": 9,
+     "usd_annual_eligible": 0,
+     "share_of_market_eligible_pct": 0,
+     "posted_low_p50": null,
+     "posted_high_p50": null,
+     "posted_midpoint_p50": null,
+     "top_role_families": [
+      "data_scientist",
+      "legal_finance",
+      "software_engineer"
+     ]
+    },
+    {
+     "company_id": "ashby:morpho",
+     "company": "Morpho",
+     "cohort": "crypto",
+     "open_postings": 12,
+     "usd_annual_eligible": 0,
+     "share_of_market_eligible_pct": 0,
+     "posted_low_p50": null,
+     "posted_high_p50": null,
+     "posted_midpoint_p50": null,
+     "top_role_families": [
+      "gtm_sales",
+      "product_manager",
+      "business_operations"
+     ]
+    },
+    {
+     "company_id": "lever:superstate",
+     "company": "Superstate",
+     "cohort": "crypto",
+     "open_postings": 3,
+     "usd_annual_eligible": 0,
+     "share_of_market_eligible_pct": 0,
+     "posted_low_p50": null,
+     "posted_high_p50": null,
+     "posted_midpoint_p50": null,
+     "top_role_families": [
+      "software_engineer"
+     ]
+    }
+   ]
+  },
+  "ai_crypto": {
+   "label": "AI × Crypto",
+   "definition": "Companies explicitly building AI-native products on crypto rails. Membership is listed per company, never inferred.",
+   "overall": {
+    "postings": 4,
+    "employers": 1,
+    "with_posted_range": 0,
+    "disclosure_coverage_pct": 0,
+    "usd_annual_eligible": 0,
+    "eligible_employers": 0,
+    "posted_low": null,
+    "posted_high": null,
+    "posted_midpoint": null,
+    "company_balanced_midpoint_p50": null,
+    "top_employer": null,
+    "employer_hhi": null,
+    "meets_display_rule": false,
+    "posted_window": {
+     "min": "2026-05-19",
+     "max": "2026-08-20"
+    }
+   },
+   "by_role_family": {
+    "business_operations": {
+     "postings": 1,
+     "employers": 1,
+     "with_posted_range": 0,
+     "disclosure_coverage_pct": 0,
+     "usd_annual_eligible": 0,
+     "eligible_employers": 0,
+     "posted_low": null,
+     "posted_high": null,
+     "posted_midpoint": null,
+     "company_balanced_midpoint_p50": null,
+     "top_employer": null,
+     "employer_hhi": null,
+     "meets_display_rule": false,
+     "posted_window": {
+      "min": "2026-08-20",
+      "max": "2026-08-20"
+     }
+    },
+    "forward_deployed_engineer": {
+     "postings": 1,
+     "employers": 1,
+     "with_posted_range": 0,
+     "disclosure_coverage_pct": 0,
+     "usd_annual_eligible": 0,
+     "eligible_employers": 0,
+     "posted_low": null,
+     "posted_high": null,
+     "posted_midpoint": null,
+     "company_balanced_midpoint_p50": null,
+     "top_employer": null,
+     "employer_hhi": null,
+     "meets_display_rule": false,
+     "posted_window": {
+      "min": "2026-06-11",
+      "max": "2026-06-11"
+     }
+    },
+    "legal_finance": {
+     "postings": 1,
+     "employers": 1,
+     "with_posted_range": 0,
+     "disclosure_coverage_pct": 0,
+     "usd_annual_eligible": 0,
+     "eligible_employers": 0,
+     "posted_low": null,
+     "posted_high": null,
+     "posted_midpoint": null,
+     "company_balanced_midpoint_p50": null,
+     "top_employer": null,
+     "employer_hhi": null,
+     "meets_display_rule": false,
+     "posted_window": {
+      "min": "2026-08-20",
+      "max": "2026-08-20"
+     }
+    },
+    "software_engineer": {
+     "postings": 1,
+     "employers": 1,
+     "with_posted_range": 0,
+     "disclosure_coverage_pct": 0,
+     "usd_annual_eligible": 0,
+     "eligible_employers": 0,
+     "posted_low": null,
+     "posted_high": null,
+     "posted_midpoint": null,
+     "company_balanced_midpoint_p50": null,
+     "top_employer": null,
+     "employer_hhi": null,
+     "meets_display_rule": false,
+     "posted_window": {
+      "min": "2026-05-19",
+      "max": "2026-05-19"
+     }
+    }
+   },
+   "by_cohort": {
+    "crypto": {
+     "postings": 4,
+     "employers": 1,
+     "with_posted_range": 0,
+     "disclosure_coverage_pct": 0,
+     "usd_annual_eligible": 0,
+     "eligible_employers": 0,
+     "posted_low": null,
+     "posted_high": null,
+     "posted_midpoint": null,
+     "company_balanced_midpoint_p50": null,
+     "top_employer": null,
+     "employer_hhi": null,
+     "meets_display_rule": false,
+     "posted_window": {
+      "min": "2026-05-19",
+      "max": "2026-08-20"
+     }
+    }
+   },
+   "by_level": {
+    "manager": {
+     "postings": 2,
+     "employers": 1,
+     "with_posted_range": 0,
+     "disclosure_coverage_pct": 0,
+     "usd_annual_eligible": 0,
+     "eligible_employers": 0,
+     "posted_low": null,
+     "posted_high": null,
+     "posted_midpoint": null,
+     "company_balanced_midpoint_p50": null,
+     "top_employer": null,
+     "employer_hhi": null,
+     "meets_display_rule": false,
+     "posted_window": {
+      "min": "2026-08-20",
+      "max": "2026-08-20"
+     }
+    },
+    "senior": {
+     "postings": 1,
+     "employers": 1,
+     "with_posted_range": 0,
+     "disclosure_coverage_pct": 0,
+     "usd_annual_eligible": 0,
+     "eligible_employers": 0,
+     "posted_low": null,
+     "posted_high": null,
+     "posted_midpoint": null,
+     "company_balanced_midpoint_p50": null,
+     "top_employer": null,
+     "employer_hhi": null,
+     "meets_display_rule": false,
+     "posted_window": {
+      "min": "2026-05-19",
+      "max": "2026-05-19"
+     }
+    },
+    "unspecified": {
+     "postings": 1,
+     "employers": 1,
+     "with_posted_range": 0,
+     "disclosure_coverage_pct": 0,
+     "usd_annual_eligible": 0,
+     "eligible_employers": 0,
+     "posted_low": null,
+     "posted_high": null,
+     "posted_midpoint": null,
+     "company_balanced_midpoint_p50": null,
+     "top_employer": null,
+     "employer_hhi": null,
+     "meets_display_rule": false,
+     "posted_window": {
+      "min": "2026-06-11",
+      "max": "2026-06-11"
+     }
+    }
+   },
+   "companies": [
+    {
+     "company_id": "ashby:catena",
+     "company": "Catena Labs",
+     "cohort": "crypto",
+     "open_postings": 4,
+     "usd_annual_eligible": 0,
+     "share_of_market_eligible_pct": 0,
+     "posted_low_p50": null,
+     "posted_high_p50": null,
+     "posted_midpoint_p50": null,
+     "top_role_families": [
+      "business_operations",
+      "legal_finance",
+      "forward_deployed_engineer"
+     ]
+    }
+   ]
+  }
+ }
+}

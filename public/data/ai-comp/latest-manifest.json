@@ -1,59 +1,59 @@
 {
  "schema_version": "1.0.0",
- "release_id": "2026-09-08",
- "generated_at": "2026-09-12T00:53:05Z",
+ "release_id": "2026-11-04",
+ "generated_at": "2026-11-04T00:08:06Z",
  "generator": {
   "script": "scripts/frontier_public_export.py",
-  "rules_version": "2026-09-11.1",
+  "rules_version": "2026-11-03.1",
   "cohort_config": {
    "schema_version": "1.0.0",
    "reviewed_at": "2026-09-11",
-   "sha256": "51c146c9f1e8ae587c8c5f902ab599eebfeab884fea3883fd64b8ded012ec468"
+   "sha256": "1282853ae68d6e969d5b1a82106c4d38153b1a58ae8d64cddfed4004eaedec0c"
   }
  },
  "source": {
   "kind": "frontier-labs-monitor SQLite store (first-party ATS boards: Ashby / Greenhouse / Lever / Google Careers)",
   "store_file": "frontier_comp.sqlite",
-  "store_sha256": "a801fa6f511e5c1ade05701d46d183b89d35754941198804c916182d33f09593",
+  "store_sha256": "e870a2929d7b4b82878a04c5d70624044c177cee9c79da7867b3b95903d42b1f",
   "batch": {
-   "batch_id": "2026-09-08T17:26:45.112505+00:00",
-   "started_at": "2026-09-08T17:26:45.112505+00:00",
-   "completed_at": "2026-09-08T17:29:38.339102+00:00",
+   "batch_id": "2026-11-04T00:01:22.457772+00:00",
+   "started_at": "2026-11-04T00:01:22.457772+00:00",
+   "completed_at": "2026-11-04T00:07:46.337350+00:00",
    "status": "complete",
-   "expected_boards": 247,
-   "success_boards": 247,
+   "expected_boards": 245,
+   "success_boards": 245,
    "failed_boards": 0
   },
-  "boards_configured": 247,
-  "companies_with_open_roles_in_store": 246
+  "boards_configured": 245,
+  "companies_with_open_roles_in_store": 242
  },
  "observation_window": {
   "posted_at_min": "2016-02-08",
-  "posted_at_max": "2026-09-08",
-  "verified_open_on": "2026-09-08",
+  "posted_at_max": "2026-11-03",
+  "verified_open_on": "2026-11-04",
   "note": "observed_at is the employer's posting date; every included posting was still open on verified_open_on."
  },
  "counts": {
-  "store_open_roles": 11868,
-  "market_companies": 164,
-  "observations": 9737,
-  "with_posted_range": 5253,
-  "usd_annual_eligible": 4928,
-  "duplicates_collapsed": 29,
+  "store_open_roles": 12781,
+  "market_companies": 161,
+  "observations": 10138,
+  "with_posted_range": 5593,
+  "usd_annual_eligible": 5226,
+  "duplicates_collapsed": 19,
   "excluded_rows": {
-   "company_not_in_any_market": 1997,
-   "company_not_in_labs_config_or_cohorts": 5,
-   "not_confirmed_in_source_batch": 100
+   "company_not_in_any_market": 2285,
+   "company_not_in_labs_config_or_cohorts": 18,
+   "not_confirmed_in_source_batch": 321
   },
   "observation_flags": {
-   "below_annual_floor": 5,
-   "employment_contract": 83,
-   "employment_intern": 82,
-   "employment_part_time": 2,
-   "no_posted_range": 4484,
-   "non_usd": 290,
-   "pay_period_monthly": 7,
-   "pay_period_unspecified": 12
+   "below_annual_floor": 6,
+   "employment_contract": 81,
+   "employment_intern": 121,
+   "employment_part_time": 3,
+   "no_posted_range": 4545,
+   "non_usd": 326,
+   "pay_period_monthly": 10,
+   "pay_period_unspecified": 11
   }
  },
  "markets": {
@@ -68,9 +68,9 @@
     "applied_ai",
     "physical_ai_robotics"
    ],
-   "companies": 156,
-   "open_postings": 9602,
-   "usd_annual_eligible": 4913
+   "companies": 153,
+   "open_postings": 10046,
+   "usd_annual_eligible": 5174
   },
   "crypto": {
    "label": "Crypto",
@@ -79,8 +79,8 @@
     "crypto"
    ],
    "companies": 8,
-   "open_postings": 135,
-   "usd_annual_eligible": 15
+   "open_postings": 92,
+   "usd_annual_eligible": 52
   },
   "ai_crypto": {
    "label": "AI × Crypto",
@@ -108,7 +108,7 @@
    "label": "AI infrastructure & compute",
    "sector": "ai",
    "definition": "GPU clouds and neoclouds, inference and serving platforms, vector databases, agent frameworks, evals and observability, and AI training-data vendors.",
-   "companies_in_release": 40
+   "companies_in_release": 38
   },
   "ai_hardware_silicon": {
    "label": "AI hardware & silicon",
@@ -120,7 +120,7 @@
    "label": "Applied-AI startups",
    "sector": "ai",
    "definition": "AI-native application companies selling an AI product into a vertical or function.",
-   "companies_in_release": 68
+   "companies_in_release": 67
   },
   "physical_ai_robotics": {
    "label": "Physical AI & robotics",
@@ -251,7 +251,12 @@
   {
    "name": "latest_batch_complete",
    "status": "pass",
-   "detail": "2026-09-08T17:26:45.112505+00:00 status=complete boards=247/247"
+   "detail": "2026-11-04T00:01:22.457772+00:00 status=complete boards=245/245"
+  },
+  {
+   "name": "no_failed_board_in_a_market",
+   "status": "pass",
+   "detail": "no boards failed"
   },
   {
    "name": "every_board_has_cohort",
@@ -271,7 +276,7 @@
   {
    "name": "orphan_store_companies_excluded",
    "status": "pass",
-   "detail": "1 store companies not in current config, excluded: ['Vibiz']"
+   "detail": "3 store companies not in current config, excluded: ['Cycles', 'Tempo', 'Vibiz']"
   },
   {
    "name": "no_reversed_ranges",
@@ -286,22 +291,22 @@
   {
    "name": "non_usd_excluded_from_usd_stats",
    "status": "pass",
-   "detail": "290 non-USD posted ranges retained as observations, excluded from USD statistics"
+   "detail": "326 non-USD posted ranges retained as observations, excluded from USD statistics"
   },
   {
    "name": "non_annual_pay_periods_excluded",
    "status": "pass",
-   "detail": "19 non-annual ranges excluded from annual statistics"
+   "detail": "21 non-annual ranges excluded from annual statistics"
   },
   {
    "name": "annual_floor_ceiling_enforced",
    "status": "pass",
-   "detail": "5 below $40,000 · 0 above $2,000,000"
+   "detail": "6 below $40,000 · 0 above $2,000,000"
   },
   {
    "name": "non_full_time_excluded",
    "status": "pass",
-   "detail": "167 intern / part-time / contract / fellowship postings excluded from statistics"
+   "detail": "205 intern / part-time / contract / fellowship postings excluded from statistics"
   },
   {
    "name": "all_evidence_is_employer_posting",
@@ -321,24 +326,24 @@
   {
    "name": "stale_open_rows_excluded",
    "status": "pass",
-   "detail": "100 rows marked open but not confirmed in the source batch were excluded"
+   "detail": "321 rows marked open but not confirmed in the source batch were excluded"
   },
   {
    "name": "duplicates_collapsed",
    "status": "pass",
-   "detail": "29 exact duplicate postings collapsed"
+   "detail": "19 exact duplicate postings collapsed"
   },
   {
    "name": "has_observations",
    "status": "pass",
-   "detail": "9737 observations"
+   "detail": "10138 observations"
   }
  ],
  "files": {
   "observations.json": {
-   "sha256": "2d8d5106cfe094b929efa5b70ed2d326bf4e755dc249f17a5411083eb4b7f6e8",
-   "bytes": 4435367,
-   "rows": 9737,
+   "sha256": "9f19d414a3bc2b3ac928f7c97bbb705758f99b4417e01849b4c8840449e4bea0",
+   "bytes": 4634822,
+   "rows": 10138,
    "format": "columnar",
    "columns": [
     "id",
@@ -378,8 +383,8 @@
    ]
   },
   "summaries.json": {
-   "sha256": "d2c6c8d928caa2be22d738d2a000a6801808978fba67d20591a01a015f4294f4",
-   "bytes": 130577
+   "sha256": "3c2f82fa0f1e7cfe645c7f90f822e75d41cab7c055afe3382ac5046b8ace767a",
+   "bytes": 133215
   }
  },
  "messages": []
